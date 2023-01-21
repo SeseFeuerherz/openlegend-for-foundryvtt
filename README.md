@@ -23,6 +23,7 @@ https://gitlab.com/tabletop-creations/foundryvtt-openlegends/-/raw/feature/fvtt_
 
 ## Attribution
 
+* Project Origin: https://gitlab.com/tabletop-creations/foundryvtt-openlegends
 * Open Legend RPG: https://openlegendrpg.com/
 * Foundry VTT: https://foundryvtt.com/
 * Game-Icons.net: https://game-icons.net/
