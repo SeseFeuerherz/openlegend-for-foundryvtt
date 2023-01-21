@@ -1,0 +1,33 @@
+<div class="actions">
+    <div class="action-title">Actions</div>
+    <div></div>
+    <div class="action-header">Name</div>
+    <div class="action-header">Type</div>
+    <div class="action-header">Attribute</div>
+    <div class="action-header"></div>
+    <div class="action-header">Target</div>
+    <div class="action-header">Adv</div>
+    <div class="action-header">Notes</div>
+    <div></div>
+    <div></div>
+    <div></div>
+    {{#each data.data.actions as |item|}}
+        {{#ifeq item.type 'boon'}}
+            {{> "systems/openlegend/templates/actor/parts/action-boon.html" item=item}}
+        {{/ifeq}}
+        {{#ifeq item.type 'bane'}}
+            {{> "systems/openlegend/templates/actor/parts/action-attack.html" item=item}}
+        {{/ifeq}}
+        {{#ifeq item.type 'attack'}}
+            {{> "systems/openlegend/templates/actor/parts/action-attack.html" item=item}}
+        {{/ifeq}}
+        {{#if item.data.action.show_as_action}}
+            {{#ifeq item.type 'weapon'}}
+                {{> "systems/openlegend/templates/actor/parts/action-attack.html" item=item}}
+            {{/ifeq}}
+            {{#ifeq item.type 'generic'}}
+                {{> "systems/openlegend/templates/actor/parts/action-attack.html" item=item}}
+            {{/ifeq}}
+        {{/if}}
+    {{/each}}
+</div>
