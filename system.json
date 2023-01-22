@@ -83,8 +83,8 @@
   "gridDistance": 5,
   "gridUnits": "ft",
   "primaryTokenAttribute": "health",
-  "url": "https://gitlab.com/tabletop-creations/foundryvtt-openlegends",
-  "manifest": "https://gitlab.com/tabletop-creations/foundryvtt-openlegends/-/raw/feature/fvtt_8.6/system.json",
-  "download": "https://gitlab.com/tabletop-creations/foundryvtt-openlegends/-/archive/feature/fvtt_8.6/foundryvtt-openlegends-feature-fvtt_8.6.zip",
+  "url": "https://github.com/SeseFeuerherz/openlegend-for-foundryvtt",
+  "manifest": "https://github.com/SeseFeuerherz/openlegend-for-foundryvtt/blob/develop/system.json",
+  "download": "https://github.com/SeseFeuerherz/openlegend-for-foundryvtt/archive/refs/heads/develop.zip",
   "license": "LICENSE.txt"
 }
