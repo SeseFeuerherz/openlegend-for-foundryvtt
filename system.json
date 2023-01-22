@@ -84,7 +84,7 @@
   "gridUnits": "ft",
   "primaryTokenAttribute": "health",
   "url": "https://github.com/SeseFeuerherz/openlegend-for-foundryvtt",
-  "manifest": "https://github.com/SeseFeuerherz/openlegend-for-foundryvtt/blob/develop/system.json",
+  "manifest": "https://raw.githubusercontent.com/SeseFeuerherz/openlegend-for-foundryvtt/develop/system.json",
   "download": "https://github.com/SeseFeuerherz/openlegend-for-foundryvtt/archive/refs/heads/develop.zip",
   "license": "LICENSE.txt"
 }
