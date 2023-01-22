@@ -3,10 +3,19 @@
   "title": "Open Legend RPG",
   "description": "The Open Legend RPG system for FoundryVTT!",
   "version": "2.0.0",
-  "minimumCoreVersion": "0.8.0",
-  "compatibleCoreVersion": "0.8.6",
-  "templateVersion": 2,
-  "author": "Beenrak",
+  "compatibility": {
+    "minimum": "10",
+    "verified": "10",
+    "maximum": "10"
+  },
+  "authors": [
+    {
+      "name": "Beenrak"
+    },
+    {
+      "name": "SeseFeuerherz"
+    }
+  ],
   "esmodules": ["module/openlegend.js"],
   "styles": ["css/openlegend.css"],
   "scripts": [],
@@ -67,12 +76,15 @@
       "entity": "JournalEntry"
     }
   ],
-  "dependencies": [
-    {
-      "name": "game-icons-net",
-      "manifest": "https://raw.githubusercontent.com/datdamnzotz/icons/master/module.json"
-    }
-  ],
+  "relationships": {
+    "requires": [
+      {
+        "id": "game-icons-net",
+        "type": "module",
+        "manifest": "https://raw.githubusercontent.com/datdamnzotz/icons/master/module.json"
+      }
+    ]
+  },
   "languages": [
     {
       "lang": "en",
@@ -83,8 +95,12 @@
   "gridDistance": 5,
   "gridUnits": "ft",
   "primaryTokenAttribute": "health",
+  "Maybe TODO initiative": "Not every game system uses the concept of initiative, but this field provides the default dice rolling formula that can be used to determine the turn order of Tokens within the combat tracker.",
   "url": "https://github.com/SeseFeuerherz/openlegend-for-foundryvtt",
   "manifest": "https://raw.githubusercontent.com/SeseFeuerherz/openlegend-for-foundryvtt/develop/system.json",
   "download": "https://github.com/SeseFeuerherz/openlegend-for-foundryvtt/archive/refs/heads/develop.zip",
-  "license": "LICENSE.txt"
+  "license": "LICENSE.txt",
+  "TODO readme": "A path to a read-me file relative to the root module folder or a publicly accessible URL which contains instructions or information about the package.",
+  "TODO bugs": "A publicly accessible URL where issues, suggestions, and bug reports may be filed.",
+  "TODO changelog": "A publicly accessible URL where update and release notes about the package may be found."
 }
