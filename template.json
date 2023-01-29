@@ -30,16 +30,16 @@
             "lethal": 0
           },
           "guard": {
-            "guard": 10,
+            "value": 10,
             "armor": 0,
             "other": 0
           },
           "toughness": {
-            "toughness": 10,
+            "value": 10,
             "other": 0
           },
           "resolve": {
-            "resolve": 10,
+            "value": 10,
             "other": 0
           }
         },

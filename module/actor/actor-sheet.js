@@ -20,7 +20,7 @@ export class olActorSheet extends ActorSheet {
 
   /** @override */
   get template() {
-    if (this.actor.data.type == 'character')
+    if (this.actor.type == 'character')
       return "systems/openlegend/templates/actor/actor-sheet.html";
     else return "systems/openlegend/templates/actor/npc-sheet.html";
   }
@@ -29,10 +29,10 @@ export class olActorSheet extends ActorSheet {
 
   /** @override */
   getData() {
-    const actorData = super.getData();
-    const sheetData = actorData.data;
+    const renderData = super.getData();
+    const sheetData = renderData.data;
     const data = sheetData.data;
-    // console.log(actorData);
+    console.log(actorData);
 
     if (data.actions == undefined) {
       data.actions = [];
