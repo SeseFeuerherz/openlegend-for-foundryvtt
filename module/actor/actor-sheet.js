@@ -5,7 +5,7 @@ import { move_action_up, move_feat_up, move_gear_up } from "./item-movement.js";
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
  */
-export class olActorSheet extends ActorSheet {
+export class OlActorSheet extends ActorSheet {
 
   /** @override */
   static get defaultOptions() {

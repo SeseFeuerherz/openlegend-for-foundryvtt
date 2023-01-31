@@ -7,7 +7,7 @@ export async function rollAttr(actor, attr_name) {
         let olroll = await OLRoll(attr_name, attr, 0);
         if (olroll.roll) {
             // Generate a chat message template using OLRoll data
-            const template = "systems/openlegend/templates/dialog/roll-chat.html";
+            const template = "systems/openlegend-ttrpg/templates/dialog/roll-chat.html";
             const data = {
                 "name": attr_name,
                 "type": 'Attribute',
@@ -26,20 +26,20 @@ export async function rollAttr(actor, attr_name) {
 
 export async function rollItem(actor, item) {
     // If the item has a chosen action attribute...
-    const attr_name = item.data.action.attribute;
+    const attr_name = item.action.attribute;
     const attr = _getAttr(actor, attr_name);
     if (attr) {
         // Generate an OLRoll for the attribute
-        let olroll = await OLRoll(attr_name, attr, item.data.action.default_adv);
+        let olroll = await OLRoll(attr_name, attr, item.action.default_adv);
         if (olroll.roll) {
             // Generate a chat message template using OLRoll data
-            const template = "systems/openlegend/templates/dialog/roll-chat.html";
+            const template = "systems/openlegend-ttrpg/templates/dialog/roll-chat.html";
             const data = {
-                "name": item.data.action.name,
+                "name": item.action.name,
                 "type": item.type,
-                "notes": item.data.details.notes,
+                "notes": item.details.notes,
                 "attr": olroll.attr,
-                "target": item.data.action.target,
+                "target": item.action.target,
                 "adv": olroll.adv
             }
             const html = await renderTemplate(template, data);
@@ -111,7 +111,7 @@ export async function OLRoll(attr_name, attr, default_adv=0) {
 }
 
 async function _OLRollDialog(attr_name, attr, default_adv=0) {
-    const template = "systems/openlegend/templates/dialog/roll-dialog.html";
+    const template = "systems/openlegend-ttrpg/templates/dialog/roll-dialog.html";
     const data = { 'attr': attr_name, 'score': attr.score, 'formula': '1d20', 'default_adv': default_adv }
     if (attr.score > 0)
         data.formula += ' + ' + attr.dice.num + attr.dice.die;
@@ -145,7 +145,7 @@ async function _OLRollDialog(attr_name, attr, default_adv=0) {
 
 export function _getAttr(actor, attr_name) {
     // Find the attribute data object using its name
-    for (const [_, attr_group] of Object.entries(actor.data.data.attributes)) {
+    for (const [_, attr_group] of Object.entries(actor.system.attributes)) {
         if (attr_group[attr_name])
             return attr_group[attr_name]
     }

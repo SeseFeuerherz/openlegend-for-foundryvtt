@@ -2,7 +2,7 @@
  * Extend the basic ItemSheet with some very simple modifications
  * @extends {ItemSheet}
  */
-export class olItemSheet extends ItemSheet {
+export class OlItemSheet extends ItemSheet {
 
   /** @override */
   static get defaultOptions() {
@@ -16,8 +16,8 @@ export class olItemSheet extends ItemSheet {
 
   /** @override */
   get template() {
-    const path = "systems/openlegend/templates/item";
-    return `${path}/${this.item.data.type}.html`;
+    const path = "systems/openlegend-ttrpg/templates/item";
+    return `${path}/${this.item.type}.html`;
   }
 
   /* -------------------------------------------- */
@@ -45,8 +45,8 @@ export class olItemSheet extends ItemSheet {
   activateListeners(html) {
     super.activateListeners(html);
     html.find(".add-attack").click(async () => {
-      const template = "systems/openlegend/templates/item/parts/attack-target.html";
-      const data = { 'attack': {}, 'attributes': this.object.data.data.attributes };
+      const template = "systems/openlegend-ttrpg/templates/item/parts/attack-target.html";
+      const data = { 'attack': {}, 'attributes': this.object.system.attributes };
       const new_attack = await renderTemplate(template, data);
       html.find(".attack-list").append(new_attack);
     });
@@ -62,7 +62,7 @@ export class olItemSheet extends ItemSheet {
           data['data.attributes.' + obj.dataset.attr] = obj.checked;
         });
 
-        if (this.object.data.data.attacks) {
+        if (this.object.system.attacks) {
           const attacks = []
           html.find(".action-attack").each((i, attack) => {
             const attr = $(attack).find('.attack-attribute').val();

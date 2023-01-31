@@ -2,22 +2,15 @@
  * Extend the basic Item with some very simple modifications.
  * @extends {Item}
  */
-export class olItem extends Item {
+export class OlItem extends Item {
   /**
    * Augment the basic Item data model with additional dynamic data.
    */
   prepareData() {
     super.prepareData();
-
-    // Get the Item's data
-    const itemData = this.data;
-    const actorData = this.actor ? this.actor.data : {};
-    const data = itemData.data;
-
-    if (itemData.type === 'boon') this._prepareBoonData(itemData);
+    if (this.type === 'boon') this._prepareBoonData();
   }
 
   _prepareBoonData(itemData) {
-    const data = itemData.data;
   }
 }

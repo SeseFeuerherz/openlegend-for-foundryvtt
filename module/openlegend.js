@@ -1,8 +1,8 @@
 // Import Modules
-import { olActor } from "./actor/actor.js";
-import { olActorSheet } from "./actor/actor-sheet.js";
-import { olItem } from "./item/item.js";
-import { olItemSheet } from "./item/item-sheet.js";
+import { OlActor } from "./actor/actor.js";
+import { OlActorSheet } from "./actor/actor-sheet.js";
+import { OlItem } from "./item/item.js";
+import { OlItemSheet } from "./item/item-sheet.js";
 import { preloadHandlebarsTemplates } from "./templates.js";
 import * as macros from "./util/macros.js";
 
