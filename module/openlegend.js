@@ -9,8 +9,8 @@ import * as macros from "./util/macros.js";
 Hooks.once('init', async function() {
 
   game.openlegend = {
-    olActor,
-    olItem,
+    OlActor,
+    OlItem,
     macros: macros
   };
 
@@ -22,14 +22,14 @@ Hooks.once('init', async function() {
   Combat.prototype._getInitiativeFormula = _getInitiativeFormula;
 
   // Define custom Entity classes
-  CONFIG.Actor.entityClass = olActor;
-  CONFIG.Item.entityClass = olItem;
+  CONFIG.Actor.entityClass = OlActor;
+  CONFIG.Item.entityClass = OlItem;
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("openlegend", olActorSheet, { makeDefault: true });
+  Actors.registerSheet("openlegend", OlActorSheet, { makeDefault: true });
   Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("openlegend", olItemSheet, { makeDefault: true });
+  Items.registerSheet("openlegend", OlItemSheet, { makeDefault: true });
 
   // If you need to add Handlebars helpers, here are a few useful examples:
   Handlebars.registerHelper('concat', function() {
@@ -59,7 +59,6 @@ Hooks.once('init', async function() {
 });
 
 Hooks.once("ready", function() {
-
   // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
   Hooks.on("hotbarDrop", (bar, data, slot) => macros.createOLMacro(data, slot));
 });
@@ -67,9 +66,9 @@ Hooks.once("ready", function() {
 export const _getInitiativeFormula = function(combatant) {
   const actor = combatant.actor;
   if ( !actor ) return "1d20";
-  const agi = actor.data.data.attributes.physical.agility.dice;
+  const agi = actor.system.attributes.physical.agility.dice;
   
-  const init_mod = actor.data.data.initiative_mod;
+  const init_mod = actor.system.initiative_mod;
   // If this actor doesn't have an init mod, or the init_mod is 0, default d10
   if ( init_mod == undefined || init_mod == 0) {
     if (agi.num == 0)

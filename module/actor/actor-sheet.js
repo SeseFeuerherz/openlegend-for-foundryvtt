@@ -21,8 +21,8 @@ export class OlActorSheet extends ActorSheet {
   /** @override */
   get template() {
     if (this.actor.type == 'character')
-      return "systems/openlegend/templates/actor/actor-sheet.html";
-    else return "systems/openlegend/templates/actor/npc-sheet.html";
+      return "systems/openlegend-ttrpg/templates/actor/actor-sheet.html";
+    else return "systems/openlegend-ttrpg/templates/actor/npc-sheet.html";
   }
 
   /* -------------------------------------------- */
