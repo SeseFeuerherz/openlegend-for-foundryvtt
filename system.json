@@ -23,55 +23,55 @@
     {
       "name": "banes",
       "label": "Banes",
-      "system": "openlegend",
+      "system": "openlegend-ttrpg",
       "path": "./packs/banes.db",
       "entity": "Item"
     },{
       "name": "basic",
       "label": "Basic",
-      "system": "openlegend",
+      "system": "openlegend-ttrpg",
       "path": "./packs/basic.db",
       "entity": "Item"
     },{
       "name": "boons",
       "label": "Boons",
-      "system": "openlegend",
+      "system": "openlegend-ttrpg",
       "path": "./packs/boons.db",
       "entity": "Item"
     },{
       "name": "feats",
       "label": "Feats",
-      "system": "openlegend",
+      "system": "openlegend-ttrpg",
       "path": "./packs/feats.db",
       "entity": "Item"
     },{
       "name": "flaws",
       "label": "Flaws",
-      "system": "openlegend",
+      "system": "openlegend-ttrpg",
       "path": "./packs/flaws.db",
       "entity": "Item"
     },{
       "name": "gm-feats",
       "label": "GM-Feats",
-      "system": "openlegend",
+      "system": "openlegend-ttrpg",
       "path": "./packs/gm-feats.db",
       "entity": "Item"
     },{
       "name": "perks",
       "label": "Perks",
-      "system": "openlegend",
+      "system": "openlegend-ttrpg",
       "path": "./packs/perks.db",
       "entity": "Item"
     },{
       "name": "rules",
       "label": "Rules",
-      "system": "openlegend",
+      "system": "openlegend-ttrpg",
       "path": "./packs/rules.db",
       "entity": "JournalEntry"
     },{
       "name": "gm-screen",
       "label": "GM-Screen",
-      "system": "openlegend",
+      "system": "openlegend-ttrpg",
       "path": "./packs/gm-screen.db",
       "entity": "JournalEntry"
     }
