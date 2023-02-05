@@ -1,8 +1,8 @@
 // Import Modules
-import { OlActor } from "./actor/actor.js";
-import { OlActorSheet } from "./actor/actor-sheet.js";
-import { OlItem } from "./item/item.js";
-import { OlItemSheet } from "./item/item-sheet.js";
+import { OlActor } from "./actor/OlActor.js";
+import { OlActorSheet } from "./actor/OlActorSheet.js";
+import { OlItem } from "./item/OlItemtem.js";
+import { OlItemSheet } from "./item/OlItemSheet.js";
 import { preloadHandlebarsTemplates } from "./templates.js";
 import * as macros from "./util/macros.js";
 
@@ -21,9 +21,9 @@ Hooks.once('init', async function() {
   CONFIG.Combat.initiative = {formula: "1d20X"};
   Combat.prototype._getInitiativeFormula = _getInitiativeFormula;
 
-  // Define custom Entity classes
-  CONFIG.Actor.entityClass = OlActor;
-  CONFIG.Item.entityClass = OlItem;
+  // Define custom Document classes
+  CONFIG.Actor.documentClass = OlActor;
+  CONFIG.Item.documentClass = OlItem;
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
@@ -55,7 +55,7 @@ Hooks.once('init', async function() {
   });
 
   // Preload template partials.
-  preloadHandlebarsTemplates();
+  await preloadHandlebarsTemplates();
 });
 
 Hooks.once("ready", function() {

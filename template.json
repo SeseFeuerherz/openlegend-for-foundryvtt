@@ -12,15 +12,13 @@
         "speed": 30
       },
       "base": {
-        "trackers": {
-          "attr": {
-            "spent": 0,
-            "points": 40
-          },
-          "feats": {
-            "spent": 0,
-            "points": 6
-          }
+        "attribute_points": {
+          "spent": 0,
+          "available": 40
+        },
+        "feat_points": {
+          "spent": 0,
+          "points": 6
         },
         "defense": {
           "hp": {

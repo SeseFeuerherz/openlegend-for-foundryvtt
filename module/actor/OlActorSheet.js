@@ -9,9 +9,9 @@ export class OlActorSheet extends ActorSheet {
 
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["openlegend", "sheet", "actor"],
-      // template: "systems/openlegend/templates/actor/actor-sheet.html",
+      template: "systems/openlegend-ttrpg/templates/actor/actor-sheet.html",
       width: 600,
       height: 600,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
@@ -28,55 +28,56 @@ export class OlActorSheet extends ActorSheet {
   /* -------------------------------------------- */
 
   /** @override */
-  getData() {
-    const renderData = super.getData();
-    const sheetData = renderData.data;
-    const data = sheetData.data;
-    console.log(actorData);
+  async getData(options) {
+    const context = await super.getData(options);
+    context.olData = context.data.system;
+//    const sheetData = context.data;
+//    const data = sheetData.data;
+    console.log(context);
 
-    if (data.actions == undefined) {
-      data.actions = [];
-      data.gear    = [];
-      data.feats   = [];
-      data.perks   = [];
-      data.flaws   = [];
-    }
-    actorData.items.forEach(item => {
-      if (item.data.action)
-        data.actions.push(item);
-      if (item.data.gear)
-        data.gear.push(item);
-      if (item.type == 'feat')
-        data.feats.push(item);
-      else if (item.type == 'perk')
-        data.perks.push(item);
-      else if (item.type == 'flaw')
-        data.flaws.push(item);
-    });
-    data.actions.sort((a, b) => a.data.action.index - b.data.action.index);
-    data.gear.sort((a, b) => a.data.gear.index - b.data.gear.index);
-    data.feats.sort((a, b) => a.data.index - b.data.index);
+//    if (data.actions == undefined) {
+//      data.actions = [];
+//      data.gear    = [];
+//      data.feats   = [];
+//      data.perks   = [];
+//      data.flaws   = [];
+//    }
+//    actorData.items.forEach(item => {
+//      if (item.data.action)
+//        data.actions.push(item);
+//      if (item.data.gear)
+//        data.gear.push(item);
+//      if (item.type == 'feat')
+//        data.feats.push(item);
+//      else if (item.type == 'perk')
+//        data.perks.push(item);
+//      else if (item.type == 'flaw')
+//        data.flaws.push(item);
+//    });
+//    data.actions.sort((a, b) => a.data.action.index - b.data.action.index);
+//    data.gear.sort((a, b) => a.data.gear.index - b.data.gear.index);
+//    data.feats.sort((a, b) => a.data.index - b.data.index);
 
-    return actorData;
+    return context;
   }
 
-  /** @override */
-  async _onDropItemCreate(itemData) {
-    const data = this.getData().data.data;
-    if (itemData.data.action) {
-      itemData.data.action.index = data.actions.length;
-      itemData.data.action.name = itemData.name;
-    }
-
-    if (itemData.data.gear)
-      itemData.data.gear.index = data.gear.length;
-
-    if (itemData.type == 'feat')
-      itemData.data.index = data.feats.length;
-
-    // Create the owned item as normal
-    return super._onDropItemCreate(itemData);
-  }
+//  /** @override */
+//  async _onDropItemCreate(itemData) {
+//    const data = this.getData().data.data;
+//    if (itemData.data.action) {
+//      itemData.data.action.index = data.actions.length;
+//      itemData.data.action.name = itemData.name;
+//    }
+//
+//    if (itemData.data.gear)
+//      itemData.data.gear.index = data.gear.length;
+//
+//    if (itemData.type == 'feat')
+//      itemData.data.index = data.feats.length;
+//
+//    // Create the owned item as normal
+//    return super._onDropItemCreate(itemData);
+//  }
 
   /** @override */
   activateListeners(html) {

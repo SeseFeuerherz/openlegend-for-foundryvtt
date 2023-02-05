@@ -23,21 +23,21 @@ export class OlItemSheet extends ItemSheet {
   /* -------------------------------------------- */
 
   /** @override */
-  getData() {
-    const data = super.getData();
-    return data;
-  }
+//  getData() {
+//    const data = super.getData();
+//    return data;
+//  }
 
   /* -------------------------------------------- */
 
   /** @override */
-  setPosition(options = {}) {
-    const position = super.setPosition(options);
-    const sheetBody = this.element.find(".sheet-body");
-    const bodyHeight = position.height - 192;
-    sheetBody.css("height", bodyHeight);
-    return position;
-  }
+//  setPosition(options = {}) {
+//    const position = super.setPosition(options);
+//    const sheetBody = this.element.find(".sheet-body");
+//    const bodyHeight = position.height - 192;
+//    sheetBody.css("height", bodyHeight);
+//    return position;
+//  }
 
   /* -------------------------------------------- */
 

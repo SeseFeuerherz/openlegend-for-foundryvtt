@@ -12,8 +12,8 @@ export class OlActor extends Actor {
 
     // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
-    if (this.type === 'character') this._prepareCharacterData();
-    else if (this.type === 'npc') this._prepareNPCData();
+//    if (this.type === 'character') this._prepareCharacterData();
+//    else if (this.type === 'npc') this._prepareNPCData();
   }
 
   /**
