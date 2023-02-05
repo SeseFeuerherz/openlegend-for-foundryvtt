@@ -9,10 +9,8 @@ export class OlActorSheet extends ActorSheet {
 
   /** @override */
   static get defaultOptions() {
-    console.log("get defaultOptions from OlActorSheet");
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["openlegend", "sheet", "actor"],
-      template: "systems/openlegend-ttrpg/templates/actor/actor-sheet.html",
       width: 600,
       height: 600,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
@@ -21,10 +19,10 @@ export class OlActorSheet extends ActorSheet {
 
   /** @override */
   get template() {
-    console.log("get template from OlActorSheet");
     if (this.actor.type == 'character')
       return "systems/openlegend-ttrpg/templates/actor/actor-sheet.html";
-    else return "systems/openlegend-ttrpg/templates/actor/npc-sheet.html";
+    else
+      return "systems/openlegend-ttrpg/templates/actor/npc-sheet.html";
   }
 
   /* -------------------------------------------- */
