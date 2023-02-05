@@ -30,18 +30,17 @@ export class OlActorSheet extends ActorSheet {
   /** @override */
   async getData(options) {
     const context = await super.getData(options);
-    context.olData = context.data.system;
 //    const sheetData = context.data;
 //    const data = sheetData.data;
     console.log(context);
 
-//    if (data.actions == undefined) {
-//      data.actions = [];
-//      data.gear    = [];
-//      data.feats   = [];
-//      data.perks   = [];
-//      data.flaws   = [];
-//    }
+    if (context.actions == undefined) {
+      context.actions = [];
+      context.gear    = [];
+      context.feats   = [];
+      context.perks   = [];
+      context.flaws   = [];
+    }
 //    actorData.items.forEach(item => {
 //      if (item.data.action)
 //        data.actions.push(item);

@@ -25,22 +25,25 @@ export class OlActor extends Actor {
     // Calculate level
     this.system.level = Math.floor(this.system.xp/3) + 1;
     
-    this.system.trackers.attr.spent = 0;
-    this.system.trackers.attr.points = 40 + data.xp*3;
+    this.system.attribute_points.spent = 0;
+    this.system.attribute_points.available = 40 + this.system.xp*3;
 
     // Loop through attribute scores, and add their dice to our sheet output.
     for (const attr_group of Object.values(this.system.attributes)) {
       for (const attr of Object.values(attr_group)) {
         attr.dice = this.getDieForAttrScore(attr.score);
-        this.system.trackers.attr.spent += (attr.score*attr.score + attr.score)/2;
+        this.system.attribute_points.spent += (attr.score*attr.score + attr.score)/2;
       }
     }
 
-    // Set max hp based on: 2 * (Fortitude + Will + Presence) + 10
-    // Cap current lethal between 0 and max
+    const agility = this.system.attributes.physical.agility.score;
     const fortitude = this.system.attributes.physical.fortitude.score;
+    const might = this.system.attributes.physical.might.score;
     const will = this.system.attributes.mental.will.score;
     const presence = this.system.attributes.social.presence.score;
+
+    // Set max hp based on: 2 * (Fortitude + Will + Presence) + 10
+    // Cap current lethal between 0 and max
     const hp = this.system.defense.hp;
     hp.lethal = Math.min(Math.max(hp.lethal, 0), hp.max);
     hp.hint = 2 * (fortitude + will + presence) + 10;
@@ -48,8 +51,6 @@ export class OlActor extends Actor {
     hp.value = Math.min(Math.max(hp.value, hp.min), hp.max - hp.lethal);
 
     // Set guard to 10 + Agility + Might + Armor + Other
-    const agility = this.system.attributes.physical.agility.score;
-    const might = this.system.attributes.physical.might.score;
     var armor = 0
     this.items.forEach(item => {
       if (item.type == 'armor') {
@@ -75,8 +76,8 @@ export class OlActor extends Actor {
       if (item.type == 'feat')
         total_feat_cost += item.system.cost;
     });
-    this.system.trackers.feats.spent = total_feat_cost;
-    this.system.trackers.feats.points = 6 + data.xp;
+    this.system.feat_points.spent = total_feat_cost;
+    this.system.feat_points.available = 6 + data.xp;
 
     // data.trackers = trackers;
     // data.attributes = attributes;
@@ -89,14 +90,15 @@ export class OlActor extends Actor {
   _prepareNPCData() {
     this.system.xp = (this.system.level-1) * 3;
 
-    let trackers = this.system.trackers;
-    trackers.attr.spent = 0;
-    trackers.attr.points = 40 + data.xp*3;
+    const attr_tracker = this.system.attribute_points;
+    const feat_tracker = this.system.feat_points;
+    attr_tracker.spent = 0;
+    attr_tracker.available = 40 + data.xp*3;
     // Loop through attribute scores, and add their dice to our sheet output.
     for (let attr_group of Object.values(this.system.attributes)) {
       for (let attr of Object.values(attr_group)) {
         attr.dice = this.getDieForAttrScore(attr.score);
-        trackers.attr.spent += (attr.score*attr.score + attr.score)/2;
+        attr_tracker.spent += (attr.score*attr.score + attr.score)/2;
       }
     }
 
@@ -106,8 +108,8 @@ export class OlActor extends Actor {
       if (item.type == 'feat')
         total_feat_cost += item.system.cost;
     });
-    trackers.feats.spent = total_feat_cost;
-    trackers.feats.points = 6 + this.system.xp;
+    feat_tracker.spent = total_feat_cost;
+    feat_tracker.points = 6 + this.system.xp;
 
     // Update the Actor
     // data.trackers = trackers;
