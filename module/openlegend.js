@@ -1,12 +1,14 @@
 // Import Modules
-import { OlActor } from "./actor/OlActor.js";
-import { OlActorSheet } from "./actor/OlActorSheet.js";
-import { OlItem } from "./item/OlItemtem.js";
-import { OlItemSheet } from "./item/OlItemSheet.js";
+import { OlActor } from "./actor/actor.js";
+import { OlActorSheet } from "./actor/actor-sheet.js";
+import { OlItem } from "./item/item.js";
+import { OlItemSheet } from "./item/item-sheet.js";
 import { preloadHandlebarsTemplates } from "./templates.js";
 import * as macros from "./util/macros.js";
 
 Hooks.once('init', async function() {
+
+  console.log("INIT OPEN LEGEND |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
 
   game.openlegend = {
     OlActor,

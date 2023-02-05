@@ -1,4 +1,4 @@
-import { rollAttr, rollItem } from "../util/dice.js";
+import { rollAttr, rollItem } from "./dice.js";
 
 const attr_imgs = {
     //Physical
