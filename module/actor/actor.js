@@ -65,7 +65,6 @@ export class OlActor extends Actor {
 
     // Set resolve to 10 + Presence + Will + Other
     const resolve = this.system.defense.resolve;
-    const presence = this.system.attributes.social.presence.score;
     resolve.value = Math.max(0, 10 + presence + will + resolve.other);
 
     // Calculate feat costs
