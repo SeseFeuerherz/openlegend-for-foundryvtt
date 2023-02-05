@@ -77,7 +77,7 @@ export class OlActor extends Actor {
         total_feat_cost += item.system.cost;
     });
     this.system.feat_points.spent = total_feat_cost;
-    this.system.feat_points.available = 6 + data.xp;
+    this.system.feat_points.available = 6 + this.system.xp;
 
     // data.trackers = trackers;
     // data.attributes = attributes;
