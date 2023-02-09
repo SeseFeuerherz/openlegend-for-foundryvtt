@@ -8,6 +8,7 @@ export class OlActor extends Actor {
    * Augment the basic actor data with additional dynamic data.
    */
   prepareData() {
+    console.log("preparing actor data");
     super.prepareData();
 
     // Make separate methods for each Actor type (character, npc, etc.) to keep
@@ -22,20 +23,40 @@ export class OlActor extends Actor {
    * Prepare Character type specific data
    */
   _prepareCharacterData() {
-    // Calculate level
-    this.system.level = Math.floor(this.system.xp/3) + 1;
-    
-    this.system.attribute_points.spent = 0;
-    this.system.attribute_points.available = 40 + this.system.xp*3;
+    this._prepareCharacterLevelXp();
+    this._prepareAttributePointTrackingAndDice();
+    this._prepareDefenses();
+    this._prepareFeatPointTracking();
+  }
 
+  _prepareNPCData() {
+    this._prepareNpcLevelXp();
+    this._prepareAttributePointTrackingAndDice();
+    this._prepareFeatPointTracking();
+  }
+
+  _prepareCharacterLevelXp() {
+    this.system.level = Math.floor(this.system.xp/3) + 1;
+  }
+
+  _prepareNpcLevelXp() {
+    this.system.xp = (this.system.level-1) * 3;
+  }
+
+  _prepareAttributePointTrackingAndDice() {
+    let pointsSpent = 0;
     // Loop through attribute scores, and add their dice to our sheet output.
     for (const attr_group of Object.values(this.system.attributes)) {
       for (const attr of Object.values(attr_group)) {
         attr.dice = this.getDieForAttrScore(attr.score);
-        this.system.attribute_points.spent += (attr.score*attr.score + attr.score)/2;
+        pointsSpent += (attr.score*attr.score + attr.score)/2;
       }
     }
+    this.system.attribute_points.spent = pointsSpent;
+    this.system.attribute_points.available = 40 + this.system.xp*3;
+  }
 
+  _prepareDefenses() {
     const agility = this.system.attributes.physical.agility.score;
     const fortitude = this.system.attributes.physical.fortitude.score;
     const might = this.system.attributes.physical.might.score;
@@ -49,9 +70,10 @@ export class OlActor extends Actor {
     hp.hint = 2 * (fortitude + will + presence) + 10;
     hp.max = Math.max(hp.max, hp.hint);
     hp.value = Math.min(Math.max(hp.value, hp.min), hp.max - hp.lethal);
+    this.system.defense.hp = hp;
 
     // Set guard to 10 + Agility + Might + Armor + Other
-    var armor = 0
+    let armor = 0
     this.items.forEach(item => {
       if (item.type == 'armor') {
         if (item.system.equipped && fortitude >= item.system.req_fort)
@@ -61,59 +83,27 @@ export class OlActor extends Actor {
     const guard = this.system.defense.guard;
     guard.armor = armor;
     guard.value = Math.max(0, 10 + agility + might + guard.armor + guard.other);
+    this.system.defense.guard = guard;
 
     // Set toughness to 10 + Fortitude + Will + Other
     const toughness = this.system.defense.toughness;
     toughness.value = Math.max(0, 10 + fortitude + will + toughness.other);
+    this.system.defense.toughness = toughness;
 
     // Set resolve to 10 + Presence + Will + Other
     const resolve = this.system.defense.resolve;
     resolve.value = Math.max(0, 10 + presence + will + resolve.other);
+    this.system.defense.resolve = resolve;
+  }
 
-    // Calculate feat costs
-    var total_feat_cost = 0;
+  _prepareFeatPointTracking() {
+    let total_feat_cost = 0;
     this.items.forEach(item => {
       if (item.type == 'feat')
         total_feat_cost += item.system.cost;
     });
     this.system.feat_points.spent = total_feat_cost;
     this.system.feat_points.available = 6 + this.system.xp;
-
-    // data.trackers = trackers;
-    // data.attributes = attributes;
-    // data.defense.hp = hp;
-    // data.defense.guard = guard;
-    // data.defense.toughness = tough;
-    // data.defense.resolve = resolve;
-  }
-
-  _prepareNPCData() {
-    this.system.xp = (this.system.level-1) * 3;
-
-    const attr_tracker = this.system.attribute_points;
-    const feat_tracker = this.system.feat_points;
-    attr_tracker.spent = 0;
-    attr_tracker.available = 40 + data.xp*3;
-    // Loop through attribute scores, and add their dice to our sheet output.
-    for (let attr_group of Object.values(this.system.attributes)) {
-      for (let attr of Object.values(attr_group)) {
-        attr.dice = this.getDieForAttrScore(attr.score);
-        attr_tracker.spent += (attr.score*attr.score + attr.score)/2;
-      }
-    }
-
-    // Calculate feat costs
-    var total_feat_cost = 0;
-    this.items.forEach(item => {
-      if (item.type == 'feat')
-        total_feat_cost += item.system.cost;
-    });
-    feat_tracker.spent = total_feat_cost;
-    feat_tracker.points = 6 + this.system.xp;
-
-    // Update the Actor
-    // data.trackers = trackers;
-    // data.attributes = attributes;
   }
 
   getDieForAttrScore(score) {

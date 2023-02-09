@@ -11,7 +11,7 @@ export class OlActorSheet extends ActorSheet {
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["openlegend", "sheet", "actor"],
-      width: 600,
+      width: 700,
       height: 600,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
     });
@@ -185,4 +185,6 @@ export class OlActorSheet extends ActorSheet {
     else if (dataset.attr)
       rollAttr(this.actor, dataset.attr);
   }
+
+  _getSubmitData(updateData)
 }
