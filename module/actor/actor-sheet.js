@@ -185,6 +185,4 @@ export class OlActorSheet extends ActorSheet {
     else if (dataset.attr)
       rollAttr(this.actor, dataset.attr);
   }
-
-  _getSubmitData(updateData)
 }
