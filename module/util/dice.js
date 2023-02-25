@@ -1,11 +1,14 @@
 
 export async function rollAttr(actor, attr_name) {
+    console.log("Open Legend | Roll attribute " + attr_name);
     // Get the attribute from its name
     const attr = _getAttr(actor, attr_name);
     if (attr) {
         // Generate an OLRoll for the attribute
         let olroll = await OLRoll(attr_name, attr, 0);
         if (olroll.roll) {
+            console.log("Open Legend | Input roll data:");
+        console.log(olroll);
             // Generate a chat message template using OLRoll data
             const template = "systems/openlegend-ttrpg/templates/dialog/roll-chat.html";
             const data = {
@@ -16,7 +19,8 @@ export async function rollAttr(actor, attr_name) {
             }
             const html = await renderTemplate(template, data);
             // Roll the roll
-            olroll.roll.roll().toMessage({
+            olroll.roll.evaluate();
+            olroll.roll.toMessage({
                 speaker: ChatMessage.getSpeaker({ actor: actor }),
                 flavor: html
             });
@@ -25,12 +29,15 @@ export async function rollAttr(actor, attr_name) {
 }
 
 export async function rollItem(actor, item) {
+    console.log("Open Legend | Roll item " + item);
     // If the item has a chosen action attribute...
     const attr_name = item.action.attribute;
     const attr = _getAttr(actor, attr_name);
     if (attr) {
         // Generate an OLRoll for the attribute
         let olroll = await OLRoll(attr_name, attr, item.action.default_adv);
+        console.log("Open Legend | Input roll data:");
+        console.log(olroll);
         if (olroll.roll) {
             // Generate a chat message template using OLRoll data
             const template = "systems/openlegend-ttrpg/templates/dialog/roll-chat.html";
@@ -44,7 +51,8 @@ export async function rollItem(actor, item) {
             }
             const html = await renderTemplate(template, data);
             // Roll the roll
-            olroll.roll.roll().toMessage({
+            olroll.roll.evaluate();
+            olroll.roll.toMessage({
                 speaker: ChatMessage.getSpeaker({ actor: actor }),
                 flavor: html
             });
