@@ -100,6 +100,8 @@ export async function OLRoll(attr_name, attr, default_adv=0) {
         // Normal roll
         if (adv == 0) {
             to_return.adv = null;
+            console.log("Open Legend | Debug dice");
+            console.log(dice);
             to_return.roll = new Roll('1d20X + ' + dice.num + dice.die + 'X');
         } else {
             to_return.adv.value = Math.abs(adv);
