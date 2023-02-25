@@ -7,9 +7,7 @@ import { preloadHandlebarsTemplates } from "./templates.js";
 import * as macros from "./util/macros.js";
 
 Hooks.once('init', async function() {
-
-  console.log("INIT OPEN LEGEND |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
-
+  console.log("Open Legend | Loading openlegend.js on init");
   game.openlegend = {
     OlActor,
     OlItem,
@@ -58,11 +56,14 @@ Hooks.once('init', async function() {
 
   // Preload template partials.
   await preloadHandlebarsTemplates();
+
+  console.log("Open Legend | Loaded openlegend.js");
 });
 
 Hooks.once("ready", function() {
   // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
   Hooks.on("hotbarDrop", (bar, data, slot) => macros.createOLMacro(data, slot));
+  console.log("Open Legend | Registered callback for hotbarDrop on ready");
 });
 
 export const _getInitiativeFormula = function(combatant) {
@@ -89,4 +90,5 @@ export const _getInitiativeFormula = function(combatant) {
   const dice_to_roll = multiplier * agi.num;
   const formula = `1d20X + ${dice_to_roll}${agi.die}${keep_str}`;
   return formula;
+  console.log("Open Legend | Calculated initiative formula of a combatant");
 };

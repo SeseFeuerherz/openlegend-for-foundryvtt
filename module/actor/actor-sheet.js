@@ -9,6 +9,7 @@ export class OlActorSheet extends ActorSheet {
 
   /** @override */
   static get defaultOptions() {
+    console.log("Open Legend | Retrieving default options for OlActorSheet");
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["openlegend", "sheet", "actor"],
       width: 700,
@@ -19,6 +20,7 @@ export class OlActorSheet extends ActorSheet {
 
   /** @override */
   get template() {
+    console.log("Open Legend | Retrieving template for OlActorSheet");
     if (this.actor.type == 'character')
       return "systems/openlegend-ttrpg/templates/actor/actor-sheet.html";
     else
@@ -29,17 +31,17 @@ export class OlActorSheet extends ActorSheet {
 
   /** @override */
   async getData(options) {
-    const context = await super.getData(options);
-//    const sheetData = context.data;
+    console.log("Open Legend | Retrieving render data for OlActorSheet");
+    const renderData = await super.getData(options);
+//    const sheetData = renderData.data;
 //    const data = sheetData.data;
-    console.log(context);
 
-    if (context.actions == undefined) {
-      context.actions = [];
-      context.gear    = [];
-      context.feats   = [];
-      context.perks   = [];
-      context.flaws   = [];
+    if (renderData.actions == undefined) {
+      renderData.actions = [];
+      renderData.gear    = [];
+      renderData.feats   = [];
+      renderData.perks   = [];
+      renderData.flaws   = [];
     }
 //    actorData.items.forEach(item => {
 //      if (item.data.action)
@@ -56,8 +58,9 @@ export class OlActorSheet extends ActorSheet {
 //    data.actions.sort((a, b) => a.data.action.index - b.data.action.index);
 //    data.gear.sort((a, b) => a.data.gear.index - b.data.gear.index);
 //    data.feats.sort((a, b) => a.data.index - b.data.index);
-
-    return context;
+    console.log("Open Legend | Retrieved render data for OlActorSheet");
+    console.log(renderData);
+    return renderData;
   }
 
 //  /** @override */
@@ -80,6 +83,8 @@ export class OlActorSheet extends ActorSheet {
 
   /** @override */
   activateListeners(html) {
+    console.log("Open Legend | Activating listeners for OlActorSheet");
+
     super.activateListeners(html);
 
     // Everything below here is only needed if the sheet is editable
@@ -165,6 +170,8 @@ export class OlActorSheet extends ActorSheet {
     html.find('.init-rollable').click(ev => {
       this.actor.rollInitiative({createCombatants: true});
     });
+
+    console.log("Open Legend | Activated listeners for OlActorSheet");
   }
 
   /* -------------------------------------------- */
@@ -175,6 +182,7 @@ export class OlActorSheet extends ActorSheet {
    * @private
    */
   async _onRoll(event) {
+    console.log("Open Legend | Handling clickable roll event of OlActorSheet");
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
@@ -184,5 +192,6 @@ export class OlActorSheet extends ActorSheet {
       rollItem(this.actor, this.actor.items.get(dataset.item).data);
     else if (dataset.attr)
       rollAttr(this.actor, dataset.attr);
+    console.log("Open Legend | Handled clickable roll event of OlActorSheet");
   }
 }
