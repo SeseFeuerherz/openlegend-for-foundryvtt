@@ -8,7 +8,7 @@ export async function rollAttr(actor, attr_name) {
         let olroll = await OLRoll(attr_name, attr, 0);
         if (olroll.roll) {
             console.log("Open Legend | Input roll data:");
-        console.log(olroll);
+            console.log(olroll);
             // Generate a chat message template using OLRoll data
             const template = "systems/openlegend-ttrpg/templates/dialog/roll-chat.html";
             const data = {
@@ -19,7 +19,11 @@ export async function rollAttr(actor, attr_name) {
             }
             const html = await renderTemplate(template, data);
             // Roll the roll
-            olroll.roll.evaluate();
+            console.log("Open Legend | Debug attribute Roll pre-evaluate:");
+            console.log(olroll.roll);
+            await olroll.roll.evaluate();
+            console.log("Open Legend | Debug attribute Roll post-evaluate:");
+            console.log(olroll.roll);
             olroll.roll.toMessage({
                 speaker: ChatMessage.getSpeaker({ actor: actor }),
                 flavor: html
