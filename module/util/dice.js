@@ -3,12 +3,12 @@ export async function rollAttr(actor, attrName) {
     const attr = _getAttr(actor, attrName);
     if (attr) {
         const olRoll = await OLRoll(attrName, attr, 0);
-        const flavorHtml = generateFlavorHtmlForAttribute(attrName, olRoll);
+        const flavorHtml = await generateFlavorHtmlForAttribute(attrName, olRoll);
         evaluateRollToChat(actor, olRoll, flavorHtml);
     }
 }
 
-function generateFlavorHtmlForAttribute(attrName, olRoll) {
+async function generateFlavorHtmlForAttribute(attrName, olRoll) {
     const template = "systems/openlegend-ttrpg/templates/dialog/roll-chat.html";
     const data = {
         "name": attrName,
@@ -16,7 +16,7 @@ function generateFlavorHtmlForAttribute(attrName, olRoll) {
         "attr": olRoll.attr,
         "adv": olRoll.adv
     }
-    return await renderTemplate(template, data);
+    return renderTemplate(template, data);
 }
 
 export async function rollItem(actor, item) {
@@ -25,12 +25,12 @@ export async function rollItem(actor, item) {
     const attr = _getAttr(actor, attrName);
     if (attr) {
         const olRoll = await OLRoll(attrName, attr, item.action.default_adv);
-        const flavorHtml = generateFlavorHtmlForItem(item, olRoll);
+        const flavorHtml = await generateFlavorHtmlForItem(item, olRoll);
         evaluateRollToChat(actor, olRoll, flavorHtml);
     }
 }
 
-function generateFlavorHtmlForItem(item, olRoll) {
+async function generateFlavorHtmlForItem(item, olRoll) {
     const template = "systems/openlegend-ttrpg/templates/dialog/roll-chat.html";
     const data = {
         "name": item.action.name,
@@ -40,7 +40,7 @@ function generateFlavorHtmlForItem(item, olRoll) {
         "target": item.action.target,
         "adv": olRoll.adv
     }
-    return await renderTemplate(template, data);
+    return renderTemplate(template, data);
 }
 
 async function evaluateRollToChat(actor, olRoll, flavorHtml) {
