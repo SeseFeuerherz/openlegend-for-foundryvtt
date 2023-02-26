@@ -11,21 +11,20 @@ export async function rollAttr(actor, attrName) {
 function generateFlavorHtmlForAttribute(attrName, olRoll) {
     const template = "systems/openlegend-ttrpg/templates/dialog/roll-chat.html";
     const data = {
-        "name": attr_name,
+        "name": attrName,
         "type": 'Attribute',
-        "attr": olroll.attr,
-        "adv": olroll.adv
+        "attr": olRoll.attr,
+        "adv": olRoll.adv
     }
     return await renderTemplate(template, data);
 }
 
 export async function rollItem(actor, item) {
     console.log("Open Legend | Roll item " + item);
-    // If the item has a chosen action attribute...
-    const attr_name = item.action.attribute;
-    const attr = _getAttr(actor, attr_name);
+    const attrName = item.action.attribute;
+    const attr = _getAttr(actor, attrName);
     if (attr) {
-        const olRoll = await OLRoll(attr_name, attr, item.action.default_adv);
+        const olRoll = await OLRoll(attrName, attr, item.action.default_adv);
         const flavorHtml = generateFlavorHtmlForItem(item, olRoll);
         evaluateRollToChat(actor, olRoll, flavorHtml);
     }
@@ -37,17 +36,17 @@ function generateFlavorHtmlForItem(item, olRoll) {
         "name": item.action.name,
         "type": item.type,
         "notes": item.details.notes,
-        "attr": olroll.attr,
+        "attr": olRoll.attr,
         "target": item.action.target,
-        "adv": olroll.adv
+        "adv": olRoll.adv
     }
     return await renderTemplate(template, data);
 }
 
 async function evaluateRollToChat(actor, olRoll, flavorHtml) {
     if (olRoll.roll) {
-        await olroll.roll.evaluate();
-        olroll.roll.toMessage({
+        await olRoll.roll.evaluate();
+        olRoll.roll.toMessage({
             speaker: ChatMessage.getSpeaker({ actor: actor }),
             flavor: html
         });
