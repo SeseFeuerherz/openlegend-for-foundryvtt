@@ -48,7 +48,7 @@ async function evaluateRollToChat(actor, olRoll, flavorHtml) {
         await olRoll.roll.evaluate();
         olRoll.roll.toMessage({
             speaker: ChatMessage.getSpeaker({ actor: actor }),
-            flavor: html
+            flavor: flavorHtml
         });
     }
 }
