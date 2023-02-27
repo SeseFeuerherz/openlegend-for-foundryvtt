@@ -63,7 +63,7 @@ export class OlActorSheet extends ActorSheet {
 
   /** @override */
   async _onDropItemCreate(itemData) {
-    const data = this.getData();
+    const data = await this.getData();
     if (itemData.system.action) {
       itemData.system.action.index = data.actions.length;
       itemData.system.action.name = itemData.name;
