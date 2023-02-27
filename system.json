@@ -2,7 +2,7 @@
   "id": "openlegend-ttrpg",
   "title": "Open Legend RPG",
   "description": "The Open Legend RPG system for FoundryVTT!",
-  "version": "0.0.24",
+  "version": "0.0.25",
   "compatibility": {
     "minimum": "10",
     "verified": "10",
@@ -10,7 +10,7 @@
   },
   "authors": [
     {
-      "name": "Beenrak"
+      "name": "Based on the work of Beenrak"
     },
     {
       "name": "SeseFeuerherz"

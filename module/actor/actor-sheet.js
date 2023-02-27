@@ -61,23 +61,23 @@ export class OlActorSheet extends ActorSheet {
     return renderData;
   }
 
-//  /** @override */
-//  async _onDropItemCreate(itemData) {
-//    const data = this.getData().data.data;
-//    if (itemData.data.action) {
-//      itemData.data.action.index = data.actions.length;
-//      itemData.data.action.name = itemData.name;
-//    }
-//
-//    if (itemData.data.gear)
-//      itemData.data.gear.index = data.gear.length;
-//
-//    if (itemData.type == 'feat')
-//      itemData.data.index = data.feats.length;
-//
-//    // Create the owned item as normal
-//    return super._onDropItemCreate(itemData);
-//  }
+  /** @override */
+  async _onDropItemCreate(itemData) {
+    const data = this.getData();
+    if (itemData.system.action) {
+      itemData.system.action.index = data.actions.length;
+      itemData.system.action.name = itemData.name;
+    }
+
+    if (itemData.system.gear)
+      itemData.system.gear.index = data.gear.length;
+
+    if (itemData.type == 'feat')
+      itemData.system.index = data.feats.length;
+
+    // Create the owned item as normal
+    return super._onDropItemCreate(itemData);
+  }
 
   /** @override */
   activateListeners(html) {
