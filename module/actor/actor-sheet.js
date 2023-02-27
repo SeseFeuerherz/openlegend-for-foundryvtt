@@ -33,8 +33,6 @@ export class OlActorSheet extends ActorSheet {
   async getData(options) {
     console.log("Open Legend | Retrieving render data for OlActorSheet");
     const renderData = await super.getData(options);
-//    const sheetData = renderData.data;
-//    const data = sheetData.data;
 
     if (renderData.actions == undefined) {
       renderData.actions = [];
@@ -43,21 +41,21 @@ export class OlActorSheet extends ActorSheet {
       renderData.perks   = [];
       renderData.flaws   = [];
     }
-//    actorData.items.forEach(item => {
-//      if (item.data.action)
-//        data.actions.push(item);
-//      if (item.data.gear)
-//        data.gear.push(item);
-//      if (item.type == 'feat')
-//        data.feats.push(item);
-//      else if (item.type == 'perk')
-//        data.perks.push(item);
-//      else if (item.type == 'flaw')
-//        data.flaws.push(item);
-//    });
-//    data.actions.sort((a, b) => a.data.action.index - b.data.action.index);
-//    data.gear.sort((a, b) => a.data.gear.index - b.data.gear.index);
-//    data.feats.sort((a, b) => a.data.index - b.data.index);
+    renderData.items.forEach(item => {
+      if (item.system.action)
+        renderData.actions.push(item);
+      if (item.system.gear)
+        renderData.gear.push(item);
+      if (item.type == 'feat')
+        renderData.feats.push(item);
+      else if (item.type == 'perk')
+        renderData.perks.push(item);
+      else if (item.type == 'flaw')
+        renderData.flaws.push(item);
+    });
+    renderData.actions.sort((a, b) => a.system.action.index - b.system.action.index);
+    renderData.gear.sort((a, b) => a.system.gear.index - b.system.gear.index);
+    renderData.feats.sort((a, b) => a.system.index - b.system.index);
     console.log("Open Legend | Retrieved render data for OlActorSheet");
     console.log(renderData);
     return renderData;
