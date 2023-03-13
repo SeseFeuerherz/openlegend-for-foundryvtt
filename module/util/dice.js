@@ -20,7 +20,8 @@ async function generateFlavorHtmlForAttribute(attrName, olRoll) {
 }
 
 export async function rollItem(actor, item) {
-    console.log("Open Legend | Roll item " + item);
+    console.log("Open Legend | Roll item:");
+    console.log(item);
     const attrName = item.action.attribute;
     const attr = _getAttr(actor, attrName);
     if (attr) {

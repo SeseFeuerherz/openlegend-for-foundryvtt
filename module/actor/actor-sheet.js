@@ -184,6 +184,12 @@ export class OlActorSheet extends ActorSheet {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
+    console.log("Open Legend | Debug - Roll element:");
+    console.log(element);
+    console.log("Open Legend | Debug - Roll dataset:");
+    console.log(dataset);
+    console.log("Open Legend | Debug - Roll context:");
+    console.log(this);
 
     // Roll using the appropriate logic -- item vs attribute
     if (dataset.item)
