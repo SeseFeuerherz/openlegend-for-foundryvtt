@@ -5,7 +5,7 @@
     <option></option>
     {{#each item.system.attributes as |val attr|}}
     {{#if val}}
-    <option class="action-attribute" value="{{attr}}" {{#ifeq attr ../item.system.action.attribute}} selected{{/ifeq}}>{{attr}}</option>
+    <option class="action-attribute" value="{{attr}}" {{#if (eq attr ../item.system.action.attribute)}} selected{{/if}}>{{attr}}</option>
     {{/if}}
     {{/each}}
 </select>

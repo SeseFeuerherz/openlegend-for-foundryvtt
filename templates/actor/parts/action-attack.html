@@ -7,15 +7,15 @@
 <select class="action-edit action-attribute" data-item="{{item._id}}" data-field="attack">
     <option></option>
     {{#each item.system.attacks as |attack|}}
-    <option class="action-attribute" value="{{attack.attribute}}" {{#ifeq attack.attribute ../item.system.action.attribute}} selected{{/ifeq}}>{{attack.attribute}}</option>
+    <option class="action-attribute" value="{{attack.attribute}}" {{#if (eq attack.attribute ../item.system.action.attribute)}} selected{{/if}}>{{attack.attribute}}</option>
     {{/each}}
 </select>
 <div>vs</div>
 <div>
 {{#each item.system.attacks as |attack|}}
-    {{#ifeq attack.attribute ../item.system.action.attribute}}
+    {{#if (eq attack.attribute ../item.system.action.attribute)}}
         {{attack.target}}
-    {{/ifeq}}
+    {{/if}}
 {{/each}}
 </div>
 <input class="action-edit action-adv" data-item="{{item._id}}" data-field="action_adv"
