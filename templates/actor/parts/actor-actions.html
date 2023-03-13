@@ -11,22 +11,22 @@
     <div></div>
     <div></div>
     <div></div>
-    {{#each actions as |item|}}
-        {{#if (ifeq item.type 'boon')}}
-            {{> "systems/openlegend-ttrpg/templates/actor/parts/action-boon.html" item=item}}
+    {{#each actions as |action|}}
+        {{#if (eq action.type 'boon')}}
+            {{> "systems/openlegend-ttrpg/templates/actor/parts/action-boon.html" item=action}}
         {{/if}}
-        {{#if (ifeq item.type 'bane')}}
-            {{> "systems/openlegend-ttrpg/templates/actor/parts/action-attack.html" item=item}}
+        {{#if (eq action.type 'bane')}}
+            {{> "systems/openlegend-ttrpg/templates/actor/parts/action-attack.html" item=action}}
         {{/if}}
-        {{#if (ifeq item.type 'attack')}}
-            {{> "systems/openlegend-ttrpg/templates/actor/parts/action-attack.html" item=item}}
+        {{#if (eq action.type 'attack')}}
+            {{> "systems/openlegend-ttrpg/templates/actor/parts/action-attack.html" item=action}}
         {{/if}}
-        {{#if item.system.action.show_as_action}}
-            {{#if (ifeq item.type 'weapon')}}
-                {{> "systems/openlegend-ttrpg/templates/actor/parts/action-attack.html" item=item}}
+        {{#if action.system.action.show_as_action}}
+            {{#if (eq item.type 'weapon')}}
+                {{> "systems/openlegend-ttrpg/templates/actor/parts/action-attack.html" item=action}}
             {{/if}}
-            {{#if (ifeq item.type 'generic')}}
-                {{> "systems/openlegend-ttrpg/templates/actor/parts/action-attack.html" item=item}}
+            {{#if (eq action.type 'generic')}}
+                {{> "systems/openlegend-ttrpg/templates/actor/parts/action-attack.html" item=action}}
             {{/if}}
         {{/if}}
     {{/each}}

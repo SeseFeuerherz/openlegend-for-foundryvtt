@@ -50,9 +50,9 @@ console.log("Open Legend | Register Handlebars toLowerCase helper");
   });
 
 console.log("Open Legend | Register Handlebars ifeq helper");
-  Handlebars.registerHelper('ifeq', function(arg1, arg2, options) {
-    console.log("Open Legend | Handlebars Debug - comparison ifeq " + arg1 + " " + arg2 + " is made with " + options);
-    return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+  Handlebars.registerHelper('eq', function(arg1, arg2) {
+    console.log("Open Legend | Handlebars Debug - comparison ifeq " + arg1 + " " + arg2 + " is made");
+    return arg1 == arg2;
   });
 
   console.log("Open Legend | Register Handlebars gtz helper");

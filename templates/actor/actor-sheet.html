@@ -7,34 +7,34 @@
     <div class="character">
       <div class="gear">
         <div class="title">Gear</div>
-        {{#each data.gear as |item|}}
-          {{#if (ifeq item.type 'weapon')}}
-            {{> "systems/openlegend-ttrpg/templates/actor/parts/gear-weapon.html" weapon=item}}
+        {{#each gear as |gear|}}
+          {{#if (eq gear.type 'weapon')}}
+            {{> "systems/openlegend-ttrpg/templates/actor/parts/gear-weapon.html" weapon=gear}}
           {{/if}}
-          {{#if (ifeq item.type 'armor')}}
-            {{> "systems/openlegend-ttrpg/templates/actor/parts/gear-armor.html" armor=item}}
+          {{#if (eq gear.type 'armor')}}
+            {{> "systems/openlegend-ttrpg/templates/actor/parts/gear-armor.html" armor=gear}}
           {{/if}}
-          {{#if (ifeq item.type 'generic')}}
-            {{> "systems/openlegend-ttrpg/templates/actor/parts/gear-generic.html" item=item}}
+          {{#if (eq gear.type 'generic')}}
+            {{> "systems/openlegend-ttrpg/templates/actor/parts/gear-generic.html" item=gear}}
           {{/if}}
         {{/each}}
       </div>
       <div class="feats">
         <div class="title">Feats</div>
-        {{#each data.feats as |item|}}
-          {{> "systems/openlegend-ttrpg/templates/actor/parts/gear-feat.html" feat=item}}
+        {{#each feats as |feat|}}
+          {{> "systems/openlegend-ttrpg/templates/actor/parts/gear-feat.html" feat=feat}}
         {{/each}}
       </div>
       <div class="perks">
         <div class="title">Perks</div>
-        {{#each data.perks as |item|}}
-          {{> "systems/openlegend-ttrpg/templates/actor/parts/gear-perkflaw.html" perkflaw=item}}
+        {{#each perks as |perk|}}
+          {{> "systems/openlegend-ttrpg/templates/actor/parts/gear-perkflaw.html" perkflaw=perk}}
         {{/each}}
       </div>
       <div class="flaws">
         <div class="title">Flaws</div>
-        {{#each data.flaws as |item|}}
-          {{> "systems/openlegend-ttrpg/templates/actor/parts/gear-perkflaw.html" perkflaw=item}}
+        {{#each flaws as |flaw|}}
+          {{> "systems/openlegend-ttrpg/templates/actor/parts/gear-perkflaw.html" perkflaw=flaw}}
         {{/each}}
       </div>
     </div>
