@@ -12,22 +12,22 @@
     <div></div>
     <div></div>
     {{#each data.actions as |item|}}
-        {{#ifeq item.type 'boon'}}
+        {{#if (ifeq item.type 'boon')}}
             {{> "systems/openlegend-ttrpg/templates/actor/parts/action-boon.html" item=item}}
-        {{/ifeq}}
-        {{#ifeq item.type 'bane'}}
+        {{/if}}
+        {{#if (ifeq item.type 'bane')}}
             {{> "systems/openlegend-ttrpg/templates/actor/parts/action-attack.html" item=item}}
-        {{/ifeq}}
-        {{#ifeq item.type 'attack'}}
+        {{/if}}
+        {{#if (ifeq item.type 'attack')}}
             {{> "systems/openlegend-ttrpg/templates/actor/parts/action-attack.html" item=item}}
-        {{/ifeq}}
+        {{/if}}
         {{#if item.system.action.show_as_action}}
-            {{#ifeq item.type 'weapon'}}
+            {{#if (ifeq item.type 'weapon')}}
                 {{> "systems/openlegend-ttrpg/templates/actor/parts/action-attack.html" item=item}}
-            {{/ifeq}}
-            {{#ifeq item.type 'generic'}}
+            {{/if}}
+            {{#if (ifeq item.type 'generic')}}
                 {{> "systems/openlegend-ttrpg/templates/actor/parts/action-attack.html" item=item}}
-            {{/ifeq}}
+            {{/if}}
         {{/if}}
     {{/each}}
 </div>

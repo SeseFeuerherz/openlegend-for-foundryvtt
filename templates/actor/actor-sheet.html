@@ -8,15 +8,15 @@
       <div class="gear">
         <div class="title">Gear</div>
         {{#each data.gear as |item|}}
-          {{#ifeq item.type 'weapon'}}
+          {{#if (ifeq item.type 'weapon')}}
             {{> "systems/openlegend-ttrpg/templates/actor/parts/gear-weapon.html" weapon=item}}
-          {{/ifeq}}
-          {{#ifeq item.type 'armor'}}
+          {{/if}}
+          {{#if (ifeq item.type 'armor')}}
             {{> "systems/openlegend-ttrpg/templates/actor/parts/gear-armor.html" armor=item}}
-          {{/ifeq}}
-          {{#ifeq item.type 'generic'}}
+          {{/if}}
+          {{#if (ifeq item.type 'generic')}}
             {{> "systems/openlegend-ttrpg/templates/actor/parts/gear-generic.html" item=item}}
-          {{/ifeq}}
+          {{/if}}
         {{/each}}
       </div>
       <div class="feats">
