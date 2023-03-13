@@ -14,24 +14,26 @@ Hooks.once('init', async function() {
     macros: macros
   };
 
-  /**
-   * Set an initiative formula for the system
-   * @type {String}
-   */
+  
+  console.log("Open Legend | Set default initiative formula");
   CONFIG.Combat.initiative = {formula: "1d20X"};
   Combat.prototype._getInitiativeFormula = _getInitiativeFormula;
 
-  // Define custom Document classes
+  
+  console.log("Open Legend | Define custom document classes");
   CONFIG.Actor.documentClass = OlActor;
   CONFIG.Item.documentClass = OlItem;
 
-  // Register sheet application classes
+  
+  console.log("Open Legend | Register sheet application classes");
   Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet("openlegend", OlActorSheet, { makeDefault: true });
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("openlegend", OlItemSheet, { makeDefault: true });
 
   // If you need to add Handlebars helpers, here are a few useful examples:
+
+  console.log("Open Legend | Register Handlebars concat helper");
   Handlebars.registerHelper('concat', function() {
     var outStr = '';
     for (var arg in arguments) {
@@ -42,19 +44,23 @@ Hooks.once('init', async function() {
     return outStr;
   });
 
+console.log("Open Legend | Register Handlebars toLowerCase helper");
   Handlebars.registerHelper('toLowerCase', function(str) {
     return str.toLowerCase();
   });
 
+console.log("Open Legend | Register Handlebars ifeq helper");
   Handlebars.registerHelper('ifeq', function(arg1, arg2, options) {
+    console.log("Open Legend | Handlebars Debug - comparison ifeq " + arg1 + " " + arg2 + " is made with " + options);
     return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
   });
 
+  console.log("Open Legend | Register Handlebars gtz helper");
   Handlebars.registerHelper('gtz', function (value) {
     return value > 0;
   });
 
-  // Preload template partials.
+  console.log("Open Legend | Preload Handlebars templates");
   await preloadHandlebarsTemplates();
 
   console.log("Open Legend | Loaded openlegend.js");
