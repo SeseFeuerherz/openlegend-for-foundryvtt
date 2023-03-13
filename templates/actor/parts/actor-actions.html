@@ -11,7 +11,7 @@
     <div></div>
     <div></div>
     <div></div>
-    {{#each data.actions as |item|}}
+    {{#each actions as |item|}}
         {{#if (ifeq item.type 'boon')}}
             {{> "systems/openlegend-ttrpg/templates/actor/parts/action-boon.html" item=item}}
         {{/if}}
