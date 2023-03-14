@@ -1,14 +1,14 @@
 <li class="action-attack" data-item="{{item._id}}">
     <select class="attack-attribute">
         {{#each attributes as |val attr|}}
-            <option value="{{attr}}" {{#ifeq attr ../attack.attribute}} selected{{/ifeq}}>{{attr}}</option>
+            <option value="{{attr}}" {{#if (eq attr ../attack.attribute)}} selected{{/if}}>{{attr}}</option>
         {{/each}}
     </select>
     <span>vs</span>
     <select class="attack-target">
-        <option {{#ifeq 'Guard' attack.target}} selected{{/ifeq}}>Guard</option>
-        <option {{#ifeq 'Tough' attack.target}} selected{{/ifeq}}>Tough</option>
-        <option {{#ifeq 'Resolve' attack.target}} selected{{/ifeq}}>Resolve</option>
+        <option {{#if (eq 'Guard' attack.target)}} selected{{/if}}>Guard</option>
+        <option {{#if (eq 'Tough' attack.target)}} selected{{/if}}>Tough</option>
+        <option {{#if (eq 'Resolve' attack.target)}} selected{{/if}}>Resolve</option>
     </select>
     <a class="item-control attack-delete" title="Delete"><i class="fas fa-trash"></i></a>
 </li>
