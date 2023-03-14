@@ -12,8 +12,8 @@ export class OlActorSheet extends ActorSheet {
     console.log("Open Legend | Retrieving default options for OlActorSheet");
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["openlegend", "sheet", "actor"],
-      width: 700,
-      height: 600,
+      width: 1000,
+      height: 800,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
     });
   }
