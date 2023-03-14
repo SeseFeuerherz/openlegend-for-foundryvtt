@@ -22,10 +22,10 @@ async function generateFlavorHtmlForAttribute(attrName, olRoll) {
 export async function rollItem(actor, item) {
     console.log("Open Legend | Roll item:");
     console.log(item);
-    const attrName = item.action.attribute;
+    const attrName = item.system.action.attribute;
     const attr = _getAttr(actor, attrName);
     if (attr) {
-        const olRoll = await OLRoll(attrName, attr, item.action.default_adv);
+        const olRoll = await OLRoll(attrName, attr, item.system.action.default_adv);
         const flavorHtml = await generateFlavorHtmlForItem(item, olRoll);
         evaluateRollToChat(actor, olRoll, flavorHtml);
     }
@@ -34,11 +34,11 @@ export async function rollItem(actor, item) {
 async function generateFlavorHtmlForItem(item, olRoll) {
     const template = "systems/openlegend-ttrpg/templates/dialog/roll-chat.html";
     const data = {
-        "name": item.action.name,
+        "name": item.system.action.name,
         "type": item.type,
-        "notes": item.details.notes,
+        "notes": item.system.details.notes,
         "attr": olRoll.attr,
-        "target": item.action.target,
+        "target": item.system.action.target,
         "adv": olRoll.adv
     }
     return renderTemplate(template, data);
