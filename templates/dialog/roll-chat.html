@@ -8,7 +8,7 @@
         <div>{{notes}}</div>
         {{#if target}}
         <div class="card-vs">
-            {{attr.name}} VS {{#ifeq type 'boon'}}PL: {{/ifeq}}{{target}}
+            {{attr.name}} VS {{#if (eq type 'boon')}}PL: {{/if}}{{target}}
         </div>
         {{/if}}
     </div>
