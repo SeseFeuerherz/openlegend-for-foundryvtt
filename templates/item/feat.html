@@ -16,7 +16,7 @@
             </div>
             <ul class="summary flexrow">
                 <li class="flexrow">Feat Points:
-                    <input type="number" name="system.cost" value="{{system.cost}}" placeholder="?"/></li>
+                    <input type="number" name="item.system.cost" value="{{item.system.cost}}" placeholder="?"/></li>
             </ul>
         </div>
     </header>
@@ -26,14 +26,14 @@
         <div class="description-editor">
             <div class="flexrow aligned">
                 <span class="forceful shrink">PreReqs:&nbsp</span>
-                <input type="text" name="system.prerequisites" value="{{system.prerequisites}}" placeholder="?"/>
+                <input type="text" name="item.system.prerequisites" value="{{item.system.prerequisites}}" placeholder="?"/>
             </div>
             <div class="flexrow aligned">
                 <span class="forceful shrink">Short Desc:&nbsp</span>
-                <input type="text" name="system.details.notes" value="{{system.details.notes}}" placeholder=""/>
+                <input type="text" name="item.system.details.notes" value="{{item.system.details.notes}}" placeholder=""/>
             </div>
             <div class="h-divider"></div>
-            {{editor content=system.details.description target="system.details.description" button=true owner=owner editable=editable}}
+            {{editor content=item.system.details.description target="item.system.details.description" button=true owner=owner editable=editable}}
         </div>
     </section>
 </form>
