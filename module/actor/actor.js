@@ -8,7 +8,7 @@ export class OlActor extends Actor {
    * Augment the basic actor data with additional dynamic data.
    */
   prepareData() {
-    console.log("preparing actor data");
+    console.log("Open Legend | Preparing actor data");
     super.prepareData();
 
     // Make separate methods for each Actor type (character, npc, etc.) to keep

@@ -6,11 +6,12 @@ export class OlItem extends Item {
   /**
    * Augment the basic Item data model with additional dynamic data.
    */
-//  prepareData() {
-//    super.prepareData();
-//    if (this.type === 'boon') this._prepareBoonData();
-//  }
+  prepareData() {
+    console.log("Open Legend | Prepare item data")
+    super.prepareData();
+    if (this.type === 'boon') this._prepareBoonData();
+  }
 
-//  _prepareBoonData(itemData) {
-//  }
+  _prepareBoonData(itemData) {
+  }
 }

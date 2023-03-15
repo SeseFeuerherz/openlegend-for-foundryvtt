@@ -16,28 +16,30 @@ export class OlItemSheet extends ItemSheet {
 
   /** @override */
   get template() {
-    const path = "systems/openlegend-ttrpg/templates/item";
-    return `${path}/${this.item.type}.html`;
+    const basePath = "systems/openlegend-ttrpg/templates/item";
+    return `${basePath}/${this.item.type}.html`;
   }
 
   /* -------------------------------------------- */
 
   /** @override */
-//  getData() {
-//    const data = super.getData();
-//    return data;
-//  }
+  getData() {
+    console.log("Open Legend | Retrieving render data for OlItemSheet");
+    const renderTemplateInput = super.getData();
+    console.log(renderTemplateInput);
+    return renderTemplateInput;
+  }
 
   /* -------------------------------------------- */
 
   /** @override */
-//  setPosition(options = {}) {
-//    const position = super.setPosition(options);
-//    const sheetBody = this.element.find(".sheet-body");
-//    const bodyHeight = position.height - 192;
-//    sheetBody.css("height", bodyHeight);
-//    return position;
-//  }
+  setPosition(options = {}) {
+    const position = super.setPosition(options);
+    const sheetBody = this.element.find(".sheet-body");
+    const bodyHeight = position.height - 192;
+    sheetBody.css("height", bodyHeight);
+    return position;
+  }
 
   /* -------------------------------------------- */
 
