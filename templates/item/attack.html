@@ -32,7 +32,7 @@
             <div class="action-edit" hidden>
                 <ul class="attack-list">
                     {{#each item.system.attacks as |attack|}}
-                        {{> "systems/openlegend-ttrpg/templates/item/parts/attack-target.html" attack=attack attributes=../system.attributes}}
+                        {{> "systems/openlegend-ttrpg/templates/item/parts/attack-target.html" attack=attack attributes=../item.system.attributes}}
                     {{/each}}
                 </ul>
                 <button class="add-attack">Add</button>

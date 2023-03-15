@@ -8,8 +8,8 @@ export class OlItemSheet extends ItemSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["openlegend", "sheet", "item"],
-      width: 520,
-      height: 480,
+      width: 650,
+      height: 600,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
     });
   }
