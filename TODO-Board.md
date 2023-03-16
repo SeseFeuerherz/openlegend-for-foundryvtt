@@ -2,6 +2,7 @@
 
 ## Open
 - Improve Character-Sheet-UI
+- attack list cannot delete entry (e.g. Agility vs Guard)
 
 ## In Progress
 - Test Macro-Drag-Drop
