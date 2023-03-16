@@ -1,0 +1,39 @@
+<form class="{{cssClass}} item-sheet" autocomplete="off">
+    <header class="header flexrow">
+        <img class="item-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+        <div class="header-details">
+            <div class="flexrow">
+                <h1 class="item-name">
+                    <input name="name" type="text" value="{{item.name}}" placeholder="Name"/>
+                </h1>
+    
+                <div class="item-subtitle">
+                    <h4 class="item-type">{{item.type}}</h4>
+                    <span class="scale-tester" hidden></span>
+                    <input class="item-status scale" name="system.type"
+                            type="text" value="{{item.system.type}}" placeholder="Type"/>
+                </div>
+            </div>
+            <ul class="summary flexrow">
+                <li class="flexrow">Defense:
+                    <input type="number" name="system.defense" value="{{item.system.defense}}" placeholder="?"/></li>
+                <li class="flexrow">Req Fort:
+                    <input type="number" name="system.req_fort" value="{{item.system.req_fort}}" placeholder="?"/></li>
+                <li class="flexrow">Speed Pen:
+                    <input type="text" name="system.speed_penalty" value="{{item.system.speed_penalty}}" placeholder="?"/></li>
+                <li class="shrink">WL:
+                    <input class="wl" type="text" name="system.gear.wl" value="{{item.system.gear.wl}}" placeholder="?"/></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="sheet-body">
+        <div class="description-editor">
+            <div class="flexrow aligned">
+                <span class="forceful shrink">Equipped:</span>
+                <input type="checkbox" name="system.equipped" {{#if item.system.equipped}}checked{{/if}}/>
+            </div>
+            {{editor content=item.system.details.description target="system.details.description" button=true owner=owner editable=editable}}
+        </div>
+    </section>
+</form>

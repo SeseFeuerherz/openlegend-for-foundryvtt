@@ -1,0 +1,106 @@
+{
+  "id": "openlegend-ttrpg",
+  "title": "Open Legend RPG",
+  "description": "The Open Legend RPG system for FoundryVTT!",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "10",
+    "verified": "10",
+    "maximum": "10"
+  },
+  "authors": [
+    {
+      "name": "SeseFeuerherz"
+    },
+    {
+      "name": "Based on the work of Beenrak"
+    }
+  ],
+  "esmodules": ["module/openlegend.js"],
+  "styles": ["css/openlegend.css"],
+  "scripts": [],
+  "packs": [
+    {
+      "name": "banes",
+      "label": "Banes",
+      "system": "openlegend-ttrpg",
+      "path": "./packs/banes.db",
+      "entity": "Item"
+    },{
+      "name": "basic",
+      "label": "Basic",
+      "system": "openlegend-ttrpg",
+      "path": "./packs/basic.db",
+      "entity": "Item"
+    },{
+      "name": "boons",
+      "label": "Boons",
+      "system": "openlegend-ttrpg",
+      "path": "./packs/boons.db",
+      "entity": "Item"
+    },{
+      "name": "feats",
+      "label": "Feats",
+      "system": "openlegend-ttrpg",
+      "path": "./packs/feats.db",
+      "entity": "Item"
+    },{
+      "name": "flaws",
+      "label": "Flaws",
+      "system": "openlegend-ttrpg",
+      "path": "./packs/flaws.db",
+      "entity": "Item"
+    },{
+      "name": "gm-feats",
+      "label": "GM-Feats",
+      "system": "openlegend-ttrpg",
+      "path": "./packs/gm-feats.db",
+      "entity": "Item"
+    },{
+      "name": "perks",
+      "label": "Perks",
+      "system": "openlegend-ttrpg",
+      "path": "./packs/perks.db",
+      "entity": "Item"
+    },{
+      "name": "rules",
+      "label": "Rules",
+      "system": "openlegend-ttrpg",
+      "path": "./packs/rules.db",
+      "entity": "JournalEntry"
+    },{
+      "name": "gm-screen",
+      "label": "GM-Screen",
+      "system": "openlegend-ttrpg",
+      "path": "./packs/gm-screen.db",
+      "entity": "JournalEntry"
+    }
+  ],
+  "relationships": {
+    "requires": [
+      {
+        "id": "game-icons-net",
+        "type": "module",
+        "manifest": "https://raw.githubusercontent.com/datdamnzotz/icons/master/module.json"
+      }
+    ]
+  },
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "gridDistance": 5,
+  "gridUnits": "ft",
+  "primaryTokenAttribute": "health",
+  "initiative": "1d20X",
+  "url": "https://github.com/SeseFeuerherz/openlegend-for-foundryvtt",
+  "manifest": "https://raw.githubusercontent.com/SeseFeuerherz/openlegend-for-foundryvtt/release/1/system.json",
+  "download": "https://github.com/SeseFeuerherz/openlegend-for-foundryvtt/archive/refs/heads/release/1.zip",
+  "license": "LICENSE.txt",
+  "readme": "README.md",
+  "TODO bugs": "A publicly accessible URL where issues, suggestions, and bug reports may be filed.",
+  "TODO changelog": "A publicly accessible URL where update and release notes about the package may be found."
+}

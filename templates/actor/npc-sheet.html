@@ -1,0 +1,108 @@
+<form class="{{cssClass}} npc" autocomplete="off">
+    <div class="npc-header-grid">
+        <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+        <div class="npc-details">
+            <div class="npc-row flexrow">
+                <div class="text-input npc-name">
+                    <label>Name:</label>
+                    <input name="name" type="text" value="{{actor.name}}" placeholder="" />
+                </div>
+                <div class="flex-shrink text-input">
+                    <label>Level:</label>
+                    <input class="single_digit" name="data..system.level" type="number" value="{{data.system.level}}" />
+                </div>
+                <div class="flex-shrink text-input">
+                    <label>BossEdge:</label>
+                    <input class="single_digit" name="data.system.boss_edge" type="number" value="{{data.system.boss_edge}}" />
+                </div>
+            </div>
+            <div class="npc-row text-input">
+                <label>Description:</label>
+                <input name="data.system.description" type="text" value="{{data.system.description}}" placeholder="" />
+            </div>
+            <div class="npc-row flexrow">
+                <div class="text-input npc-hp">
+                    <label>MaxHP:</label>
+                    <input class="double_digit npc_hp_edit" type="number" value="{{data.system.defense.hp.max}}" />
+                </div>
+                <div class="text-input npc-defense">
+                    <label>Guard:</label>
+                    <input class="double_digit" name="data.system.defense.guard.value" type="number" value="{{data.system.defense.guard.value}}" />
+                </div>
+                <div class="text-input npc-defense">
+                    <label>Tough:</label>
+                    <input class="double_digit" name="data.system.defense.toughness.value" type="number" value="{{data.system.defense.toughness.value}}" />
+                </div>
+                <div class="text-input npc-defense">
+                    <label>Resolve:</label>
+                    <input class="double_digit" name="data.system.defense.resolve.value" type="number" value="{{data.system.defense.resolve.value}}" />
+                </div>
+            </div>
+            <div class="npc-row flexrow">
+                <div class="text-input">
+                    <label class="forceful">
+                        <a class="init-rollable" title="Roll">
+                            <i class="fas fa-dice-d20"></i>
+                        </a>InitMod:
+                    </label>
+                    <input class="single_digit" name="data.system.initiative_mod" type="number" value="{{data.system.initiative_mod}}" />
+                </div>
+                <div class="details-speed text-input">
+                    <label>Speed:</label>
+                    <input class="double_digit" name="data.system.speed" type="number" value="{{data.system.speed}}" placeholder="30" />
+                </div>
+                <div class="text-input">
+                    <label>Attr:</label>
+                    <label>{{data.system.attribute_points.spent}}/{{data.system.attribute_points.available}}</label>
+                </div>
+                <div class="text-input">
+                    <label>Feats:</label>
+                    <label>{{data.system.feat_points.spent}}/{{data.system.feat_points.availabe}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="npc-body">
+        <div class="npc-attributes">
+            <div class="npc-attributes-display">
+                {{#each data.system.attributes as |group|}}
+                    {{#each group as |attr attr_name|}}
+                        {{#if (gtz attr.score)}}
+                        <div>
+                            <span class="forceful rollable macro" draggable="true"
+                                data-macro="attr" data-attr="{{attr_name}}">{{attr_name}}:</span>
+                            {{attr.score}}
+                        </div>
+                        {{/if}}
+                    {{/each}}
+                {{/each}}
+            </div>
+            <div class="npc-attributes-edit" hidden>
+                {{#each data.system.attributes as |group group_name|}}
+                    {{#each group as |attr attr_name|}}
+                        <div>
+                            <span class="forceful">{{attr_name}}:</span>
+                            <input class="single_digit npc-attr-setter"
+                                type="number"
+                                data-group="{{group_name}}"
+                                data-attr="{{attr_name}}"
+                                value="{{attr.score}}" />
+                        </div>
+                    {{/each}}
+                {{/each}}
+            </div>
+            <button class="update-npc-attributes">Edit</button>
+        </div>
+        <div class="npc-features">
+            <div class="npc-actions">
+                {{> "systems/openlegend-ttrpg/templates/actor/parts/actor-actions.html"}}
+            </div>
+            <div class="npc-feats">
+                <div class="title">Feats</div>
+                {{#each feats as |item|}}
+                    {{> "systems/openlegend-ttrpg/templates/actor/parts/gear-feat.html" feat=item}}
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</form>

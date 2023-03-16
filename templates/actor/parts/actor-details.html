@@ -1,0 +1,51 @@
+<div class="details">
+    <img class="avatar" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>
+    <div class="details-name text-input">
+        <label>Name:</label>
+        <input name="name" type="text" value="{{actor.name}}" placeholder="" />
+    </div>
+    <div class="details-player text-input">
+        <label>Player:</label>
+        <input name="system.player" type="text" value="{{data.system.player}}" placeholder="" />
+    </div>
+    <div class="details-description text-input">
+        <label>Description:</label>
+        <input name="system.description" type="text" value="{{data.system.description}}" placeholder="" />
+    </div>
+    <div class="details-level text-input">
+        <label>Level:</label>
+        <label>{{data.system.level}}</label>
+    </div>
+    <div class="details-xp text-input">
+        <label>XP:</label>
+        <input name="system.xp" type="number" value="{{data.system.xp}}" placeholder="0" />
+    </div>
+    <div class="details-wealth text-input">
+        <label>WL:</label>
+        <input name="system.wl" type="number" value="{{data.system.wl}}" placeholder="2" />
+    </div>
+    <div class="details-roll-initiative text-input">
+        <label class="forceful">
+            <a class="init-rollable" title="Roll">
+                <i class="fas fa-dice-d20"></i>
+            </a>InitMod:
+        </label>
+        <input name="system.initiative_mod" type="number" value="{{data.system.initiative_mod}}" placeholder="0" />
+    </div>
+    <div class="details-attr-points text-input">
+        <label>Attr:</label>
+        <label>{{data.system.attribute_points.spent}}/{{data.system.attribute_points.available}}</label>
+    </div>
+    <div class="details-feat-points text-input">
+        <label>Feats:</label>
+        <label>{{data.system.feat_points.spent}}/{{data.system.feat_points.available}}</label>
+    </div>
+    <div class="details-legend-points text-input">
+        <label>LP:</label>
+        <input name="system.lp" type="number" value="{{data.system.lp}}" placeholder="1" />
+    </div>
+    <div class="details-speed text-input">
+        <label>Speed:</label>
+        <input name="system.speed" type="number" value="{{data.system.speed}}" placeholder="30" />
+    </div>
+</div>

@@ -1,0 +1,42 @@
+<form class="{{cssClass}} flexcol" autocomplete="off">
+  <div class="main-grid">
+    {{> "systems/openlegend-ttrpg/templates/actor/parts/actor-details.html"}}
+    {{> "systems/openlegend-ttrpg/templates/actor/parts/actor-attributes.html"}}
+    {{> "systems/openlegend-ttrpg/templates/actor/parts/actor-defense.html"}}
+    {{> "systems/openlegend-ttrpg/templates/actor/parts/actor-actions.html"}}
+    <div class="character">
+      <div class="gear">
+        <div class="title">Gear</div>
+        {{#each gear as |gear|}}
+          {{#if (eq gear.type 'weapon')}}
+            {{> "systems/openlegend-ttrpg/templates/actor/parts/gear-weapon.html" weapon=gear}}
+          {{/if}}
+          {{#if (eq gear.type 'armor')}}
+            {{> "systems/openlegend-ttrpg/templates/actor/parts/gear-armor.html" armor=gear}}
+          {{/if}}
+          {{#if (eq gear.type 'generic')}}
+            {{> "systems/openlegend-ttrpg/templates/actor/parts/gear-generic.html" item=gear}}
+          {{/if}}
+        {{/each}}
+      </div>
+      <div class="feats">
+        <div class="title">Feats</div>
+        {{#each feats as |feat|}}
+          {{> "systems/openlegend-ttrpg/templates/actor/parts/gear-feat.html" feat=feat}}
+        {{/each}}
+      </div>
+      <div class="perks">
+        <div class="title">Perks</div>
+        {{#each perks as |perk|}}
+          {{> "systems/openlegend-ttrpg/templates/actor/parts/gear-perkflaw.html" perkflaw=perk}}
+        {{/each}}
+      </div>
+      <div class="flaws">
+        <div class="title">Flaws</div>
+        {{#each flaws as |flaw|}}
+          {{> "systems/openlegend-ttrpg/templates/actor/parts/gear-perkflaw.html" perkflaw=flaw}}
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</form>

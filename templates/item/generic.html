@@ -1,0 +1,64 @@
+<form class="{{cssClass}} item-sheet" autocomplete="off">
+    <header class="header flexrow">
+        <img class="item-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+        <div class="header-details">
+            <div class="flexrow">
+                <h1 class="item-name">
+                    <input name="name" type="text" value="{{item.name}}" placeholder="Name"/>
+                </h1>
+    
+                <div class="item-subtitle">
+                    <h4 class="item-type">{{item.type}}</h4>
+                    <span class="scale-tester" hidden></span>
+                    <input class="item-status scale" name="system.categories"
+                            type="text" value="{{item.system.categories}}" placeholder="Categories"/>
+                </div>
+            </div>
+            <ul class="summary flexrow">
+                <li class="flexrow">
+                    <input type="text" name="system.properties" value="{{item.system.properties}}" placeholder="Properties"/></li>
+                <li class="shrink">WL: 
+                    <input class="wl" type="text" name="system.gear.wl" value="{{item.system.gear.wl}}" placeholder="?"/></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="sheet-body">
+        <div>
+            <span class="action-header">Attacks</span>
+            <ul class="action-list">
+                {{#each item.system.attacks as |attack|}}
+                    <li><span class="forceful">{{attack.attribute}}</span> vs <span class="forceful">{{attack.target}}</span></li>
+                {{/each}}
+            </ul>
+            <div class="action-edit" hidden>
+                <ul class="attack-list">
+                    {{#each item.system.attacks as |attack|}}
+                        {{> "systems/openlegend-ttrpg/templates/item/parts/attack-target.html" attack=attack attributes=../item.system.attributes}}
+                    {{/each}}
+                </ul>
+                <button class="add-attack">Add</button>
+            </div>
+            <button class="update-action">Edit</button>
+            <div class="flexrow aligned">
+                <span class="forceful shrink">Show action:</span>
+                <input type="checkbox" name="system.action.show_as_action" {{#if item.system.action.show_as_action}}checked{{/if}}/>
+            </div>
+        </div>
+        <div class="description-editor">
+            <div class="flexrow aligned">
+                <span class="forceful shrink">Quantity:&nbsp</span>
+                <input type="number" name="system.quantity" value="{{item.system.quantity}}"/>
+            </div>
+            <div class="flexrow aligned">
+                <span class="forceful shrink">Banes:&nbsp</span>
+                <input type="text" name="system.banes" value="{{item.system.banes}}" placeholder="-"/>
+            </div>
+            <div class="flexrow aligned">
+                <span class="forceful shrink">Boons:&nbsp</span>
+                <input type="text" name="system.boons" value="{{item.system.boons}}" placeholder="-"/>
+            </div>
+            {{editor content=item.system.details.description target="system.details.description" button=true owner=owner editable=editable}}
+        </div>
+    </section>
+</form>
