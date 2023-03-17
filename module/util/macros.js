@@ -29,9 +29,11 @@ const attr_imgs = {
 /*  Hotbar Macros                               */
 /* -------------------------------------------- */
 export async function createOLMacro(data, slot) {
+    console.log("Open Legend | Creating a OlMacro for slot " + slot + " with data:");
+    console.log(data);
     if (data.macro == 'attr') {
         const command = `game.openlegend-ttrpg.macros.rollAttrMacro("${data.actor}", "${data.attr}")`;
-        let macro = game.macros.entities.find(m => m.data.command === command);
+        let macro = game.macros.find(m => m.data.command === command);
         if (!macro) {
             macro = await Macro.create({
                 name: _capitalize(data.attr),

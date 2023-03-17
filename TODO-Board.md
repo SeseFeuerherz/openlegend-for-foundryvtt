@@ -2,10 +2,11 @@
 
 ## Open
 - Improve Character-Sheet-UI
-- attack list cannot delete entry (e.g. Agility vs Guard)
+- make chat with input and buttons instead of advantage popup
 
 ## In Progress
 - Test Macro-Drag-Drop
+- Fix item Movement
 
 ## Done
 - Test all item html
