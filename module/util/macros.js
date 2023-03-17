@@ -9,7 +9,7 @@ const attr_imgs = {
     "learning": "Modules/game-icons-net/blackbackground/archive-research.svg",
     "logic": "Modules/game-icons-net/blackbackground/checkbox-tree.svg",
     "perception": "Modules/game-icons-net/blackbackground/semi-closed-eye.svg",
-    "will": "Modules/game-icons-net/blackbackground/fist.svg"
+    "will": "Modules/game-icons-net/blackbackground/fist.svg",
     //Social
     "deception": "Modules/game-icons-net/blackbackground/duality-mask.svg",
     "persuasion": "Modules/game-icons-net/blackbackground/shaking-hands.svg",
