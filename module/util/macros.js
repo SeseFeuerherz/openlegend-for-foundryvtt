@@ -3,7 +3,7 @@ import { rollAttr, rollItem } from "./dice.js";
 const attr_imgs = {
     //Physical
     "agility": "modules/game-icons-net/blackbackground/body-balance.svg",
-    "fortitude": "modules/game-icons-net/blackbackground/health-normal.svg",
+    "fortitude": "modules/game-icons-net/blackbackground/heart-tower.svg",
     "might": "modules/game-icons-net/blackbackground/strong.svg",
     //Mental
     "learning": "modules/game-icons-net/blackbackground/archive-research.svg",

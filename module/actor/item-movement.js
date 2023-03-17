@@ -8,8 +8,9 @@ export function move_action_up(ev) {
     console.log("Open Legend | Debug item");
     console.log(item);
     // Get this items current and new indexes
-    const curr_index = system.action.index;
+    const curr_index = item.system.action.index;
     const new_index = curr_index - 1;
+    console.log("Open Legend | Debug curr_index: " + curr_index + ", new_index: " +new_index);
     // Skip if already at top
     if (curr_index > 0) {
         // Find the item above it
@@ -37,7 +38,7 @@ export function move_gear_up(ev) {
     const tag = ev.currentTarget;
     const item = this.actor.items.get(tag.dataset.item);
     // Get this items current and new indexes
-    const curr_index = system.gear.index;
+    const curr_index = item.system.gear.index;
     const new_index = curr_index - 1;
     // Skip if already at top
     if (curr_index > 0) {
@@ -65,7 +66,7 @@ export function move_feat_up(ev) {
     const tag = ev.currentTarget;
     const item = this.actor.items.get(tag.dataset.item);
     // Get this items current and new indexes
-    const curr_index = system.index;
+    const curr_index = item.system.index;
     const new_index = curr_index - 1;
     // Skip if already at top
     if (curr_index > 0) {
