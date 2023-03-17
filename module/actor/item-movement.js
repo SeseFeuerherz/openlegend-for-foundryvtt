@@ -22,12 +22,12 @@ export function move_action_up(ev) {
                     const sub_item = this.actor.items.get(_sub_item._id);
                     console.log("Open Legend | Debug sub-item");
                     console.log(sub_item);
-                    sub_item.update({'system.action.index': curr_index});
+                    sub_item.update({system.action.index: curr_index});
                 }
             }
         });
         // Update the main items index
-        item.update({'system.action.index': new_index});
+        item.update({system.action.index: new_index});
     }
 }
 
