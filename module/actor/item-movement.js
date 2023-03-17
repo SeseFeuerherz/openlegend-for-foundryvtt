@@ -5,6 +5,8 @@ export function move_action_up(ev) {
     // Get the item to move up
     const tag = ev.currentTarget;
     const item = this.actor.items.get(tag.dataset.item);
+    console.log("Open Legend | Debug item");
+    console.log(item);
     // Get this items current and new indexes
     const curr_index = item.system.action.index;
     const new_index = curr_index - 1;
@@ -24,8 +26,6 @@ export function move_action_up(ev) {
             }
         });
         // Update the main items index
-        console.log("Open Legend | Debug item");
-        console.log(item);
         item.update({'system.action.index': new_index});
     }
 }

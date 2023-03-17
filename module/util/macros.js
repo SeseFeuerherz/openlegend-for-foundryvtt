@@ -2,27 +2,27 @@ import { rollAttr, rollItem } from "./dice.js";
 
 const attr_imgs = {
     //Physical
-    "agility": "Modules/game-icons-net/blackbackground/body-balance.svg",
-    "fortitude": "Modules/game-icons-net/blackbackground/health-normal.svg",
-    "might": "Modules/game-icons-net/blackbackground/strong.svg",
+    "agility": "modules/game-icons-net/blackbackground/body-balance.svg",
+    "fortitude": "modules/game-icons-net/blackbackground/health-normal.svg",
+    "might": "modules/game-icons-net/blackbackground/strong.svg",
     //Mental
-    "learning": "Modules/game-icons-net/blackbackground/archive-research.svg",
-    "logic": "Modules/game-icons-net/blackbackground/checkbox-tree.svg",
-    "perception": "Modules/game-icons-net/blackbackground/semi-closed-eye.svg",
-    "will": "Modules/game-icons-net/blackbackground/fist.svg",
+    "learning": "modules/game-icons-net/blackbackground/archive-research.svg",
+    "logic": "modules/game-icons-net/blackbackground/checkbox-tree.svg",
+    "perception": "modules/game-icons-net/blackbackground/semi-closed-eye.svg",
+    "will": "modules/game-icons-net/blackbackground/fist.svg",
     //Social
-    "deception": "Modules/game-icons-net/blackbackground/duality-mask.svg",
-    "persuasion": "Modules/game-icons-net/blackbackground/shaking-hands.svg",
-    "presence": "Modules/game-icons-net/blackbackground/public-speaker.svg",
+    "deception": "modules/game-icons-net/blackbackground/duality-mask.svg",
+    "persuasion": "modules/game-icons-net/blackbackground/shaking-hands.svg",
+    "presence": "modules/game-icons-net/blackbackground/public-speaker.svg",
     //Extraordinary
-    "alteration": "Modules/game-icons-net/blackbackground/transform.svg",
-    "creation": "Modules/game-icons-net/blackbackground/anvil-impact.svg",
-    "energy": "Modules/game-icons-net/blackbackground/rolling-energy.svg",
-    "entropy": "Modules/game-icons-net/blackbackground/skull-bolt.svg",
-    "influence": "Modules/game-icons-net/blackbackground/hive-mind.svg",
-    "movement": "Modules/game-icons-net/blackbackground/tron-arrow.svg",
-    "prescience": "Modules/game-icons-net/blackbackground/crystal-ball.svg",
-    "protection": "Modules/game-icons-net/blackbackground/rosa-shield.svg"
+    "alteration": "modules/game-icons-net/blackbackground/transform.svg",
+    "creation": "modules/game-icons-net/blackbackground/anvil-impact.svg",
+    "energy": "modules/game-icons-net/blackbackground/rolling-energy.svg",
+    "entropy": "modules/game-icons-net/blackbackground/skull-bolt.svg",
+    "influence": "modules/game-icons-net/blackbackground/hive-mind.svg",
+    "movement": "modules/game-icons-net/blackbackground/tron-arrow.svg",
+    "prescience": "modules/game-icons-net/blackbackground/crystal-ball.svg",
+    "protection": "modules/game-icons-net/blackbackground/rosa-shield.svg"
 };
 
 /* -------------------------------------------- */
