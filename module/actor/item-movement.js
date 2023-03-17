@@ -4,8 +4,8 @@ export function move_action_up(ev) {
     console.log(ev);
     // Get the item to move up
     const tag = ev.currentTarget;
-    const item = this.actor.items.get(tag.dataset.item);
-    console.log("Open Legend | Debug item");
+    const item = this.actor.items.get(tag.dataset.item); // TODO gets wrong actor when sheet is opened via token
+    console.log("Open Legend | Debug item " + tag.dataset.item);
     console.log(item);
     // Get this items current and new indexes
     const curr_index = item.system.action.index;
