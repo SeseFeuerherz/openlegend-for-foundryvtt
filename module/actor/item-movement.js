@@ -17,11 +17,15 @@ export function move_action_up(ev) {
                 if (i == new_index) {
                     // Get the actual owned item and update its index
                     const sub_item = this.actor.items.get(_sub_item._id);
+                    console.log("Open Legend | Debug sub-item");
+                    console.log(sub_item);
                     sub_item.update({'system.action.index': curr_index});
                 }
             }
         });
         // Update the main items index
+        console.log("Open Legend | Debug item");
+        console.log(item);
         item.update({'system.action.index': new_index});
     }
 }

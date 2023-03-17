@@ -2,27 +2,27 @@ import { rollAttr, rollItem } from "./dice.js";
 
 const attr_imgs = {
     //Physical
-    "agility": "Modules/Game-Icons-Net/Blackbackground/Body-Balance.Svg",
-    "fortitude": "Modules/Game-Icons-Net/Blackbackground/Health-Normal.Svg",
-    "might": "Modules/Game-Icons-Net/Blackbackground/Mighty-Force.Svg",
+    "agility": "Modules/game-icons-net/blackbackground/body-balance.svg",
+    "fortitude": "Modules/game-icons-net/blackbackground/health-normal.svg",
+    "might": "Modules/game-icons-net/blackbackground/strong.svg",
     //Mental
-    "learning": "Modules/Game-Icons-Net/Blackbackground/Archive-Research.Svg",
-    "logic": "Modules/Game-Icons-Net/Blackbackground/Logic-Gate-Xor.Svg",
-    "perception": "Modules/Game-Icons-Net/Blackbackground/Semi-Closed-Eye.Svg",
-    "will": "Modules/Game-Icons-Net/Blackbackground/Brain.Svg",
+    "learning": "Modules/game-icons-net/blackbackground/archive-research.svg",
+    "logic": "Modules/game-icons-net/blackbackground/checkbox-tree.svg",
+    "perception": "Modules/game-icons-net/blackbackground/semi-closed-eye.svg",
+    "will": "Modules/game-icons-net/blackbackground/fist.svg"
     //Social
-    "deception": "Modules/Game-Icons-Net/Blackbackground/Diamonds-Smile.Svg",
-    "persuasion": "Modules/Game-Icons-Net/Blackbackground/Convince.Svg",
-    "presence": "Modules/Game-Icons-Net/Blackbackground/Public-Speaker.Svg",
+    "deception": "Modules/game-icons-net/blackbackground/duality-mask.svg",
+    "persuasion": "Modules/game-icons-net/blackbackground/shaking-hands.svg",
+    "presence": "Modules/game-icons-net/blackbackground/public-speaker.svg",
     //Extraordinary
-    "alteration": "Modules/Game-Icons-Net/Blackbackground/Card-Exchange.Svg",
-    "creation": "Modules/Game-Icons-Net/Blackbackground/Anvil-Impact.Svg",
-    "energy": "Modules/Game-Icons-Net/Blackbackground/Rolling-Energy.Svg",
-    "entropy": "Modules/Game-Icons-Net/Blackbackground/Poison.Svg",
-    "influence": "Modules/Game-Icons-Net/Blackbackground/Retro-Controller.Svg",
-    "movement": "Modules/Game-Icons-Net/Blackbackground/Move.Svg",
-    "prescience": "Modules/Game-Icons-Net/Blackbackground/Crystal-Ball.Svg",
-    "protection": "Modules/Game-Icons-Net/Blackbackground/Protection-Glasses.Svg"
+    "alteration": "Modules/game-icons-net/blackbackground/transform.svg",
+    "creation": "Modules/game-icons-net/blackbackground/anvil-impact.svg",
+    "energy": "Modules/game-icons-net/blackbackground/rolling-energy.svg",
+    "entropy": "Modules/game-icons-net/blackbackground/skull-bolt.svg",
+    "influence": "Modules/game-icons-net/blackbackground/hive-mind.svg",
+    "movement": "Modules/game-icons-net/blackbackground/tron-arrow.svg",
+    "prescience": "Modules/game-icons-net/blackbackground/crystal-ball.svg",
+    "protection": "Modules/game-icons-net/blackbackground/rosa-shield.svg"
 };
 
 /* -------------------------------------------- */
@@ -32,7 +32,8 @@ export async function createOLMacro(data, slot) {
     console.log("Open Legend | Creating a OlMacro for slot " + slot + " with data:");
     console.log(data);
     if (data.macro == 'attr') {
-        const command = `game.openlegend-ttrpg.macros.rollAttrMacro("${data.actor}", "${data.attr}")`;
+        console.log("Open Legend | Macro is for attribute " + data.attr)
+        const command = `game.openlegend.macros.rollAttrMacro("${data.actor}", "${data.attr}")`;
         let macro = game.macros.find(m => m.data.command === command);
         if (!macro) {
             macro = await Macro.create({
@@ -44,11 +45,11 @@ export async function createOLMacro(data, slot) {
         }
         game.user.assignHotbarMacro(macro, slot);
     } else if (data.macro == 'item') {
-        const command = `game.openlegend-ttrpg.macros.rollItemMacro("${data.actor}", "${data.item}")`;
+        const command = `game.openlegend.macros.rollItemMacro("${data.actor}", "${data.item}")`;
         let macro = game.macros.entities.find(m => m.command === command);
         if (!macro) {
             const actor = game.actors.get(data.actor);
-            const item = actor.getOwnedItem(data.item).data;
+            const item = actor.getOwnedItem(data.item);
             macro = await Macro.create({
                 name: data.name,
                 type: "script",
@@ -69,7 +70,7 @@ export async function rollAttrMacro(actor_id, attr_name) {
 
 export function rollItemMacro(actor_id, item_id) {
     const actor = game.actors.get(actor_id);
-    const item = actor.getOwnedItem(item_id).data;
+    const item = actor.getOwnedItem(item_id);
     rollItem(actor, item);
 }
 
