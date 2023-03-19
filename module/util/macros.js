@@ -70,7 +70,7 @@ export async function rollAttrMacro(actor_id, attr_name) {
 
 export function rollItemMacro(actor_id, item_id) {
     const actor = game.actors.get(actor_id);
-    const item = actor.getOwnedItem(item_id);
+    const item = actor.items.get(item_id);
     rollItem(actor, item);
 }
 
