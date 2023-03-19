@@ -2,6 +2,7 @@
 export function move_action_up(ev) {
     console.log("Open Legend | Move action up in character sheet");
     console.log(ev);
+    console.log(this.actor);
     // Get the item to move up
     const tag = ev.currentTarget;
     const item = this.actor.items.get(tag.dataset.item); // TODO gets wrong actor when sheet is opened via token
@@ -34,6 +35,7 @@ export function move_action_up(ev) {
 export function move_gear_up(ev) {
     console.log("Open Legend | Move gear up in character sheet");
     console.log(ev);
+    console.log(this.actor);
     // Get the item to move up
     const tag = ev.currentTarget;
     const item = this.actor.items.get(tag.dataset.item);
@@ -62,6 +64,7 @@ export function move_gear_up(ev) {
 export function move_feat_up(ev) {
     console.log("Open Legend | Move feat up in character sheet");
     console.log(ev);
+    console.log(this.actor);
     // Get the item to move up
     const tag = ev.currentTarget;
     const item = this.actor.items.get(tag.dataset.item);

@@ -3,10 +3,10 @@
 ## Open
 - Improve Character-Sheet-UI
 - make chat with input and buttons instead of advantage popup
-- item-move-up does not work when clicked in sheet opened via token-click
-- fix item-macros
 
 ## In Progress
+- item-move-up does not work when clicked in sheet opened via token-click
+- fix item-macros
 
 ## Done
 - Test all item html
