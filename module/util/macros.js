@@ -46,7 +46,7 @@ export async function createOLMacro(data, slot) {
         game.user.assignHotbarMacro(macro, slot);
     } else if (data.macro == 'item') {
         const command = `game.openlegend.macros.rollItemMacro("${data.actor}", "${data.item}")`;
-        let macro = game.macros.entities.find(m => m.command === command);
+        let macro = game.macros.find(m => m.command === command);
         if (!macro) {
             const actor = game.actors.get(data.actor);
             const item = actor.getOwnedItem(data.item);
