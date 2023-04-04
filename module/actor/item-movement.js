@@ -1,4 +1,3 @@
-
 export function move_action_up(ev) {
     console.log("Open Legend | Move action up in character sheet");
     console.log(ev);

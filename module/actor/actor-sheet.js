@@ -33,6 +33,10 @@ export class OlActorSheet extends ActorSheet {
   async getData(options) {
     console.log("Open Legend | Retrieving render data for OlActorSheet");
     const renderData = await super.getData(options);
+    console.log("Open Legend | super.getData()");
+    console.log(renderData);
+    console.log("Open Legend | this.actor");
+    console.log(this.actor);
 
     if (renderData.actions == undefined) {
       renderData.actions = [];
