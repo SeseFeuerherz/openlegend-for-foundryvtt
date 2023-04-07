@@ -67,7 +67,7 @@ export class OlActorSheet extends ActorSheet {
 
   /** @override */
   async _onDropItemCreate(itemData) {
-    const data = this.getData();
+    const data = await this.getData();
     console.log("Open Legend | Debug _onDropItemCreate data");
     console.log(data);
     if (itemData.system.action) {
@@ -137,7 +137,7 @@ export class OlActorSheet extends ActorSheet {
               const sub_item = this.actor.items.get(_sub_item._id);
               console.log("Open Legend | Debug sub-item");
               console.log(sub_item);
-              let new_item = sub_item.update({"system.action.index": curr_index});
+              let new_item = _sub_item.update({"system.action.index": curr_index});
               console.log("Open Legend | Debug updated sub-item");
               console.log(new_item);
             }
