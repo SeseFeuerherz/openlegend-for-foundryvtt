@@ -32,9 +32,9 @@ export class OlActorSheet extends ActorSheet {
   /** @override */
   async getData(options) {
     console.log("Open Legend | Retrieving render data for OlActorSheet");
+    console.log("Open Legend | this.actor");
+    console.log(this.actor);
     const renderData = await super.getData(options);
-    console.log("Open Legend | this");
-    console.log(this);
     console.log("Open Legend | super.getData()");
     console.log(renderData);
 
@@ -67,7 +67,7 @@ export class OlActorSheet extends ActorSheet {
 
   /** @override */
   async _onDropItemCreate(itemData) {
-    const data = await this.getData();
+    const data = this.getData();
     console.log("Open Legend | Debug _onDropItemCreate data");
     console.log(data);
     if (itemData.system.action) {
@@ -84,7 +84,7 @@ export class OlActorSheet extends ActorSheet {
     // Create the owned item as normal
     console.log("Open Legend | Debug _onDropItemCreate edited itemData");
     console.log(itemData);
-    return super._onDropItemCreate(itemData);
+    super._onDropItemCreate(itemData);
   }
 
   /** @override */
@@ -137,12 +137,16 @@ export class OlActorSheet extends ActorSheet {
               const sub_item = this.actor.items.get(_sub_item._id);
               console.log("Open Legend | Debug sub-item");
               console.log(sub_item);
-              sub_item.update({"system.action.index": curr_index});
+              let new_item = await sub_item.update({"system.action.index": curr_index});
+              console.log("Open Legend | Debug updated sub-item");
+              console.log(new_item);
             }
           }
         });
         // Update the main items index
-        item.update({"system.action.index": new_index});
+        let new_item = await item.update({"system.action.index": new_index});
+        console.log("Open Legend | Debug updated item");
+        console.log(new_item);
       }
     });
     html.find('.gear-move-up').click(move_gear_up.bind(this));
