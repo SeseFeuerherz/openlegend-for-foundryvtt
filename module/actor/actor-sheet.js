@@ -1,5 +1,4 @@
 import { rollAttr, rollItem } from "../util/dice.js";
-import { move_action_up, move_feat_up, move_gear_up } from "./item-movement.js";
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -31,12 +30,7 @@ export class OlActorSheet extends ActorSheet {
 
   /** @override */
   async getData(options) {
-    console.log("Open Legend | Retrieving render data for OlActorSheet");
-    console.log("Open Legend | this.actor");
-    console.log(this.actor);
     const renderData = await super.getData(options);
-    console.log("Open Legend | super.getData()");
-    console.log(renderData);
 
     if (renderData.actions == undefined) {
       renderData.actions = [];
@@ -68,8 +62,6 @@ export class OlActorSheet extends ActorSheet {
   /** @override */
   async _onDropItemCreate(itemData) {
     const data = await this.getData();
-    console.log("Open Legend | Debug _onDropItemCreate data");
-    console.log(data);
     if (itemData.system.action) {
       itemData.system.action.index = data.actions.length;
       itemData.system.action.name = itemData.name;
@@ -82,8 +74,6 @@ export class OlActorSheet extends ActorSheet {
       itemData.system.index = data.feats.length;
 
     // Create the owned item as normal
-    console.log("Open Legend | Debug _onDropItemCreate edited itemData");
-    console.log(itemData);
     super._onDropItemCreate(itemData);
   }
 
