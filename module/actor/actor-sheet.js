@@ -33,10 +33,12 @@ export class OlActorSheet extends ActorSheet {
   async getData(options) {
     console.log("Open Legend | Retrieving render data for OlActorSheet");
     const renderData = await super.getData(options);
-    console.log("Open Legend | super.getData()");
-    console.log(renderData);
+    console.log("Open Legend | super");
+    console.log(super);
     console.log("Open Legend | this");
     console.log(this);
+    console.log("Open Legend | super.getData()");
+    console.log(renderData);
 
     if (renderData.actions == undefined) {
       renderData.actions = [];
@@ -68,6 +70,8 @@ export class OlActorSheet extends ActorSheet {
   /** @override */
   async _onDropItemCreate(itemData) {
     const data = await this.getData();
+    console.log("Open Legend | Debug _onDropItemCreate data");
+    console.log(data);
     if (itemData.system.action) {
       itemData.system.action.index = data.actions.length;
       itemData.system.action.name = itemData.name;
@@ -80,6 +84,8 @@ export class OlActorSheet extends ActorSheet {
       itemData.system.index = data.feats.length;
 
     // Create the owned item as normal
+    console.log("Open Legend | Debug _onDropItemCreate edited itemData");
+    console.log(itemData);
     return super._onDropItemCreate(itemData);
   }
 
