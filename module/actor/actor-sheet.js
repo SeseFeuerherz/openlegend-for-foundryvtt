@@ -137,14 +137,14 @@ export class OlActorSheet extends ActorSheet {
               const sub_item = this.actor.items.get(_sub_item._id);
               console.log("Open Legend | Debug sub-item");
               console.log(sub_item);
-              let new_item = await sub_item.update({"system.action.index": curr_index});
+              let new_item = sub_item.update({"system.action.index": curr_index});
               console.log("Open Legend | Debug updated sub-item");
               console.log(new_item);
             }
           }
         });
         // Update the main items index
-        let new_item = await item.update({"system.action.index": new_index});
+        let new_item = item.update({"system.action.index": new_index});
         console.log("Open Legend | Debug updated item");
         console.log(new_item);
       }
