@@ -114,20 +114,12 @@ export class OlActorSheet extends ActorSheet {
 
     // Move items up in their corresponding rows
     html.find('.action-move-up').click(ev => {
-      console.log("Open Legend | Move action up in character sheet");
-      console.log(ev);
-      console.log(this);
       // Get the item to move up
       const tag = ev.currentTarget;
-      const item = this.actor.items.get(tag.dataset.item); // TODO gets wrong actor when sheet is opened via token
-      console.log("Open Legend | Debug item " + tag.dataset.item);
-      console.log(item);
+      const item = this.actor.items.get(tag.dataset.item);
       // Get this items current and new indexes
       const curr_index = item.system.action.index;
       const new_index = curr_index - 1;
-      console.log("Open Legend | Debug curr_index: " + curr_index + ", new_index: " +new_index);
-      console.log(curr_index);
-      console.log(new_index);
       const updates = [];
       // Skip if already at top
       if (curr_index > 0) {
@@ -138,43 +130,76 @@ export class OlActorSheet extends ActorSheet {
             if (i == new_index) {
               updates.push({
                 _id: _sub_item._id,
-                system:{
-                  action:{
-                    index: curr_index
-                  }
-                }
+                system:{action:{index: curr_index}}
               });
-              // Get the actual owned item and update its index
-//              const sub_item = this.actor.items.get(_sub_item._id);
-//              console.log("Open Legend | Debug sub-item");
-//              console.log(sub_item);
-//              let new_item = _sub_item.update({"system.action.index": curr_index});
-//              console.log("Open Legend | Debug updated sub-item");
-//              console.log(new_item);
             }
           }
         });
         updates.push({
           _id: item._id,
-          system:{
-            action:{
-              index: new_index
+          system:{action:{index: new_index}}
+        });
+        this.actor.updateEmbeddedDocuments("Item", updates);
+      }
+    });
+    html.find('.gear-move-up').click(ev => {
+      // Get the item to move up
+      const tag = ev.currentTarget;
+      const item = this.actor.items.get(tag.dataset.item);
+      // Get this items current and new indexes
+      const curr_index = item.system.gear.index;
+      const new_index = curr_index - 1;
+      const updates = [];
+      // Skip if already at top
+      if (curr_index > 0) {
+        // Find the item above it
+        this.actor.items.forEach(_sub_item => {
+          if (_sub_item.system.gear) {
+            const i = _sub_item.system.gear.index;
+            if (i == new_index) {
+              updates.push({
+                _id: _sub_item._id,
+                system:{gear:{index: curr_index}}
+              });
             }
           }
         });
-        console.log("Open Legend | Debug updates");
-        console.log(updates);
-        let updated = this.actor.updateEmbeddedDocuments("Item", updates);
-        console.log("Open Legend | Debug updated");
-        console.log(updated);
-        // Update the main items index
-//        let new_item = item.update({"system.action.index": new_index});
-//        console.log("Open Legend | Debug updated item");
-//        console.log(new_item);
+        updates.push({
+          _id: item._id,
+          system:{gear:{index: new_index}}
+        });
+        this.actor.updateEmbeddedDocuments("Item", updates);
       }
     });
-    html.find('.gear-move-up').click(move_gear_up.bind(this));
-    html.find('.feat-move-up').click(move_feat_up.bind(this));
+    html.find('.feat-move-up').click(ev => {
+      // Get the item to move up
+      const tag = ev.currentTarget;
+      const item = this.actor.items.get(tag.dataset.item);
+      // Get this items current and new indexes
+      const curr_index = item.system.index;
+      const new_index = curr_index - 1;
+      const updates = [];
+      // Skip if already at top
+      if (curr_index > 0) {
+        // Find the item above it
+        this.actor.items.forEach(_sub_item => {
+          if (_sub_item.type == 'feat') {
+            const i = _sub_item.system.index;
+            if (i == new_index) {
+              updates.push({
+                _id: _sub_item._id,
+                system:{index: curr_index}
+              });
+            }
+          }
+        });
+        updates.push({
+          _id: item._id,
+          system:{index: new_index}
+        });
+        this.actor.updateEmbeddedDocuments("Item", updates);
+      }
+    });
 
     // Delete Inventory Item
     html.find('.item-delete').click(ev => {
