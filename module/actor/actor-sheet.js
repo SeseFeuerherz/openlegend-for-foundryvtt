@@ -126,6 +126,9 @@ export class OlActorSheet extends ActorSheet {
       const curr_index = item.system.action.index;
       const new_index = curr_index - 1;
       console.log("Open Legend | Debug curr_index: " + curr_index + ", new_index: " +new_index);
+      console.log(curr_index);
+      console.log(new_index);
+      const updates = [];
       // Skip if already at top
       if (curr_index > 0) {
         // Find the item above it
@@ -133,20 +136,41 @@ export class OlActorSheet extends ActorSheet {
           if (_sub_item.system.action) {
             const i = _sub_item.system.action.index;
             if (i == new_index) {
+              updates.push({
+                _id: _sub_item._id,
+                system:{
+                  action:{
+                    index: curr_index
+                  }
+                }
+              });
               // Get the actual owned item and update its index
-              const sub_item = this.actor.items.get(_sub_item._id);
-              console.log("Open Legend | Debug sub-item");
-              console.log(sub_item);
-              let new_item = _sub_item.update({"system.action.index": curr_index});
-              console.log("Open Legend | Debug updated sub-item");
-              console.log(new_item);
+//              const sub_item = this.actor.items.get(_sub_item._id);
+//              console.log("Open Legend | Debug sub-item");
+//              console.log(sub_item);
+//              let new_item = _sub_item.update({"system.action.index": curr_index});
+//              console.log("Open Legend | Debug updated sub-item");
+//              console.log(new_item);
             }
           }
         });
+        updates.push({
+          _id: item._id,
+          system:{
+            action:{
+              index: new_index
+            }
+          }
+        });
+        console.log("Open Legend | Debug updates");
+        console.log(updates);
+        let updated = this.actor.updateEmbeddedDocuments("Item", updates);
+        console.log("Open Legend | Debug updated");
+        console.log(updated);
         // Update the main items index
-        let new_item = item.update({"system.action.index": new_index});
-        console.log("Open Legend | Debug updated item");
-        console.log(new_item);
+//        let new_item = item.update({"system.action.index": new_index});
+//        console.log("Open Legend | Debug updated item");
+//        console.log(new_item);
       }
     });
     html.find('.gear-move-up').click(move_gear_up.bind(this));
