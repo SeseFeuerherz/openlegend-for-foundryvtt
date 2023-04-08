@@ -87,12 +87,9 @@ export class OlActorSheet extends ActorSheet {
     if (!this.options.editable) return;
 
     html.find('.macro').on('dragstart', ev => {
-      console.log("Open Legend | Debug .macro dragstart");
-      console.log(ev);
       const dataset = ev.currentTarget.dataset;
       dataset.actor = this.actor._id;
       ev.originalEvent.dataTransfer.setData("text/plain", JSON.stringify(dataset));
-      console.log(ev);
     });
 
     // Update Inventory Item

@@ -34,7 +34,7 @@ export async function createOLMacro(data, slot) {
     if (data.macro == 'attr') {
         console.log("Open Legend | Macro is for attribute " + data.attr)
         const command = `game.openlegend.macros.rollAttrMacro("${data.actor}", "${data.attr}")`;
-        let macro = game.macros.find(m => m.data.command === command);
+        let macro = game.macros.find(m => m.command === command);
         if (!macro) {
             macro = await Macro.create({
                 name: _capitalize(data.attr),
@@ -49,7 +49,9 @@ export async function createOLMacro(data, slot) {
         let macro = game.macros.find(m => m.command === command);
         if (!macro) {
             const actor = game.actors.get(data.actor);
+            console.log(actor);
             const item = actor.items.get(data.item);
+            console.log(item);
             macro = await Macro.create({
                 name: data.name + " " + _capitalize(item.system.action.attribute),
                 type: "script",
