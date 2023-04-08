@@ -1,4 +1,13 @@
-<a {{#if item.system.action.attribute}}class="rollable macro" draggable="true"{{/if}} title="Roll" data-item="{{item._id}}"><i class="fas fa-dice-d20 {{#unless item.system.action.attribute}}tooltip{{/unless}}">{{#unless item.system.action.attribute}}<span class="tooltiptext">Attribute must be selected</span>{{/unless}}</i></a>
+{{#if item.system.action.attribute}}
+  <a class="rollable macro" draggable="true" title="Roll" data-item="{{item._id}}">
+    <i class="fas fa-dice-d20"></i>
+  </a>
+{{/if}}
+{{#unless item.system.action.attribute}}
+  <a title="Attribute must be selected" data-item="{{item._id}}">
+    <i class="fas fa-dice-d20" style="opacity: 50%;"></i>
+  </a>
+{{/unless}}
 <input class="action-edit" data-item="{{item._id}}" data-field="action_name" type="text" value="{{item.system.action.name}}"/>
 <div class="action-type">{{item.type}}</div>
 <select class="action-edit action-attribute" data-item="{{item._id}}" data-field="action_attr">
