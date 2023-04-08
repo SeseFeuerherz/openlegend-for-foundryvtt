@@ -3,9 +3,9 @@
 ## Open
 - Improve Character-Sheet-UI
 - make chat with input and buttons instead of advantage popup
+- fix item-macros, item-macros can only be created when using main-sheet (not token-sheet)
 
 ## In Progress
-- fix item-macros
 
 ## Done
 - item-move-up does not work when clicked in sheet opened via token-click

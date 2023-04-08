@@ -49,9 +49,7 @@ export async function createOLMacro(data, slot) {
         let macro = game.macros.find(m => m.command === command);
         if (!macro) {
             const actor = game.actors.get(data.actor);
-            console.log(actor);
             const item = actor.items.get(data.item);
-            console.log(item);
             macro = await Macro.create({
                 name: data.name + " " + _capitalize(item.system.action.attribute),
                 type: "script",
