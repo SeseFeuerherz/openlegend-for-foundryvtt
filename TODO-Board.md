@@ -1,4 +1,4 @@
-# TODO-Board
+ # TODO-Board
 
 ## Open
 - Improve Character-Sheet-UI
@@ -6,9 +6,10 @@
 - add error handling for item macro creation when no attr is selected
 
 ## In Progress
-- item-move-up does not work when clicked in sheet opened via token-click
+- make action unmacroable und unrollable when no attribute is selected, since it won't work
 
 ## Done
+- item-move-up does not work when clicked in sheet opened via token-click
 - Test all item html
 - Test NPC-Sheet
 - Fix item-sheet.js and item.js
