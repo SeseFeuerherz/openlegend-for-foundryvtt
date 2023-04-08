@@ -2,7 +2,7 @@
   "id": "openlegend-ttrpg",
   "title": "Open Legend RPG",
   "description": "The Open Legend RPG system for FoundryVTT!",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "compatibility": {
     "minimum": "10",
     "verified": "10",
@@ -101,6 +101,6 @@
   "download": "https://github.com/SeseFeuerherz/openlegend-for-foundryvtt/archive/refs/heads/release/1.zip",
   "license": "LICENSE.txt",
   "readme": "README.md",
-  "TODO bugs": "A publicly accessible URL where issues, suggestions, and bug reports may be filed.",
+  "bugs": "https://github.com/SeseFeuerherz/openlegend-for-foundryvtt/issues",
   "TODO changelog": "A publicly accessible URL where update and release notes about the package may be found."
 }

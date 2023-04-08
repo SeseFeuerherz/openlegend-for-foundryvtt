@@ -1,5 +1,4 @@
 import { rollAttr, rollItem } from "../util/dice.js";
-import { move_action_up, move_feat_up, move_gear_up } from "./item-movement.js";
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -31,7 +30,6 @@ export class OlActorSheet extends ActorSheet {
 
   /** @override */
   async getData(options) {
-    console.log("Open Legend | Retrieving render data for OlActorSheet");
     const renderData = await super.getData(options);
 
     if (renderData.actions == undefined) {
@@ -76,7 +74,7 @@ export class OlActorSheet extends ActorSheet {
       itemData.system.index = data.feats.length;
 
     // Create the owned item as normal
-    return super._onDropItemCreate(itemData);
+    super._onDropItemCreate(itemData);
   }
 
   /** @override */
@@ -102,9 +100,93 @@ export class OlActorSheet extends ActorSheet {
     });
 
     // Move items up in their corresponding rows
-    html.find('.action-move-up').click(move_action_up.bind(this));
-    html.find('.gear-move-up').click(move_gear_up.bind(this));
-    html.find('.feat-move-up').click(move_feat_up.bind(this));
+    html.find('.action-move-up').click(ev => {
+      // Get the item to move up
+      const tag = ev.currentTarget;
+      const item = this.actor.items.get(tag.dataset.item);
+      // Get this items current and new indexes
+      const curr_index = item.system.action.index;
+      const new_index = curr_index - 1;
+      const updates = [];
+      // Skip if already at top
+      if (curr_index > 0) {
+        // Find the item above it
+        this.actor.items.forEach(_sub_item => {
+          if (_sub_item.system.action) {
+            const i = _sub_item.system.action.index;
+            if (i == new_index) {
+              updates.push({
+                _id: _sub_item._id,
+                system:{action:{index: curr_index}}
+              });
+            }
+          }
+        });
+        updates.push({
+          _id: item._id,
+          system:{action:{index: new_index}}
+        });
+        this.actor.updateEmbeddedDocuments("Item", updates);
+      }
+    });
+    html.find('.gear-move-up').click(ev => {
+      // Get the item to move up
+      const tag = ev.currentTarget;
+      const item = this.actor.items.get(tag.dataset.item);
+      // Get this items current and new indexes
+      const curr_index = item.system.gear.index;
+      const new_index = curr_index - 1;
+      const updates = [];
+      // Skip if already at top
+      if (curr_index > 0) {
+        // Find the item above it
+        this.actor.items.forEach(_sub_item => {
+          if (_sub_item.system.gear) {
+            const i = _sub_item.system.gear.index;
+            if (i == new_index) {
+              updates.push({
+                _id: _sub_item._id,
+                system:{gear:{index: curr_index}}
+              });
+            }
+          }
+        });
+        updates.push({
+          _id: item._id,
+          system:{gear:{index: new_index}}
+        });
+        this.actor.updateEmbeddedDocuments("Item", updates);
+      }
+    });
+    html.find('.feat-move-up').click(ev => {
+      // Get the item to move up
+      const tag = ev.currentTarget;
+      const item = this.actor.items.get(tag.dataset.item);
+      // Get this items current and new indexes
+      const curr_index = item.system.index;
+      const new_index = curr_index - 1;
+      const updates = [];
+      // Skip if already at top
+      if (curr_index > 0) {
+        // Find the item above it
+        this.actor.items.forEach(_sub_item => {
+          if (_sub_item.type == 'feat') {
+            const i = _sub_item.system.index;
+            if (i == new_index) {
+              updates.push({
+                _id: _sub_item._id,
+                system:{index: curr_index}
+              });
+            }
+          }
+        });
+        updates.push({
+          _id: item._id,
+          system:{index: new_index}
+        });
+        this.actor.updateEmbeddedDocuments("Item", updates);
+      }
+    });
 
     // Delete Inventory Item
     html.find('.item-delete').click(ev => {
@@ -184,12 +266,6 @@ export class OlActorSheet extends ActorSheet {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
-    console.log("Open Legend | Debug - Roll element:");
-    console.log(element);
-    console.log("Open Legend | Debug - Roll dataset:");
-    console.log(dataset);
-    console.log("Open Legend | Debug - Roll context:");
-    console.log(this);
 
     // Roll using the appropriate logic -- item vs attribute
     if (dataset.item)
