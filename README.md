@@ -13,7 +13,7 @@ https://raw.githubusercontent.com/SeseFeuerherz/openlegend-for-foundryvtt/releas
 * Automated, item-oriented character sheet
   * Drag and drop Boons, Banes, Feats, Perks, Armors, and Weapons onto the sheet
 * Drag and drop Macro support
-  * Drag any rollable onto the macro bar for easy macros
+  * Drag any rollable onto the macro bar for easy macros (item-macros only work when created from main sheet, not from token-sheet)
 * Compendiums for Boons, Banes, Feats, Perks, and Flaws
 
 ## Possible Future Work
