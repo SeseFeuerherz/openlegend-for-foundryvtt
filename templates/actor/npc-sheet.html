@@ -9,33 +9,33 @@
                 </div>
                 <div class="flex-shrink text-input">
                     <label>Level:</label>
-                    <input class="single_digit" name="data..system.level" type="number" value="{{data.system.level}}" />
+                    <input class="single_digit" name="system.level" type="number" value="{{data.system.level}}" />
                 </div>
                 <div class="flex-shrink text-input">
                     <label>BossEdge:</label>
-                    <input class="single_digit" name="data.system.boss_edge" type="number" value="{{data.system.boss_edge}}" />
+                    <input class="single_digit" name="system.boss_edge" type="number" value="{{data.system.boss_edge}}" />
                 </div>
             </div>
             <div class="npc-row text-input">
                 <label>Description:</label>
-                <input name="data.system.description" type="text" value="{{data.system.description}}" placeholder="" />
+                <input name="system.description" type="text" value="{{data.system.description}}" placeholder="" />
             </div>
             <div class="npc-row flexrow">
                 <div class="text-input npc-hp">
                     <label>MaxHP:</label>
-                    <input class="double_digit npc_hp_edit" type="number" value="{{data.system.defense.hp.max}}" />
+                    <input class="double_digit npc_hp_edit" name="system.defense.hp.max" type="number" value="{{data.system.defense.hp.max}}" />
                 </div>
                 <div class="text-input npc-defense">
                     <label>Guard:</label>
-                    <input class="double_digit" name="data.system.defense.guard.value" type="number" value="{{data.system.defense.guard.value}}" />
+                    <input class="double_digit" name="system.defense.guard.value" type="number" value="{{data.system.defense.guard.value}}" />
                 </div>
                 <div class="text-input npc-defense">
                     <label>Tough:</label>
-                    <input class="double_digit" name="data.system.defense.toughness.value" type="number" value="{{data.system.defense.toughness.value}}" />
+                    <input class="double_digit" name="system.defense.toughness.value" type="number" value="{{data.system.defense.toughness.value}}" />
                 </div>
                 <div class="text-input npc-defense">
                     <label>Resolve:</label>
-                    <input class="double_digit" name="data.system.defense.resolve.value" type="number" value="{{data.system.defense.resolve.value}}" />
+                    <input class="double_digit" name="system.defense.resolve.value" type="number" value="{{data.system.defense.resolve.value}}" />
                 </div>
             </div>
             <div class="npc-row flexrow">
@@ -45,11 +45,11 @@
                             <i class="fas fa-dice-d20"></i>
                         </a>InitMod:
                     </label>
-                    <input class="single_digit" name="data.system.initiative_mod" type="number" value="{{data.system.initiative_mod}}" />
+                    <input class="single_digit" name="system.initiative_mod" type="number" value="{{data.system.initiative_mod}}" />
                 </div>
                 <div class="details-speed text-input">
                     <label>Speed:</label>
-                    <input class="double_digit" name="data.system.speed" type="number" value="{{data.system.speed}}" placeholder="30" />
+                    <input class="double_digit" name="system.speed" type="number" value="{{data.system.speed}}" placeholder="30" />
                 </div>
                 <div class="text-input">
                     <label>Attr:</label>
@@ -57,7 +57,7 @@
                 </div>
                 <div class="text-input">
                     <label>Feats:</label>
-                    <label>{{data.system.feat_points.spent}}/{{data.system.feat_points.availabe}}</label>
+                    <label>{{data.system.feat_points.spent}}/{{data.system.feat_points.available}}</label>
                 </div>
             </div>
         </div>
