@@ -16,8 +16,8 @@ Hooks.once('init', async function() {
 
   
   console.log("Open Legend | Set default initiative formula");
-  CONFIG.Combat.initiative = {formula: "1d20X"};
-  Combat.prototype._getInitiativeFormula = _getInitiativeFormula;
+  CONFIG.Combat.initiative.formula = "1d20X";
+  Combatant.prototype._getInitiativeFormula = _getInitiativeFormula;
 
   
   console.log("Open Legend | Define custom document classes");
@@ -71,8 +71,8 @@ Hooks.once("ready", function() {
   console.log("Open Legend | Registered callback for hotbarDrop on ready");
 });
 
-export const _getInitiativeFormula = function(combatant) {
-  const actor = combatant.actor;
+export const _getInitiativeFormula = function() {
+  const actor = this.actor;
   if ( !actor ) return "1d20";
   const agi = actor.system.attributes.physical.agility.dice;
   
@@ -90,10 +90,10 @@ export const _getInitiativeFormula = function(combatant) {
       return "2d20kh1X";
   }
   // Generate KH/KL for adv/dis
-  const keep_str = init_mod < 0 ? `kl${agi.num}X` : `kh${agi.num}X`;
+  const keep_str = init_mod < 0 ? `kl${agi.num}` : `kh${agi.num}`;
   const multiplier = Math.abs(init_mod)+1;
-  const dice_to_roll = multiplier * agi.num;
-  const formula = `1d20X + ${dice_to_roll}${agi.die}${keep_str}`;
+  const dice_to_roll = multiplier + agi.num;
+  const formula = `1d20X + ${dice_to_roll}${agi.die}${keep_str}X`;
   return formula;
   console.log("Open Legend | Calculated initiative formula of a combatant");
 };
