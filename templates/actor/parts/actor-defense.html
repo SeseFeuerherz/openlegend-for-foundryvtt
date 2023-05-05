@@ -24,6 +24,11 @@
         <div>{{data.system.defense.guard.armor}}</div>
         <div>Other</div>
         <input name="system.defense.guard.other" type="number" value="{{data.system.defense.guard.other}}" placeholder="0" />
+        {{#each data.system.defense.guard.modifiers as |mod|}}
+        <input class="guard-mod-name-setter" type="text" data-mod_id="{{mod.id}}" value="{{mod.name}}" />
+        <input class="guard-mod-value-setter single_digit" type="number" data-mod_id="{{mod.id}}" value="{{mod.value}}" />
+        {{/each}}
+        <button class="add-guard-mod">Add Modifier</button>
     </div>
 </div>
 <div class="toughness defense-grid">
@@ -38,6 +43,8 @@
         <div>{{data.system.attributes.mental.will.score}}</div>
         <div>Other</div>
         <input name="system.defense.toughness.other" type="number" value="{{data.system.defense.toughness.other}}" placeholder="0" />
+
+        <button class="add-tough-mod">Add Modifier</button>
     </div>
 </div>
 <div class="resolve defense-grid">
@@ -52,5 +59,7 @@
         <div>{{data.system.attributes.mental.will.score}}</div>
         <div>Other</div>
         <input name="system.defense.resolve.other" type="number" value="{{data.system.defense.resolve.other}}" placeholder="0" />
+
+        <button class="add-resolve-mod">Add Modifier</button>
     </div>
 </div>
