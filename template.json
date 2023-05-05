@@ -25,20 +25,24 @@
             "value": 10,
             "min": 0,
             "max": 10,
-            "lethal": 0
+            "lethal": 0,
+            "modifier": 0
           },
           "guard": {
             "value": 10,
             "armor": 0,
-            "other": 0
+            "other": 0,
+            "modifiers": []
           },
           "toughness": {
             "value": 10,
-            "other": 0
+            "other": 0,
+            "modifiers": []
           },
           "resolve": {
             "value": 10,
-            "other": 0
+            "other": 0,
+            "modifiers": []
           }
         },
         "attributes": {
@@ -82,7 +86,7 @@
     }
   },
   "Item": {
-    "types": ["boon", "bane", "weapon", "armor", "generic", "feat", "perk", "flaw", "attack"],
+    "types": ["boon", "bane", "weapon", "armor", "generic", "feat", "perk", "flaw", "attack", "modifier"],
     "templates": {
       "flavor": {
         "details": {
@@ -171,6 +175,10 @@
     "attack": {
       "templates": ["flavor", "core", "actionable"],
       "attacks": []
+    },
+    "modifier": {
+      "name": "",
+      "value": 0
     }
   }
 }

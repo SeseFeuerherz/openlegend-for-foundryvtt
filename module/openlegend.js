@@ -91,7 +91,7 @@ export const _getInitiativeFormula = function() {
   }
   // Generate KH/KL for adv/dis
   const keep_str = init_mod < 0 ? `kl${agi.num}` : `kh${agi.num}`;
-  const multiplier = Math.abs(init_mod)+1;
+  const multiplier = Math.abs(init_mod);
   const dice_to_roll = multiplier + agi.num;
   const formula = `1d20X + ${dice_to_roll}${agi.die}${keep_str}X`;
   return formula;
