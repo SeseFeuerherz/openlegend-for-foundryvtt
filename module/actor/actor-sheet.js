@@ -68,7 +68,10 @@ export class OlActorSheet extends ActorSheet {
     }
 
     if (itemData.system.gear)
+    {
       itemData.system.gear.index = data.gear.length;
+      // TODO create attack if weapon
+    }
 
     if (itemData.type == 'feat')
       itemData.system.index = data.feats.length;
@@ -249,6 +252,25 @@ export class OlActorSheet extends ActorSheet {
     html.find('.rollable').click(this._onRoll.bind(this));
     html.find('.init-rollable').click(ev => {
       this.actor.rollInitiative({createCombatants: true});
+    });
+
+    html.find('.add-guard-mod').click(ev => {
+      const modId = ev.currentTarget.dataset.mod_id;
+      this.actor.addGuardMod();
+    });
+    html.find('.delete-guard-mod').click(ev => {
+      const modId = ev.currentTarget.dataset.mod_id;
+      this.actor.deleteDefenseMod(modId);
+    });
+    html.find('.guard-mod-name-setter').click(ev => {
+      const modId = ev.currentTarget.dataset.mod_id;
+      const newName = ev.currentTarget.value;
+      this.actor.setDefenseModName(modId, newName);
+    });
+    html.find('.guard-mod-value-setter').click(ev => {
+      const modId = ev.currentTarget.dataset.mod_id;
+      const modifier = ev.currentTarget.value;
+      this.actor.setDefenseModValue(modId, modifier);
     });
 
     console.log("Open Legend | Activated listeners for OlActorSheet");

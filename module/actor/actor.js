@@ -122,4 +122,31 @@ export class OlActor extends Actor {
     }
   }
 
+  addGuardMod() {
+    const newMod = await Item.create({name: "Guard Modifier", type: "modifier"});
+    const guardModifiers = this.system.defense.guard.modifiers;
+    guardModifiers.push(newMod);
+    this.update({
+      system:{defense:{guard:{modifiers: guardModifiers}}}
+    });
+  }
+
+  deleteDefenseMod(modId) {
+    this.deleteEmbeddedDocuments("Item", [modId]);
+  }
+
+  setDefenseModName(modId, newName) {
+    this.updateEmbeddedDocuments("Item", [{
+      _id: modId,
+      system:{name: newName}
+    }]);
+  }
+
+  setDefenseModValue(modId, newValue) {
+    this.updateEmbeddedDocuments("Item", [{
+      _id: modId,
+      system:{value: newValue}
+    }]);
+  }
+
 }

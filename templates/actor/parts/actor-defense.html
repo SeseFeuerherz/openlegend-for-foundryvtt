@@ -25,8 +25,9 @@
         <div>Other</div>
         <input name="system.defense.guard.other" type="number" value="{{data.system.defense.guard.other}}" placeholder="0" />
         {{#each data.system.defense.guard.modifiers as |mod|}}
-        <input class="guard-mod-name-setter" type="text" data-mod_id="{{mod.id}}" value="{{mod.name}}" />
-        <input class="guard-mod-value-setter single_digit" type="number" data-mod_id="{{mod.id}}" value="{{mod.value}}" />
+        <input class="guard-mod-name-setter" type="text" data-mod_id="{{mod._id}}" value="{{mod.name}}" />
+        <input class="guard-mod-value-setter single_digit" type="number" data-mod_id="{{mod._id}}" value="{{mod.value}}" />
+        <a class="delete-guard-mod" title="Delete" data-mod_id="{{mod._id}}"><i class="fas fa-trash"></i></a>
         {{/each}}
         <button class="add-guard-mod">Add Modifier</button>
     </div>
