@@ -122,7 +122,7 @@ export class OlActor extends Actor {
     }
   }
 
-  addGuardMod() {
+  async addGuardMod() {
     const newMod = await Item.create({name: "Guard Modifier", type: "modifier"});
     const guardModifiers = this.system.defense.guard.modifiers;
     guardModifiers.push(newMod);
