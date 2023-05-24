@@ -177,6 +177,7 @@
       "attacks": []
     },
     "modifier": {
+      "index": 0,
       "name": "",
       "value": 0
     }

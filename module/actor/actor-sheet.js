@@ -255,7 +255,6 @@ export class OlActorSheet extends ActorSheet {
     });
 
     html.find('.add-guard-mod').click(ev => {
-      const modId = ev.currentTarget.dataset.mod_id;
       this.actor.addGuardMod();
     });
     html.find('.delete-guard-mod').click(ev => {
