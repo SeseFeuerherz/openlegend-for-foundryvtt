@@ -127,6 +127,7 @@ export class OlActor extends Actor {
     const guardModifiers = this.system.defense.guard.modifiers;
     guardModifiers.push(newMod);
     this.update({
+      _id: this._id,
       system:{defense:{guard:{modifiers: guardModifiers}}}
     });
   }
