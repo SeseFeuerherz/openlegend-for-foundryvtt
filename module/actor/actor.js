@@ -124,8 +124,8 @@ export class OlActor extends Actor {
 
   async addGuardMod() {
     const newIndex = this.system.defense.guard.modifiers.length;
-    const newMod = await Item.create({index: newIndex, name: "Guard Modifier", type: "modifier"});
-    const guardModifiers = this.system.defense.guard.modifiers; // TODO use index instead of id
+    const newMod = {index: newIndex, name: "Guard Modifier", value:0};
+    const guardModifiers = this.system.defense.guard.modifiers;
     guardModifiers.push(newMod);
     this.update({
       _id: this._id,
