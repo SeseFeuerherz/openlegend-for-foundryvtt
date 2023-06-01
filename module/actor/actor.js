@@ -133,22 +133,34 @@ export class OlActor extends Actor {
     });
   }
 
-  deleteDefenseMod(modId) {
-    this.deleteEmbeddedDocuments("Item", [modId]);
+  deleteGuardMod(modIdx) {
+    const guardModifiers = this.system.defense.guard.modifiers;
+    const remainingModifiers = guardModifiers.filter(mod => mod.index == modIdx);
+    remainingModifiers.forEach((mod, newIdx) => mod.index = newIdx);
+    this.update({
+      _id: this._id,
+      system:{defense:{guard:{modifiers: remainingModifiers}}}
+    });
   }
 
-  setDefenseModName(modId, newName) {
-    this.updateEmbeddedDocuments("Item", [{
-      _id: modId,
-      system:{name: newName}
-    }]);
+  setGuardModName(modIdx, newName) {
+    const guardModifiers = this.system.defense.guard.modifiers;
+    const mod = guardModifiers.find(mod => mod.index == modIdx);
+    mod.name = newName;
+    this.update({
+      _id: this._id,
+      system:{defense:{guard:{modifiers: guardModifiers}}}
+    });
   }
 
-  setDefenseModValue(modId, newValue) {
-    this.updateEmbeddedDocuments("Item", [{
-      _id: modId,
-      system:{value: newValue}
-    }]);
+  setGuardModValue(modIdx, newValue) {
+    const guardModifiers = this.system.defense.guard.modifiers;
+    const mod = guardModifiers.find(mod => mod.index == modIdx);
+    mod.value = newValue;
+    this.update({
+      _id: this._id,
+      system:{defense:{guard:{modifiers: guardModifiers}}}
+    });
   }
 
 }

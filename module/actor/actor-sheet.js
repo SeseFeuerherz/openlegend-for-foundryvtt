@@ -258,18 +258,18 @@ export class OlActorSheet extends ActorSheet {
       this.actor.addGuardMod();
     });
     html.find('.delete-guard-mod').click(ev => {
-      const modId = ev.currentTarget.dataset.mod_id;
-      this.actor.deleteDefenseMod(modId);
+      const modIdx = ev.currentTarget.dataset.mod_index;
+      this.actor.deleteGuardMod(modIdx);
     });
     html.find('.guard-mod-name-setter').click(ev => {
-      const modId = ev.currentTarget.dataset.mod_id;
+      const modIdx = ev.currentTarget.dataset.mod_index;
       const newName = ev.currentTarget.value;
-      this.actor.setDefenseModName(modId, newName);
+      this.actor.setGuardModName(modIdx, newName);
     });
     html.find('.guard-mod-value-setter').click(ev => {
-      const modId = ev.currentTarget.dataset.mod_id;
+      const modIdx = ev.currentTarget.dataset.mod_index;
       const modifier = ev.currentTarget.value;
-      this.actor.setDefenseModValue(modId, modifier);
+      this.actor.setGuardModValue(modIdx, modifier);
     });
 
     console.log("Open Legend | Activated listeners for OlActorSheet");
