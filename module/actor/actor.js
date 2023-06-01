@@ -145,8 +145,8 @@ export class OlActor extends Actor {
 
   setGuardModName(modIdx, newName) {
     const guardModifiers = this.system.defense.guard.modifiers;
-    const mod = guardModifiers.find(mod => mod.index == modIdx);
-    mod.name = newName;
+    const modToEdit = guardModifiers.find(mod => mod.index == modIdx);
+    modToEdit.name = newName;
     this.update({
       _id: this._id,
       system:{defense:{guard:{modifiers: guardModifiers}}}
@@ -155,8 +155,8 @@ export class OlActor extends Actor {
 
   setGuardModValue(modIdx, newValue) {
     const guardModifiers = this.system.defense.guard.modifiers;
-    const mod = guardModifiers.find(mod => mod.index == modIdx);
-    mod.value = newValue;
+    const modToEdit = guardModifiers.find(mod => mod.index == modIdx);
+    modToEdit.value = newValue;
     this.update({
       _id: this._id,
       system:{defense:{guard:{modifiers: guardModifiers}}}
