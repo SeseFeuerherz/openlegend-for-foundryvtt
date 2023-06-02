@@ -24,12 +24,6 @@
         <div>{{data.system.defense.guard.armor}}</div>
         <div><input name="system.defense.guard.other_text" type="text" value="{{data.system.defense.guard_text}}" placeholder="other" /></div>
         <input name="system.defense.guard.other" type="number" value="{{data.system.defense.guard.other}}" placeholder="0" />
-        {{#each data.system.defense.guard.modifiers as |mod|}}
-        <input class="guard-mod-name-setter" type="text" data-mod_index="{{mod.index}}" value="{{mod.name}}" />
-        <input class="guard-mod-value-setter single_digit" type="number" data-mod_index="{{mod.index}}" value="{{mod.value}}" />
-        <a class="delete-guard-mod" title="Delete" data-mod_index="{{mod.index}}"><i class="fas fa-trash"></i></a>
-        {{/each}}
-        <button class="add-guard-mod">Add Modifier</button>
     </div>
 </div>
 <div class="toughness defense-grid">
