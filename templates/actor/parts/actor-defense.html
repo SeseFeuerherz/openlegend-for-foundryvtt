@@ -22,7 +22,7 @@
         <div>{{data.system.attributes.physical.might.score}}</div>
         <div>Armor</div>
         <div>{{data.system.defense.guard.armor}}</div>
-        <div>Other</div>
+        <div><input name="system.defense.guard.other_text" type="text" value="{{data.system.defense.guard_text}}" placeholder="other" /></div>
         <input name="system.defense.guard.other" type="number" value="{{data.system.defense.guard.other}}" placeholder="0" />
         {{#each data.system.defense.guard.modifiers as |mod|}}
         <input class="guard-mod-name-setter" type="text" data-mod_index="{{mod.index}}" value="{{mod.name}}" />
