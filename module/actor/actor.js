@@ -121,46 +121,4 @@ export class OlActor extends Actor {
       default: return {"str": "X", "num": 0, "die": 0};
     }
   }
-
-  async addGuardMod() {
-    const newIndex = this.system.defense.guard.modifiers.length;
-    const newMod = {index: newIndex, name: "Guard Modifier", value:0};
-    const guardModifiers = this.system.defense.guard.modifiers;
-    guardModifiers.push(newMod);
-    this.update({
-      _id: this._id,
-      system:{defense:{guard:{modifiers: guardModifiers}}}
-    });
-  }
-
-  deleteGuardMod(modIdx) {
-    const guardModifiers = this.system.defense.guard.modifiers;
-    const remainingModifiers = guardModifiers.filter(mod => mod.index == modIdx);
-    remainingModifiers.forEach((mod, newIdx) => mod.index = newIdx);
-    this.update({
-      _id: this._id,
-      system:{defense:{guard:{modifiers: remainingModifiers}}}
-    });
-  }
-
-  setGuardModName(modIdx, newName) {
-    const guardModifiers = this.system.defense.guard.modifiers;
-    const modToEdit = guardModifiers.find(mod => mod.index == modIdx);
-    modToEdit.name = newName;
-    this.update({
-      _id: this._id,
-      system:{defense:{guard:{modifiers: guardModifiers}}}
-    });
-  }
-
-  setGuardModValue(modIdx, newValue) {
-    const guardModifiers = this.system.defense.guard.modifiers;
-    const modToEdit = guardModifiers.find(mod => mod.index == modIdx);
-    modToEdit.value = newValue;
-    this.update({
-      _id: this._id,
-      system:{defense:{guard:{modifiers: guardModifiers}}}
-    });
-  }
-
 }

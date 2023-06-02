@@ -254,24 +254,6 @@ export class OlActorSheet extends ActorSheet {
       this.actor.rollInitiative({createCombatants: true});
     });
 
-    html.find('.add-guard-mod').click(ev => {
-      this.actor.addGuardMod();
-    });
-    html.find('.delete-guard-mod').click(ev => {
-      const modIdx = ev.currentTarget.dataset.mod_index;
-      this.actor.deleteGuardMod(modIdx);
-    });
-    html.find('.guard-mod-name-setter').click(ev => {
-      const modIdx = ev.currentTarget.dataset.mod_index;
-      const newName = ev.currentTarget.value;
-      this.actor.setGuardModName(modIdx, newName);
-    });
-    html.find('.guard-mod-value-setter').click(ev => {
-      const modIdx = ev.currentTarget.dataset.mod_index;
-      const modifier = ev.currentTarget.value;
-      this.actor.setGuardModValue(modIdx, modifier);
-    });
-
     console.log("Open Legend | Activated listeners for OlActorSheet");
   }
 
