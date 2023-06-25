@@ -560,7 +560,7 @@
     grid-gap: 0.2rem; }
   .openlegend .main-grid {
     display: grid;
-    grid-template-columns: 200px 220px repeat(3 minmax(150px, 1fr));
+    grid-template-columns: 200px 220px repeat(3, minmax(150px, 1fr));
     grid-template-rows: min-content min-content 125px min-content min-content min-content;
     grid-gap: 0.5rem; }
   .openlegend .underlined {
