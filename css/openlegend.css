@@ -189,48 +189,41 @@
     font-size: medium;
     font-weight: normal;
     text-align: center; }
-  .openlegend .character {
-    grid-column: 3 / 4;
-    grid-row: 2 / 6;
-    display: inline-grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    grid-gap: 0.25rem; }
-  .openlegend .character .gear {
-    grid-column: 1/3;
-    grid-row: 1/3;
+  .openlegend .gear {
+    grid-column: 2/6;
+    grid-row: 4/5;
     border: 4px groove #eeede0;
     background-color: rgba(255, 196, 0, 0.35);
     overflow-y: scroll; }
-  .openlegend .character .gear .title {
+  .openlegend .gear .title {
     font-size: large;
     font-weight: bold; }
-  .openlegend .character .feats {
-    grid-column: 1/2;
-    grid-row: 3/5;
+  .openlegend .feats {
+    grid-column: 2/6;
+    grid-row: 6/7;
     border: 4px groove #eeede0;
     background-color: rgba(133, 133, 133, 0.25);
     overflow-y: scroll; }
-  .openlegend .character .feats .title {
+  .openlegend .feats .title {
     grid-column: span 4;
     font-size: large;
     font-weight: bold; }
-  .openlegend .character .perks {
-    grid-column: 2/3;
-    grid-row: 3/4;
+  .openlegend .perks {
+    grid-column: 4/5;
+    grid-row: 2/3;
     border: 4px groove #eeede0;
     background: rgba(0, 255, 98, 0.35); }
-  .openlegend .character .flaws {
-    grid-column: 2/3;
-    grid-row: 4/5;
+  .openlegend .flaws {
+    grid-column: 5/6;
+    grid-row: 2/3;
     border: 4px groove #eeede0;
     background: rgba(255, 125, 108, 0.35); }
-  .openlegend .character .perks .title, .openlegend .character .flaws .title {
+  .openlegend .perks .title, .openlegend .flaws .title {
     font-size: large;
     font-weight: bold; }
   .openlegend .health {
     grid-column: 2 / 3;
-    grid-row: 2 / 3;
+    grid-row: 3 / 4;
     display: inline-grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 0.25rem;
@@ -250,14 +243,14 @@
   .openlegend .health input {
     text-align: center; }
   .openlegend .guard {
-    grid-column: 2 / 3;
+    grid-column: 3 / 4;
     grid-row: 3 / 4; }
   .openlegend .toughness {
-    grid-column: 2 / 3;
-    grid-row: 4 / 5; }
+    grid-column: 4 / 5;
+    grid-row: 3 / 4; }
   .openlegend .resolve {
-    grid-column: 2 / 3;
-    grid-row: 5 / 6; }
+    grid-column: 5 / 6;
+    grid-row: 3 / 4; }
   .openlegend .defense-grid {
     display: inline-grid;
     grid-template-columns: 1fr 1fr;
@@ -285,7 +278,7 @@
     width: 100px;
     max-width: 100px; }
   .openlegend .details {
-    grid-column: 1 / 4;
+    grid-column: 1 / 6;
     grid-row: 1 / 1;
     border: 4px groove #eeede0;
     display: grid;
