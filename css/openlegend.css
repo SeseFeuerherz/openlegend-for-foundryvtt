@@ -137,8 +137,8 @@
   /* Header Summary Details */
   font-family: "Modesto", "Palatino Linotype", serif; }
   .openlegend .actions {
-    grid-column: 2 / 4;
-    grid-row: 6 / 9;
+    grid-column: 2 / 6;
+    grid-row: 5 / 6;
     background: #74e4f8;
     align-items: center;
     display: inline-grid;
