@@ -1,5 +1,18 @@
 @import "../variables";
 
+.gear {
+    grid-column: 2/6;
+    grid-row: 4/5;
+  
+    border: $thickBorderGroove;
+    background-color: $gearColor;
+}
+  
+.gear .title {
+    font-size: large;
+    font-weight: bold;
+}
+
 .gear-row {
     border: $borderGroove;
     background-color: $highlight;
@@ -71,23 +84,4 @@
     .generic-affixes {
         font-size: smaller;
     }
-}
-
-.feat-row {
-    display: grid;
-    grid-template-columns: minmax(max-content, auto) minmax(max-content, auto) minmax(max-content, 10fr) 20px;
-    grid-gap: 0.25rem;
-
-    .feat-tier {
-        font-style: italic;
-        color: $transparentDark;
-        border-right: $borderGroove;
-        padding-right: 5px;
-    }
-}
-
-.perkflaw-row {
-    display: grid;
-    grid-template-columns: minmax(max-content, auto) 20px;
-    grid-gap: 0.2rem;
 }

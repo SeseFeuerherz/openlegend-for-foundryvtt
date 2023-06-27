@@ -32,18 +32,17 @@
             "value": 10,
             "armor": 0,
             "other_text": "",
-            "other": 0,
-            "modifiers": []
+            "other": 0
           },
           "toughness": {
             "value": 10,
-            "other": 0,
-            "modifiers": []
+            "other_text": "",
+            "other": 0
           },
           "resolve": {
             "value": 10,
-            "other": 0,
-            "modifiers": []
+            "other_text": "",
+            "other": 0
           }
         },
         "attributes": {

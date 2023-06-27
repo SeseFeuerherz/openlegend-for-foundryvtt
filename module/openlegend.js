@@ -94,6 +94,6 @@ export const _getInitiativeFormula = function() {
   const multiplier = Math.abs(init_mod);
   const dice_to_roll = multiplier + agi.num;
   const formula = `1d20X + ${dice_to_roll}${agi.die}${keep_str}X`;
-  return formula;
   console.log("Open Legend | Calculated initiative formula of a combatant");
+  return formula;
 };
