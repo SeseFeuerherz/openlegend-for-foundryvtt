@@ -6,6 +6,10 @@
     grid-template-rows: min-content min-content 125px min-content min-content min-content;
     grid-gap: 0.5rem;
 }
+
+.main-grid div {
+    padding: 3px;
+}
   
 .underlined {
     border-bottom: 1px solid #000000;

@@ -3,6 +3,7 @@
     {{> "systems/openlegend-ttrpg/templates/actor/parts/actor-details.html"}}
     {{> "systems/openlegend-ttrpg/templates/actor/parts/actor-attributes.html"}}
     <div class="notes">
+      {{editor content=actor.system.biography target="system.biography" button=true owner=owner editable=editable}}
     </div>
     {{> "systems/openlegend-ttrpg/templates/actor/parts/actor-defense.html"}}
     {{> "systems/openlegend-ttrpg/templates/actor/parts/actor-actions.html"}}

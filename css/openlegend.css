@@ -223,7 +223,7 @@
     grid-gap: 0.25rem;
     padding: 0.25em;
     background: rgba(182, 159, 111, 0.6);
-    border: 4px groove #eeede0; }
+    border: 1px solid black; }
   .openlegend .defense-grid .attribute-grid {
     display: inline-grid;
     grid-template-columns: auto auto;
@@ -336,8 +336,7 @@
     grid-column: 2/6;
     grid-row: 6/7;
     border: 1px solid black;
-    background-color: rgba(133, 133, 133, 0.25);
-    overflow-y: scroll; }
+    background-color: rgba(133, 133, 133, 0.25); }
   .openlegend .feats .title {
     grid-column: span 4;
     font-size: large;
@@ -385,6 +384,8 @@
     grid-template-columns: 200px 220px repeat(3, minmax(150px, 1fr));
     grid-template-rows: min-content min-content 125px min-content min-content min-content;
     grid-gap: 0.5rem; }
+  .openlegend .main-grid div {
+    padding: 3px; }
   .openlegend .underlined {
     border-bottom: 1px solid #000000; }
   .openlegend .centered {
