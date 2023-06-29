@@ -4,7 +4,6 @@
   grid-column: 2 / 6;
   grid-row: 5 / 6;
 
-  background: rgb(116, 228, 248);
   align-items: center;
 
   display: inline-grid;
@@ -15,7 +14,7 @@
 
   padding: 0.25em;
   background: $actionsColor;
-  border: $thickBorderGroove;
+  border: $simpleBorder;
 
   .div {
     padding-bottom: 0.25em;
