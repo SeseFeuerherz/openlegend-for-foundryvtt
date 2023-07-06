@@ -11,10 +11,8 @@
     <input name="system.defense.hp.lethal" type="number" value="{{data.system.defense.hp.lethal}}" placeholder="0" />
 </div>
 <div class="guard defense-grid">
-    <div>
-        <div class="defense-title">Guard</div>
-        <div class="defense-value">{{data.system.defense.guard.value}}</div>
-    </div>
+    <div class="defense-title">Guard</div>
+    <div class="defense-value">{{data.system.defense.guard.value}}</div>
     <div class="attribute-grid">
         <div>Agility</div>
         <div>{{data.system.attributes.physical.agility.score}}</div>
@@ -22,6 +20,8 @@
         <div>{{data.system.attributes.physical.might.score}}</div>
         <div>Armor</div>
         <div>{{data.system.defense.guard.armor}}</div>
+    </div>
+    <div class="defense-mod">
         <input name="system.defense.guard.other_text" type="text" value="{{data.system.defense.guard.other_text}}" placeholder="other" />
         <input name="system.defense.guard.other" type="number" value="{{data.system.defense.guard.other}}" placeholder="0" />
     </div>
