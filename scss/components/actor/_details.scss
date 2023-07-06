@@ -15,7 +15,7 @@
     border: $simpleBorder;
 
     display: grid;
-    grid-template-columns: 100px minmax(110px, 1fr) minmax(90px, 1fr) minmax(90px, 1fr) minmax(90px, 1fr) minmax(90px, 1fr);
+    grid-template-columns: minmax(100px, 1fr) minmax(110px, 1fr) minmax(90px, 1fr) minmax(90px, 1fr) minmax(90px, 1fr) minmax(90px, 1fr);
     grid-template-rows: max-content max-content max-content;
     grid-gap: 0.25rem;
 
