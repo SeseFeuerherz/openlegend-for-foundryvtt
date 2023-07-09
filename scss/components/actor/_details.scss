@@ -2,21 +2,16 @@
 
 .avatar {
     grid-column: 1 / 2;
-    grid-row: 1 / 4;
-  
-    width: 100px;
-    max-width: 100px;
+    grid-row: 1 / 5;
 }
   
 .details {
     grid-column: 1 / 6;
     grid-row: 1 / 1;
-    // background: #3bbced;
-    border: $simpleBorder;
 
     display: grid;
     grid-template-columns: minmax(100px, 1fr) minmax(110px, 1fr) minmax(90px, 1fr) minmax(90px, 1fr) minmax(90px, 1fr) minmax(90px, 1fr);
-    grid-template-rows: max-content max-content max-content;
+    grid-template-rows: min-content min-content min-content min-content;
     grid-gap: 0.25rem;
 
     div {
@@ -29,6 +24,10 @@
         border: none;
         border-bottom: 1px solid black;
         border-radius: 0px;
+    }
+
+    img {
+        border: none;
     }
 
     .details-name {

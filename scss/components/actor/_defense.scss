@@ -5,14 +5,13 @@
     grid-row: 3 / 4;
   
     display: inline-grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(2, min-content);
     grid-gap: 0.25rem;
   
     padding: 0.25em;
     background: $healthColor;
     border: $simpleBorder
-    // border: 9px groove rgba(121, 108, 197, 0.78);
-    // border-radius: 28px 28px 0px 0px;
 }
   
 .health-title {
@@ -23,6 +22,29 @@
     font-size: x-large;
     font-weight: bold;
     margin-bottom: -8;
+}
+
+.heart {
+    display: inline-block;
+    position: relative;
+    font-size: 50px;
+    color: grey;
+}
+
+.heart-hp-overlay {
+    width: 70%;
+    height: 70%;
+    position: absolute;
+    color: red;
+    overflow: hidden;
+}
+
+.heart-lethal-overlay {
+    width: 20%;
+    height: 20%;
+    position: absolute;
+    color: black;
+    overflow: hidden;
 }
   
 .health-type {
@@ -70,7 +92,7 @@
     grid-gap: 0.25rem;
 
     align-items: center;
-    text-align: center;
+    text-align: right;
 }
   
 .defense-title {

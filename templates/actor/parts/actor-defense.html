@@ -1,14 +1,20 @@
 <div class="health">
     <div class="health-title">Health Points</div>
-    <div class="health-type">Curr</div>
-    <div class="health-type">Max</div>
-    <div class="health-type">Lethal</div>
-    <input name="system.defense.hp.value" type="number" value="{{data.system.defense.hp.value}}" placeholder="0" />
-    <div class="ht">
-        <input name="system.defense.hp.max" type="number" value="{{data.system.defense.hp.max}}" placeholder="0">
-        <span class="tooltip">2*(Fortitude+Will+Presence)+10 = {{data.system.defense.hp.max}} </span>
+    <div class="heart">
+        <span class="heart-hp-overlay"><i class="fa-solid fa-heart"></i></span>
+        <span class="heart-lethal-overlay"><i class="fa-solid fa-heart"></i></span>
+        <i class="fa-solid fa-heart"></i>
+    <div class="input-grid">
+        <div class="health-type">Curr</div>
+        <div class="health-type">Max</div>
+        <div class="health-type">Lethal</div>
+        <input name="system.defense.hp.value" type="number" value="{{data.system.defense.hp.value}}" placeholder="0" />
+        <div class="ht">
+            <input name="system.defense.hp.max" type="number" value="{{data.system.defense.hp.max}}" placeholder="0">
+            <span class="tooltip">2*(Fortitude+Will+Presence)+10 = {{data.system.defense.hp.max}} </span>
+        </div>
+        <input name="system.defense.hp.lethal" type="number" value="{{data.system.defense.hp.lethal}}" placeholder="0" />
     </div>
-    <input name="system.defense.hp.lethal" type="number" value="{{data.system.defense.hp.lethal}}" placeholder="0" />
 </div>
 <div class="guard defense-grid">
     <div class="defense-title">Guard</div>
