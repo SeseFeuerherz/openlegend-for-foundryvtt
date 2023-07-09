@@ -5,7 +5,7 @@
     grid-row: 3 / 4;
   
     display: inline-grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: min-content 1fr;
     grid-template-rows: repeat(2, min-content);
     grid-gap: 0.25rem;
   
@@ -27,21 +27,26 @@
 .heart {
     grid-column: 1 / 2;
     grid-row: 2 / 3;
-    display: inline-block;
-    position: relative;
-    font-size: 50px;
-    color: grey;
 }
 
-.heart-hp-overlay {
+.health-bar {
+    display: inline-block;
+    position: relative;
+    color: red;
+    border-radius: 100px;
+    width: 75px;
+    height:75px;
+}
+
+.health-bar-overlay {
     width: 70%;
     height: 70%;
     position: absolute;
-    color: red;
+    color: grey;
     overflow: hidden;
 }
 
-.heart-lethal-overlay {
+.health-bar-lethal-overlay {
     width: 20%;
     height: 20%;
     position: absolute;
