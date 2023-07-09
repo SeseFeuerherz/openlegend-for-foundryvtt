@@ -27,29 +27,29 @@
     </div>
 </div>
 <div class="toughness defense-grid">
-    <div>
-        <div class="defense-title">Tough</div>
-        <div class="defense-value">{{data.system.defense.toughness.value}}</div>
-    </div>
+    <div class="defense-title">Tough</div>
+    <div class="defense-value">{{data.system.defense.toughness.value}}</div>
     <div class="attribute-grid">
         <div>Fortitude</div>
         <div>{{data.system.attributes.physical.fortitude.score}}</div>
         <div>Will</div>
         <div>{{data.system.attributes.mental.will.score}}</div>
+    </div>
+    <div class="defense-mod">
         <input name="system.defense.toughness.other_text" type="text" value="{{data.system.defense.toughness.other_text}}" placeholder="other" />
         <input name="system.defense.toughness.other" type="number" value="{{data.system.defense.toughness.other}}" placeholder="0" />
     </div>
 </div>
 <div class="resolve defense-grid">
-    <div>
-        <div class="defense-title">Resolve</div>
-        <div class="defense-value">{{data.system.defense.resolve.value}}</div>
-    </div>
+    <div class="defense-title">Resolve</div>
+    <div class="defense-value">{{data.system.defense.resolve.value}}</div>
     <div class="attribute-grid">
         <div>Presence</div>
         <div>{{data.system.attributes.social.presence.score}}</div>
         <div>Will</div>
         <div>{{data.system.attributes.mental.will.score}}</div>
+    </div>
+    <div class="defense-mod">
         <input name="system.defense.resolve.other_text" type="text" value="{{data.system.defense.resolve.other_text}}" placeholder="other" />
         <input name="system.defense.resolve.other" type="number" value="{{data.system.defense.resolve.other}}" placeholder="0" />
     </div>

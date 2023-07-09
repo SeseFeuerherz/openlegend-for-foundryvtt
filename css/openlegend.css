@@ -244,12 +244,12 @@
     grid-column: 1 / 2;
     grid-row: 2 / 3;
     text-align: center;
-    font-size: 300%; }
+    font-size: 400%; }
   .openlegend .defense-mod {
     grid-column: 1 / 3;
     grid-row: 3 / 4;
     display: inline-grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto 20px;
     grid-template-rows: 20px;
     grid-gap: 0.25rem;
     align-items: center;
