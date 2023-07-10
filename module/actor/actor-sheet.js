@@ -32,6 +32,13 @@ export class OlActorSheet extends ActorSheet {
   async getData(options) {
     const renderData = await super.getData(options);
 
+    renderData.actor.system.defense.hp.dmg_percent = 100
+        * (renderData.actor.system.defense.hp.modded_max - renderData.actor.system.defense.hp.value)
+        / renderData.actor.system.defense.hp.modded_max;
+
+    renderData.actor.system.defense.hp.lethal_percent = 100
+        * renderData.actor.system.defense.hp.lethal / renderData.actor.system.defense.hp.modded_max;
+
     if (renderData.actions == undefined) {
       renderData.actions = [];
       renderData.gear    = [];
