@@ -240,7 +240,9 @@
     font-size: large;
     text-align: center; }
   .openlegend .health input {
-    text-align: center; }
+    text-align: right;
+    display: inline;
+    width: 3rem; }
   .openlegend .guard {
     grid-column: 3 / 4;
     grid-row: 3 / 4; }

@@ -72,7 +72,9 @@
 }
 
 .health input {
-    text-align: center;
+    text-align: right;
+    display: inline;
+    width: 3rem;
 }
   
 .guard {

@@ -66,10 +66,11 @@ export class OlActor extends Actor {
     // Set max hp based on: 2 * (Fortitude + Will + Presence) + 10
     // Cap current lethal between 0 and max
     const hp = this.system.defense.hp;
-    hp.lethal = Math.min(Math.max(hp.lethal, 0), hp.max);
     hp.hint = 2 * (fortitude + will + presence) + 10;
-    hp.max = Math.max(hp.max, hp.hint);
-    hp.value = Math.min(Math.max(hp.value, hp.min), hp.max - hp.lethal);
+    hp.max = hp.hint;
+    hp.modded_max = hp.max + hp.modifier;
+    hp.lethal = Math.min(Math.max(hp.lethal, 0), hp.modded_max);
+    hp.value = Math.min(Math.max(hp.value, hp.min), hp.modded_max - hp.lethal);
     this.system.defense.hp = hp;
 
     // Set guard to 10 + Agility + Might + Armor + Other
