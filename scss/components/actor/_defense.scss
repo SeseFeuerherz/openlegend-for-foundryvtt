@@ -5,7 +5,7 @@
     grid-row: 3 / 4;
   
     display: inline-grid;
-    grid-template-columns: 50px 1fr;
+    grid-template-columns: 10px 1fr;
     grid-template-rows: repeat(2, min-content);
     grid-gap: 0.25rem;
   
@@ -67,12 +67,11 @@
 }
   
 .health-type {
-    font-size: large;
-    text-align: center;
+    text-align: right;
 }
 
 .health input {
-    text-align: right;
+    text-align: center;
     display: inline;
     width: 3rem;
 }

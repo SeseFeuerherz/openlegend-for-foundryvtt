@@ -2,14 +2,14 @@
     <div class="health-title">Health Points</div>
     <div class="health-bar-container">
         <div class="health-bar">
-            <div class="health-bar-overlay" style="height: calc({{data.system.defense.hp.modded_max}}-{{data.system.defense.hp.value}} / {{data.system.defense.hp.modded_max}})"></div>
-            <div class="health-bar-lethal-overlay" style="height: calc({{data.system.defense.hp.lethal}} / {{data.system.defense.hp.modded_max}})"></div>
+            <div class="health-bar-overlay" style="height: calc({{data.system.defense.hp.modded_max}}-{{data.system.defense.hp.value}} / {{data.system.defense.hp.modded_max}})%"></div>
+            <div class="health-bar-lethal-overlay" style="height: calc({{data.system.defense.hp.lethal}} / {{data.system.defense.hp.modded_max}})%"></div>
         </div>
     </div>
     <div class="health-input-container">
         <div class="health-type">Lethal <input name="system.defense.hp.lethal" type="number" value="{{data.system.defense.hp.lethal}}" placeholder="0" /></div>
         <div class="health-type">Current <input name="system.defense.hp.value" type="number" value="{{data.system.defense.hp.value}}" placeholder="0" /></div>
-        <div class="health-type">Max <span class="ht">{{data.system.defense.hp.max}}<span class="tooltip">2*(Fortitude+Will+Presence)+10 = {{data.system.defense.hp.max}}</span></span> + <input name="system.defense.hp.value" type="number" value="{{data.system.defense.hp.value}}" placeholder="0" /></div>
+        <div class="health-type">Max <span class="ht">{{data.system.defense.hp.max}}<span class="tooltip">2*(Fortitude+Will+Presence)+10 = {{data.system.defense.hp.max}}</span></span> + <input name="system.defense.hp.value" type="number" value="{{data.system.defense.hp.value}}" placeholder="0" /> = {{data.system.defense.hp.modded_max}}</div>
     </div>
 </div>
 <div class="guard defense-grid">
