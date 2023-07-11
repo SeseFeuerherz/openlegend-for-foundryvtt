@@ -31,58 +31,58 @@ export class OlItemSheet extends ItemSheet {
       const propertiesForRendering = {
         "Area": {
           "name": "Area",
-          "selected": renderTemplateInput.item.system.properties.get("Area"),
-          "hint": properties.get("Area")
+          "selected": renderTemplateInput.item.system.properties.["Area"],
+          "hint": properties["Area"]
         },
         "Expendable": {
           "name": "Expendable",
-          "selected": renderTemplateInput.item.system.properties.get("Expendable"),
-          "hint": properties.get("Expendable")
+          "selected": renderTemplateInput.item.system.properties["Expendable"],
+          "hint": properties["Expendable"]
         },
         "Defensive": {
           "name": "Defensive",
-          "selected": renderTemplateInput.item.system.properties.get("Defensive"),
-          "hint": properties.get("Defensive")
+          "selected": renderTemplateInput.item.system.properties["Defensive"],
+          "hint": properties["Defensive"]
         },
         "Delayed Ready": {
           "name": "Delayed Ready",
-          "selected": renderTemplateInput.item.system.properties.get("Delayed Ready"),
-          "hint": properties.get("Delayed Ready")
+          "selected": renderTemplateInput.item.system.properties["Delayed Ready"],
+          "hint": properties["Delayed Ready"]
         },
         "Forceful": {
           "name": "Forceful",
-          "selected": renderTemplateInput.item.system.properties.get("Forceful"),
-          "hint": properties.get("Forceful")
+          "selected": renderTemplateInput.item.system.properties["Forceful"],
+          "hint": properties["Forceful"]
         },
         "Heavy": {
           "name": "Heavy",
-          "selected": renderTemplateInput.item.system.properties.get("Heavy"),
-          "hint": properties.get("Heavy")
+          "selected": renderTemplateInput.item.system.properties["Heavy"],
+          "hint": properties["Heavy"]
         },
         "Precise": {
           "name": "Precise",
-          "selected": renderTemplateInput.item.system.properties.get("Precise"),
-          "hint": properties.get("Precise")
+          "selected": renderTemplateInput.item.system.properties["Precise"],
+          "hint": properties["Precise"]
         },
         "Reach": {
           "name": "Reach",
-          "selected": renderTemplateInput.item.system.properties.get("Reach"),
-          "hint": properties.get("Reach")
+          "selected": renderTemplateInput.item.system.properties["Reach"],
+          "hint": properties["Reach"]
         },
         "Slow": {
           "name": "Slow",
-          "selected": renderTemplateInput.item.system.properties.get("Slow"),
-          "hint": properties.get("Slow")
+          "selected": renderTemplateInput.item.system.properties["Slow"],
+          "hint": properties["Slow"]
         },
         "Stationary": {
           "name": "Stationary",
-          "selected": renderTemplateInput.item.system.properties.get("Stationary"),
-          "hint": properties.get("Stationary")
+          "selected": renderTemplateInput.item.system.properties["Stationary",]
+          "hint": properties["Stationary"]
         },
         "Swift": {
           "name": "Swift",
-          "selected": renderTemplateInput.item.system.properties.get("Swift"),
-          "hint": properties.get("Swift")
+          "selected": renderTemplateInput.item.system.properties["Swift"],
+          "hint": properties["Swift"]
         }
       }
       renderTemplateInput.item.system.properties = propertiesForRendering;
