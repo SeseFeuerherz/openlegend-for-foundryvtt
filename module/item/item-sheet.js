@@ -130,6 +130,67 @@ export class OlItemSheet extends ItemSheet {
 }
 
 export function enrichProperties(selectProperties) {
+  if (!selectProperties instanceof Object) {
+    console.log("Open Legend | Can not enrich weapon properties");
+    console.log(selectProperties);
+    return {
+        "Area": {
+          "name": "Area",
+          "selected": false,
+          "hint": properties["Area"]
+        },
+        "Expendable": {
+          "name": "Expendable",
+          "selected": false,
+          "hint": properties["Expendable"]
+        },
+        "Defensive": {
+          "name": "Defensive",
+          "selected": false,
+          "hint": properties["Defensive"]
+        },
+        "Delayed Ready": {
+          "name": "Delayed Ready",
+          "selected": false,
+          "hint": properties["Delayed Ready"]
+        },
+        "Forceful": {
+          "name": "Forceful",
+          "selected": false,
+          "hint": properties["Forceful"]
+        },
+        "Heavy": {
+          "name": "Heavy",
+          "selected": false,
+          "hint": properties["Heavy"]
+        },
+        "Precise": {
+          "name": "Precise",
+          "selected": false,
+          "hint": properties["Precise"]
+        },
+        "Reach": {
+          "name": "Reach",
+          "selected": false,
+          "hint": properties["Reach"]
+        },
+        "Slow": {
+          "name": "Slow",
+          "selected": false,
+          "hint": properties["Slow"]
+        },
+        "Stationary": {
+          "name": "Stationary",
+          "selected": false,
+          "hint": properties["Stationary"]
+        },
+        "Swift": {
+          "name": "Swift",
+          "selected": false,
+          "hint": properties["Swift"]
+        }
+      };
+  }
   return {
         "Area": {
           "name": "Area",
