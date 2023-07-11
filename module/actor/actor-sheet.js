@@ -60,7 +60,7 @@ export class OlActorSheet extends ActorSheet {
       else if (item.type == 'flaw')
         renderData.flaws.push(item);
       if (item.type == 'weapon')
-        item.properties = enrichProperties(item.properties);
+        item.system.properties = enrichProperties(item.properties);
     });
     renderData.actions.sort((a, b) => a.system.action.index - b.system.action.index);
     renderData.gear.sort((a, b) => a.system.gear.index - b.system.gear.index);
