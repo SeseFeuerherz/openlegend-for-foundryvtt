@@ -1,3 +1,4 @@
+import { properties, category } from "../util/weapon_const.js";
 /**
  * Extend the basic ItemSheet with some very simple modifications
  * @extends {ItemSheet}
@@ -27,12 +28,64 @@ export class OlItemSheet extends ItemSheet {
     console.log("Open Legend | Retrieving render data for OlItemSheet");
     const renderTemplateInput = super.getData();
     if (renderTemplateInput.type === 'weapon') {
-      renderTemplateInput.item.system.properties.entries.forEach(entry => {
-        entry = {
-          "name": entry.key,
-          "selected": entry.value
+      const propertiesForRendering = {
+        "Area": {
+          "name": "Area",
+          "selected": renderTemplateInput.item.system.properties.get("Area"),
+          "hint": properties.get("Area")
+        },
+        "Expendable": {
+          "name": "Expendable",
+          "selected": renderTemplateInput.item.system.properties.get("Expendable"),
+          "hint": properties.get("Expendable")
+        },
+        "Defensive": {
+          "name": "Defensive",
+          "selected": renderTemplateInput.item.system.properties.get("Defensive"),
+          "hint": properties.get("Defensive")
+        },
+        "Delayed Ready": {
+          "name": "Delayed Ready",
+          "selected": renderTemplateInput.item.system.properties.get("Delayed Ready"),
+          "hint": properties.get("Delayed Ready")
+        },
+        "Forceful": {
+          "name": "Forceful",
+          "selected": renderTemplateInput.item.system.properties.get("Forceful"),
+          "hint": properties.get("Forceful")
+        },
+        "Heavy": {
+          "name": "Heavy",
+          "selected": renderTemplateInput.item.system.properties.get("Heavy"),
+          "hint": properties.get("Heavy")
+        },
+        "Precise": {
+          "name": "Precise",
+          "selected": renderTemplateInput.item.system.properties.get("Precise"),
+          "hint": properties.get("Precise")
+        },
+        "Reach": {
+          "name": "Reach",
+          "selected": renderTemplateInput.item.system.properties.get("Reach"),
+          "hint": properties.get("Reach")
+        },
+        "Slow": {
+          "name": "Slow",
+          "selected": renderTemplateInput.item.system.properties.get("Slow"),
+          "hint": properties.get("Slow")
+        },
+        "Stationary": {
+          "name": "Stationary",
+          "selected": renderTemplateInput.item.system.properties.get("Stationary"),
+          "hint": properties.get("Stationary")
+        },
+        "Swift": {
+          "name": "Swift",
+          "selected": renderTemplateInput.item.system.properties.get("Swift"),
+          "hint": properties.get("Swift")
         }
-      });
+      }
+      renderTemplateInput.item.system.properties = propertiesForRendering;
     }
     console.log(renderTemplateInput);
     return renderTemplateInput;
