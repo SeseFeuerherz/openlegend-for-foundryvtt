@@ -28,63 +28,7 @@ export class OlItemSheet extends ItemSheet {
     console.log("Open Legend | Retrieving render data for OlItemSheet");
     const renderTemplateInput = super.getData();
     if (renderTemplateInput.item.type === 'weapon') {
-      const propertiesForRendering = {
-        "Area": {
-          "name": "Area",
-          "selected": renderTemplateInput.item.system.properties["Area"],
-          "hint": properties["Area"]
-        },
-        "Expendable": {
-          "name": "Expendable",
-          "selected": renderTemplateInput.item.system.properties["Expendable"],
-          "hint": properties["Expendable"]
-        },
-        "Defensive": {
-          "name": "Defensive",
-          "selected": renderTemplateInput.item.system.properties["Defensive"],
-          "hint": properties["Defensive"]
-        },
-        "Delayed Ready": {
-          "name": "Delayed Ready",
-          "selected": renderTemplateInput.item.system.properties["Delayed Ready"],
-          "hint": properties["Delayed Ready"]
-        },
-        "Forceful": {
-          "name": "Forceful",
-          "selected": renderTemplateInput.item.system.properties["Forceful"],
-          "hint": properties["Forceful"]
-        },
-        "Heavy": {
-          "name": "Heavy",
-          "selected": renderTemplateInput.item.system.properties["Heavy"],
-          "hint": properties["Heavy"]
-        },
-        "Precise": {
-          "name": "Precise",
-          "selected": renderTemplateInput.item.system.properties["Precise"],
-          "hint": properties["Precise"]
-        },
-        "Reach": {
-          "name": "Reach",
-          "selected": renderTemplateInput.item.system.properties["Reach"],
-          "hint": properties["Reach"]
-        },
-        "Slow": {
-          "name": "Slow",
-          "selected": renderTemplateInput.item.system.properties["Slow"],
-          "hint": properties["Slow"]
-        },
-        "Stationary": {
-          "name": "Stationary",
-          "selected": renderTemplateInput.item.system.properties["Stationary"],
-          "hint": properties["Stationary"]
-        },
-        "Swift": {
-          "name": "Swift",
-          "selected": renderTemplateInput.item.system.properties["Swift"],
-          "hint": properties["Swift"]
-        }
-      }
+      const propertiesForRendering = enrichProperties(renderTemplateInput.item.system.properties);
       renderTemplateInput.item.system.properties = propertiesForRendering;
     }
     console.log(renderTemplateInput);
@@ -183,4 +127,64 @@ export class OlItemSheet extends ItemSheet {
     console.log($(this));
     $(this).attr('size', $(this).val().length);
   }
+}
+
+export function enrichProperties(selectProperties) {
+  return {
+        "Area": {
+          "name": "Area",
+          "selected": selectProperties["Area"],
+          "hint": properties["Area"]
+        },
+        "Expendable": {
+          "name": "Expendable",
+          "selected": selectProperties["Expendable"],
+          "hint": properties["Expendable"]
+        },
+        "Defensive": {
+          "name": "Defensive",
+          "selected": selectProperties["Defensive"],
+          "hint": properties["Defensive"]
+        },
+        "Delayed Ready": {
+          "name": "Delayed Ready",
+          "selected": selectProperties["Delayed Ready"],
+          "hint": properties["Delayed Ready"]
+        },
+        "Forceful": {
+          "name": "Forceful",
+          "selected": selectProperties["Forceful"],
+          "hint": properties["Forceful"]
+        },
+        "Heavy": {
+          "name": "Heavy",
+          "selected": selectProperties["Heavy"],
+          "hint": properties["Heavy"]
+        },
+        "Precise": {
+          "name": "Precise",
+          "selected": selectProperties["Precise"],
+          "hint": properties["Precise"]
+        },
+        "Reach": {
+          "name": "Reach",
+          "selected": selectProperties["Reach"],
+          "hint": properties["Reach"]
+        },
+        "Slow": {
+          "name": "Slow",
+          "selected": selectProperties["Slow"],
+          "hint": properties["Slow"]
+        },
+        "Stationary": {
+          "name": "Stationary",
+          "selected": selectProperties["Stationary"],
+          "hint": properties["Stationary"]
+        },
+        "Swift": {
+          "name": "Swift",
+          "selected": selectProperties["Swift"],
+          "hint": properties["Swift"]
+        }
+      };
 }

@@ -7,7 +7,11 @@
     <div class="weapon-affixes">
         <div class="weapon-properties">
             <span class="forceful">Properties: </span>
-            {{weapon.system.properties}}
+            {{#each weapon.system.properties as |property|}}
+                {{#if (eq property.selected true)}}
+                    <span class="property-display">{{property.name}} </span>
+                {{/if}}
+            {{/each}}
         </div>
         <div class="weapon-banes">
             <span class="forceful">Banes: </span>
