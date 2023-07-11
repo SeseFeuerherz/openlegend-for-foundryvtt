@@ -27,7 +27,7 @@ export class OlItemSheet extends ItemSheet {
   getData() {
     console.log("Open Legend | Retrieving render data for OlItemSheet");
     const renderTemplateInput = super.getData();
-    if (renderTemplateInput.type === 'weapon') {
+    if (renderTemplateInput.item.type === 'weapon') {
       const propertiesForRendering = {
         "Area": {
           "name": "Area",
