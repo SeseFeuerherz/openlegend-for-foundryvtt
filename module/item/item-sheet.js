@@ -31,7 +31,7 @@ export class OlItemSheet extends ItemSheet {
       const propertiesForRendering = {
         "Area": {
           "name": "Area",
-          "selected": renderTemplateInput.item.system.properties.["Area"],
+          "selected": renderTemplateInput.item.system.properties["Area"],
           "hint": properties["Area"]
         },
         "Expendable": {
