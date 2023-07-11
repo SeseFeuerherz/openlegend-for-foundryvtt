@@ -16,7 +16,13 @@
             </div>
             <ul class="summary flexrow">
                 <li class="flexrow">
-                    <input type="text" name="system.properties" value="{{item.system.properties}}" placeholder="Properties"/></li>
+                    <input type="text" name="system.properties" value="{{item.system.properties}}" placeholder="Properties"/>
+                    <ul class="property-list" hidden>
+                        {{#each item.system.properties as |property|}}
+
+                        {{/each}}
+                    </ul>
+                    <button class="update-properties">Edit</button></li>
                 <li class="shrink">WL: 
                     <input class="wl" type="text" name="system.gear.wl" value="{{item.system.gear.wl}}" placeholder="?"/></li>
             </ul>

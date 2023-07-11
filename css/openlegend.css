@@ -215,8 +215,7 @@
     border-radius: 3px;
     border: 1px solid black;
     width: 5px;
-    height: 100px;
-    margin: auto; }
+    height: 105px; }
   .openlegend .health-bar-overlay {
     width: 100%;
     position: absolute;

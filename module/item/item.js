@@ -10,6 +10,9 @@ export class OlItem extends Item {
     console.log("Open Legend | Prepare item data")
     super.prepareData();
     if (this.type === 'boon') this._prepareBoonData();
+
+    if (this.type === 'weapon')
+      console.log(this);
   }
 
   _prepareBoonData(itemData) {

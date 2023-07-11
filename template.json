@@ -140,7 +140,19 @@
       "templates": ["flavor", "core", "actionable", "gear"],
       "attacks": [],
       "categories": "",
-      "properties": "",
+      "properties": {
+        "Area": false,
+        "Expendable": false,
+        "Defensive": false,
+        "Delayed Ready": false,
+        "Forceful": false,
+        "Heavy": false,
+        "Precise": false,
+        "Reach": false,
+        "Slow": false,
+        "Stationary": false,
+        "Swift": false
+      },
       "banes": ""
     },
     "armor": {
