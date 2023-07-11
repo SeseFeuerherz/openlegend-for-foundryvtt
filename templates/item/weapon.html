@@ -18,14 +18,16 @@
                 <li class="flexrow">
                     {{#each item.system.properties as |property|}}
                         {{#if (eq property.selected true)}}
-                            <span>{{property.name}} </span>
+                            <span class="property-display">{{property.name}} </span>
                         {{/if}}
                     {{/each}}
-                    <ul class="property-list" hidden>
-                        {{#each item.system.properties as |property|}}
-
-                        {{/each}}
-                    </ul>
+                    <div class="property-edit" hidden>
+                        <ul class="property-list">
+                            {{#each item.system.properties as |property|}}
+                                <input type="checkbox" name="{{property.name}}" value="{{property.name}}" {{#if (eq property.selected true)}} checked{{/if}}> <label for="{{property.name}}">{{property.name}}</label><br>
+                            {{/each}}
+                        </ul>
+                    </div>
                     <button class="update-properties">Edit</button></li>
                 <li class="shrink">WL: 
                     <input class="wl" type="text" name="system.gear.wl" value="{{item.system.gear.wl}}" placeholder="?"/></li>
