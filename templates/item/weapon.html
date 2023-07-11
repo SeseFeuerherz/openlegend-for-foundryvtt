@@ -16,7 +16,11 @@
             </div>
             <ul class="summary flexrow">
                 <li class="flexrow">
-                    <input type="text" name="system.properties" value="{{item.system.properties}}" placeholder="Properties"/>
+                    {{#each item.system.properties as |property|}}
+                        {{#if (eq property.selected true)}}
+                            <span>{{property.name}} </span>
+                        {{/if}}
+                    {{/each}}
                     <ul class="property-list" hidden>
                         {{#each item.system.properties as |property|}}
 

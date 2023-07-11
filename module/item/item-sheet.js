@@ -26,6 +26,14 @@ export class OlItemSheet extends ItemSheet {
   getData() {
     console.log("Open Legend | Retrieving render data for OlItemSheet");
     const renderTemplateInput = super.getData();
+    if (renderTemplateInput.type === 'weapon') {
+      renderTemplateInput.item.system.properties.entries.forEach(entry => {
+        entry = {
+          "name": entry.key,
+          "selected": entry.value
+        }
+      });
+    }
     console.log(renderTemplateInput);
     return renderTemplateInput;
   }
