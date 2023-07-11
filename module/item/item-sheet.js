@@ -130,9 +130,9 @@ export class OlItemSheet extends ItemSheet {
 }
 
 export function enrichProperties(selectProperties) {
+  console.log(selectProperties);
   if (!selectProperties instanceof Object) {
     console.log("Open Legend | Can not enrich weapon properties");
-    console.log(selectProperties);
     return {
         "Area": {
           "name": "Area",

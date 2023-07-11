@@ -32,6 +32,7 @@ export class OlActorSheet extends ActorSheet {
   /** @override */
   async getData(options) {
     const renderData = await super.getData(options);
+    console.log(renderData);
 
     renderData.data.system.defense.hp.dmg_percent = 100
         * (renderData.data.system.defense.hp.modded_max - renderData.data.system.defense.hp.value)
