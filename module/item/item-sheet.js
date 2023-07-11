@@ -149,7 +149,8 @@ export class OlItemSheet extends ItemSheet {
       else {
         var data = {}
         html.find(".property-list > input").each((i, obj) => {
-          data['data.properties.' + obj.val()] = obj.checked;
+          console.log(obj);
+          data['data.properties.' + obj.value] = obj.checked;
         });
         this.object.update(data);
         btn.html("Edit");
