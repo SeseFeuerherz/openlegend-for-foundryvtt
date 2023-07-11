@@ -76,7 +76,7 @@ export class OlItemSheet extends ItemSheet {
         },
         "Stationary": {
           "name": "Stationary",
-          "selected": renderTemplateInput.item.system.properties["Stationary",]
+          "selected": renderTemplateInput.item.system.properties["Stationary"],
           "hint": properties["Stationary"]
         },
         "Swift": {
