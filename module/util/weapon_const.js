@@ -12,7 +12,7 @@ export const weaponproperties = {
 	"Swift": "If you are wielding this weapon at the beginning of combat, you gain advantage 2 on your initiative roll. If you are not wielding the weapon but plan to use it on your first turn, you still get this bonus. If you are wielding multiple weapons, your initiative modifier is equal to the slowest among them (slow, swift, or neither)."
 }
 
-export const weaponcategory = {
+export const weaponcategories = {
 	"One-handed Melee": {
 		"type": "melee",
 		"description": "The weapon uses a single hand and allows the other hand to be used for carrying another object, second weapon, or kept free for other actions. When wielding a one-handed weapon in each hand, if neither has the defensive property, you gain advantage 1 to all melee attacks. If both weapons you are wielding have passive benefits such as the defensive property, use the best of the two benefits; they are not added together."
