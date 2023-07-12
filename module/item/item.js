@@ -53,7 +53,7 @@ export class OlItem extends Item {
         "Long Ranged": this.system.categories.includes("Long Ranged"),
         "Extreme Ranged": this.system.categories.includes("Extreme Ranged")
       };
-    _migrateWeaponProperties
+    _migrateWeaponProperties();
     console.log(this);
   }
 }
