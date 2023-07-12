@@ -14,8 +14,10 @@ export class OlItem extends Item {
 
     if (this.type === 'weapon' && typeof this.system.properties === 'string')
       this._migrateWeaponProperties();
-    if (this.type === 'weapon' && typeof this.system.categories === 'string')
+    if (this.type === 'weapon' && typeof this.system.categories === 'string') {
       this._migrateWeaponCategories();
+      this._migrateWeaponProperties();
+    }
   }
 
   _prepareBoonData(itemData) {
@@ -53,7 +55,6 @@ export class OlItem extends Item {
         "Long Ranged": this.system.categories.includes("Long Ranged"),
         "Extreme Ranged": this.system.categories.includes("Extreme Ranged")
       };
-    _migrateWeaponProperties();
     console.log(this);
   }
 }
