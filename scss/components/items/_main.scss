@@ -124,6 +124,14 @@ $detailsHeight: auto;
         }
     }
 
+    .weapon-category-selection {
+        border-top: $borderGroove;
+
+        .category {
+            width: 25%;
+        }
+    }
+
     .summary {
         flex: 0 0 100%;
         height: $detailsHeight;

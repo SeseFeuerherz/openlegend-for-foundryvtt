@@ -2,7 +2,7 @@
     <div class="gear-name clickable item-edit" data-item="{{weapon._id}}">{{weapon.name}}</div>
     <div class="gear-summary">
         <div class="gear-title">{{weapon.type}}</div>
-        <div class="gear-type">{{weapon.system.categories}}</div>
+        <div class="gear-type">{{#each weapon.system.categories as |selected|}}{{@key}}&nbsp;{{/each}}</div>
     </div>
     <div class="weapon-affixes">
         <div class="weapon-properties">
