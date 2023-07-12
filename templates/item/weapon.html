@@ -9,10 +9,14 @@
     
                 <div class="item-subtitle">
                     <h4 class="item-type">{{item.type}}</h4>
-                    <span class="scale-tester" hidden></span>
-                    <input class="item-status scale" name="system.categories"
-                            type="text" value="{{item.system.categories}}" placeholder="Categories"/>
+                    <!--<input class="item-status scale" name="system.categories"
+                            type="text" value="{{item.system.categories}}" placeholder="Categories"/>-->
                 </div>
+            </div>
+            <div class="flexrow">
+                {{#each item.system.categories as |selected|}}
+                    <input type="checkbox" name="system.categories.{{@key}}" value="{{@key}}" {{#if (eq selected true)}} checked{{/if}}> <label for="system.categories.{{@key}}"><span class="ht">{{@key}}<span class="tooltip">{{weaponcategoryydesc @key}}</span></span></label>
+                {{/each}}
             </div>
             <ul class="summary flexrow">
                 <li class="flexrow">

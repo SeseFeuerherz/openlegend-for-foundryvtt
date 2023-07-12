@@ -139,7 +139,16 @@
     "weapon": {
       "templates": ["flavor", "core", "actionable", "gear"],
       "attacks": [],
-      "categories": "",
+      "categories": {
+        "One-handed Melee": false,
+        "Two-Handed Melee": false,
+        "Versatile Melee": false,
+        "Close Ranged": false,
+        "Short Ranged": false,
+        "Medium Ranged": false,
+        "Long Ranged": false,
+        "Extreme Ranged": false
+      },
       "properties": {
         "Area": false,
         "Expendable": false,
