@@ -1,4 +1,3 @@
-import { weaponproperties, weaponcategory } from "../util/weapon_const.js";
 /**
  * Extend the basic ItemSheet with some very simple modifications
  * @extends {ItemSheet}
@@ -27,10 +26,6 @@ export class OlItemSheet extends ItemSheet {
   getData() {
     console.log("Open Legend | Retrieving render data for OlItemSheet");
     const renderTemplateInput = super.getData();
-   /*if (renderTemplateInput.item.type === 'weapon') {
-      const propertiesForRendering = enrichProperties(renderTemplateInput.item.system.properties);
-      renderTemplateInput.item.system.properties = propertiesForRendering;
-    }*/
     console.log(renderTemplateInput);
     return renderTemplateInput;
   }
@@ -127,125 +122,4 @@ export class OlItemSheet extends ItemSheet {
     console.log($(this));
     $(this).attr('size', $(this).val().length);
   }
-}
-
-export function enrichProperties(selectProperties) {
-  if (!selectProperties instanceof Object) {
-    console.log("Open Legend | Can not enrich weapon properties");
-    console.log(selectProperties);
-    return {
-        "Area": {
-          "name": "Area",
-          "selected": false,
-          "hint": weaponproperties["Area"]
-        },
-        "Expendable": {
-          "name": "Expendable",
-          "selected": false,
-          "hint": weaponproperties["Expendable"]
-        },
-        "Defensive": {
-          "name": "Defensive",
-          "selected": false,
-          "hint": weaponproperties["Defensive"]
-        },
-        "Delayed Ready": {
-          "name": "Delayed Ready",
-          "selected": false,
-          "hint": weaponproperties["Delayed Ready"]
-        },
-        "Forceful": {
-          "name": "Forceful",
-          "selected": false,
-          "hint": weaponproperties["Forceful"]
-        },
-        "Heavy": {
-          "name": "Heavy",
-          "selected": false,
-          "hint": weaponproperties["Heavy"]
-        },
-        "Precise": {
-          "name": "Precise",
-          "selected": false,
-          "hint": weaponproperties["Precise"]
-        },
-        "Reach": {
-          "name": "Reach",
-          "selected": false,
-          "hint": weaponproperties["Reach"]
-        },
-        "Slow": {
-          "name": "Slow",
-          "selected": false,
-          "hint": weaponproperties["Slow"]
-        },
-        "Stationary": {
-          "name": "Stationary",
-          "selected": false,
-          "hint": weaponproperties["Stationary"]
-        },
-        "Swift": {
-          "name": "Swift",
-          "selected": false,
-          "hint": weaponproperties["Swift"]
-        }
-      };
-  }
-  return {
-        "Area": {
-          "name": "Area",
-          "selected": selectProperties["Area"],
-          "hint": weaponproperties["Area"]
-        },
-        "Expendable": {
-          "name": "Expendable",
-          "selected": selectProperties["Expendable"],
-          "hint": weaponproperties["Expendable"]
-        },
-        "Defensive": {
-          "name": "Defensive",
-          "selected": selectProperties["Defensive"],
-          "hint": weaponproperties["Defensive"]
-        },
-        "Delayed Ready": {
-          "name": "Delayed Ready",
-          "selected": selectProperties["Delayed Ready"],
-          "hint": weaponproperties["Delayed Ready"]
-        },
-        "Forceful": {
-          "name": "Forceful",
-          "selected": selectProperties["Forceful"],
-          "hint": weaponproperties["Forceful"]
-        },
-        "Heavy": {
-          "name": "Heavy",
-          "selected": selectProperties["Heavy"],
-          "hint": weaponproperties["Heavy"]
-        },
-        "Precise": {
-          "name": "Precise",
-          "selected": selectProperties["Precise"],
-          "hint": weaponproperties["Precise"]
-        },
-        "Reach": {
-          "name": "Reach",
-          "selected": selectProperties["Reach"],
-          "hint": weaponproperties["Reach"]
-        },
-        "Slow": {
-          "name": "Slow",
-          "selected": selectProperties["Slow"],
-          "hint": weaponproperties["Slow"]
-        },
-        "Stationary": {
-          "name": "Stationary",
-          "selected": selectProperties["Stationary"],
-          "hint": weaponproperties["Stationary"]
-        },
-        "Swift": {
-          "name": "Swift",
-          "selected": selectProperties["Swift"],
-          "hint": weaponproperties["Swift"]
-        }
-      };
 }
