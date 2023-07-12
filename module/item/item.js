@@ -16,7 +16,6 @@ export class OlItem extends Item {
       this._migrateWeaponProperties();
     if (this.type === 'weapon' && typeof this.system.categories === 'string') {
       this._migrateWeaponCategories();
-      this._migrateWeaponProperties();
     }
   }
 

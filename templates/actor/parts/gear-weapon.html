@@ -27,8 +27,8 @@
     <div class="attribute-selection">
         <select class="action-edit action-attribute" data-item="{{item._id}}" data-field="attack">
             <option></option>
-            {{#each item.system.attacks as |attack|}}
-                <option class="action-attribute" value="{{attack.attribute}}" {{#if (eq attack.attribute ../item.system.action.attribute)}} selected{{/if}}>{{attack.attribute}} vs {{attack.target}}</option>
+            {{#each weapon.system.attacks as |attack|}}
+                <option class="action-attribute" value="{{attack.attribute}}" {{#if (eq attack.attribute ../weapon.system.action.attribute)}} selected{{/if}}>{{attack.attribute}} vs {{attack.target}}</option>
             {{/each}}
         </select>
     </div>
