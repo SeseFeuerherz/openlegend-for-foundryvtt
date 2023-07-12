@@ -15,7 +15,7 @@
             </div>
             <div class="flexrow">
                 {{#each item.system.categories as |selected|}}
-                    <input type="checkbox" name="system.categories.{{@key}}" value="{{@key}}" {{#if (eq selected true)}} checked{{/if}}> <label for="system.categories.{{@key}}"><span class="ht">{{@key}}<span class="tooltip">{{weaponcategoryydesc @key}}</span></span></label>
+                    <input type="checkbox" name="system.categories.{{@key}}" value="{{@key}}" {{#if (eq selected true)}} checked{{/if}}> <label for="system.categories.{{@key}}"><span class="ht">{{@key}}<span class="tooltip">{{weaponcategorydesc @key}}</span></span></label>
                 {{/each}}
             </div>
             <ul class="summary flexrow">
