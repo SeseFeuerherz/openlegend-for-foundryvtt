@@ -5,6 +5,7 @@ import { OlItem } from "./item/item.js";
 import { OlItemSheet } from "./item/item-sheet.js";
 import { preloadHandlebarsTemplates } from "./templates.js";
 import * as macros from "./util/macros.js";
+import { weaponproperties, weaponcategory } from "../util/weapon_const.js";
 
 Hooks.once('init', async function() {
   console.log("Open Legend | Loading openlegend.js on init");
@@ -57,6 +58,11 @@ console.log("Open Legend | Register Handlebars ifeq helper");
   console.log("Open Legend | Register Handlebars gtz helper");
   Handlebars.registerHelper('gtz', function (value) {
     return value > 0;
+  });
+
+  console.log("Open Legend | Register Handlebars weaponpropertiesdesc helper");
+  Handlebars.registerHelper('weaponpropertiesdesc', function (propertyName) {
+    return weaponproperties[propertyName];
   });
 
   console.log("Open Legend | Preload Handlebars templates");
