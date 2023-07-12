@@ -7,9 +7,9 @@
     <div class="weapon-affixes">
         <div class="weapon-properties">
             <span class="forceful">Properties: </span>
-            {{#each weapon.system.properties as |propname propselected|}}
-                {{#if (eq propselected true)}}
-                    <span class="property-display">{{propname}} </span>
+            {{#each weapon.system.properties as |selected|}}
+                {{#if (eq selected true)}}
+                    <span class="property-display">{{@key}} </span>
                 {{/if}}
             {{/each}}
         </div>

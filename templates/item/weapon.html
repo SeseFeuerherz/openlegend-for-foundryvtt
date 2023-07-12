@@ -16,15 +16,15 @@
             </div>
             <ul class="summary flexrow">
                 <li class="flexrow">
-                    {{#each item.system.properties as |propname propselected|}}
-                        {{#if (eq propselected true)}}
-                            <span class="property-display">{{propname}} </span>
+                    {{#each item.system.properties as |selected|}}
+                        {{#if (eq selected true)}}
+                            <span class="property-display">{{@key}} </span>
                         {{/if}}
                     {{/each}}
                     <div class="property-edit" hidden>
                         <ul class="property-list">
-                            {{#each item.system.properties as |propname propselected|}}
-                                <input type="checkbox" name="{{propname}}" value="{{propname}}" {{#if (eq propselected true)}} checked{{/if}}> <label for="{{propname}}">{{propname}}</label><br>
+                            {{#each item.system.properties as |selected|}}
+                                <input type="checkbox" name="{{@key}}" value="{{@key}}" {{#if (eq selected true)}} checked{{/if}}> <label for="{{@key}}">{{@key}}</label><br>
                             {{/each}}
                         </ul>
                     </div>
