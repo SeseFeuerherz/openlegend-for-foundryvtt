@@ -5,7 +5,7 @@ import { OlItem } from "./item/item.js";
 import { OlItemSheet } from "./item/item-sheet.js";
 import { preloadHandlebarsTemplates } from "./templates.js";
 import * as macros from "./util/macros.js";
-import { weaponproperties, weaponcategory } from "../util/weapon_const.js";
+import { weaponproperties, weaponcategory } from "./util/weapon_const.js";
 
 Hooks.once('init', async function() {
   console.log("Open Legend | Loading openlegend.js on init");
