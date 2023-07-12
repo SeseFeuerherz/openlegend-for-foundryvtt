@@ -66,7 +66,7 @@ console.log("Open Legend | Register Handlebars ifeq helper");
   });
 
   console.log("Open Legend | Register Handlebars weaponcategorydesc helper");
-  Handlebars.registerHelper('weaponpropertydesc', function (categoryName) {
+  Handlebars.registerHelper('weaponcategorydesc', function (categoryName) {
     return weaponcategories[categoryName];
   });
 

@@ -43,7 +43,7 @@ export class OlItem extends Item {
   async _migrateWeaponCategories() {
     console.log("Open Legend | Migrate Weapon Categories");
     console.log(this);
-    this.system.properties = {
+    this.system.categories = {
         "One-handed Melee": this.system.categories.includes("One-handed Melee"),
         "Two-Handed Melee": this.system.categories.includes("Two-Handed Melee"),
         "Versatile Melee": this.system.categories.includes("Versatile Melee"),
@@ -53,6 +53,7 @@ export class OlItem extends Item {
         "Long Ranged": this.system.categories.includes("Long Ranged"),
         "Extreme Ranged": this.system.categories.includes("Extreme Ranged")
       };
+    _migrateWeaponProperties
     console.log(this);
   }
 }
