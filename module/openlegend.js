@@ -60,9 +60,14 @@ console.log("Open Legend | Register Handlebars ifeq helper");
     return value > 0;
   });
 
-  console.log("Open Legend | Register Handlebars weaponpropertiesdesc helper");
+  console.log("Open Legend | Register Handlebars weaponpropertydesc helper");
   Handlebars.registerHelper('weaponpropertydesc', function (propertyName) {
     return weaponproperties[propertyName];
+  });
+
+  console.log("Open Legend | Register Handlebars weaponcategorydesc helper");
+  Handlebars.registerHelper('weaponpropertydesc', function (categoryName) {
+    return weaponcategories[categoryName];
   });
 
   console.log("Open Legend | Preload Handlebars templates");
