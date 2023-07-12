@@ -68,7 +68,7 @@
 
 .weapon-row {
     display: grid;
-    grid-template-columns: minmax(max-content, auto) minmax(max-content, auto) minmax(max-content, 10fr) max-content 20px;
+    grid-template-columns: minmax(max-content, auto) minmax(max-content, auto) minmax(max-content, 10fr)  max-content 50px 20px;
     grid-gap: 0.5rem;
 
     .weapon-affixes {

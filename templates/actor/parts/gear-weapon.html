@@ -18,16 +18,24 @@
             {{weapon.system.banes}}
         </div>
     </div>
+    <div class="attribute-selection">
+        <select class="action-edit action-attribute" data-item="{{item._id}}" data-field="attack">
+            <option></option>
+            {{#each item.system.attacks as |attack|}}
+                <option class="action-attribute" value="{{attack.attribute}}" {{#if (eq attack.attribute ../item.system.action.attribute)}} selected{{/if}}>{{attack.attribute}} vs {{attack.target}}</option>
+            {{/each}}
+        </select>
+    </div>
     <div class="gear-wl">
         <span class="forceful">WL: </span>{{weapon.system.gear.wl}}</div>
     <div class="gear-buttons">
         <a class="gear-control gear-move-up" title="Move" data-item="{{weapon._id}}"><i class="fas fa-arrow-up"></i></a>
         <a class="gear-control item-delete" title="Delete" data-item="{{weapon._id}}"><i class="fas fa-trash"></i></a>
     </div>
-    <div>
+    <div class="single-target">
         Single Target
     </div>
-    <div>
+    <div class="multi-target">
         Multi Target
     </div>
 </div>
