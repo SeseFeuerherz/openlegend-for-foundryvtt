@@ -9,7 +9,7 @@
             <span class="forceful">Properties: </span>
             {{#each weapon.system.properties as |selected|}}
                 {{#if (eq selected true)}}
-                    <span class="property-display">{{@key}} </span>
+                    <span class="property-display ht">{{@key}}<span class="tooltip">{{weaponpropertydesc @key}}</span> </span>
                 {{/if}}
             {{/each}}
         </div>

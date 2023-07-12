@@ -61,7 +61,7 @@ console.log("Open Legend | Register Handlebars ifeq helper");
   });
 
   console.log("Open Legend | Register Handlebars weaponpropertiesdesc helper");
-  Handlebars.registerHelper('weaponpropertiesdesc', function (propertyName) {
+  Handlebars.registerHelper('weaponpropertydesc', function (propertyName) {
     return weaponproperties[propertyName];
   });
 

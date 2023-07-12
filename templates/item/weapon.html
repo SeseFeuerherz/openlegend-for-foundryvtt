@@ -18,13 +18,13 @@
                 <li class="flexrow">
                     {{#each item.system.properties as |selected|}}
                         {{#if (eq selected true)}}
-                            <span class="property-display">{{@key}} </span>
+                            <span class="property-display ht">{{@key}}<span class="tooltip">{{weaponpropertydesc @key}}</span> </span>
                         {{/if}}
                     {{/each}}
                     <div class="property-edit" hidden>
                         <ul class="property-list">
                             {{#each item.system.properties as |selected|}}
-                                <input type="checkbox" name="{{@key}}" value="{{@key}}" {{#if (eq selected true)}} checked{{/if}}> <label for="{{@key}}">{{@key}}</label><br>
+                                <input type="checkbox" name="{{@key}}" value="{{@key}}" {{#if (eq selected true)}} checked{{/if}}> <label for="{{@key}}"><span class="ht">{{@key}}<span class="tooltip">{{weaponpropertydesc @key}}</span></span></label><br>
                             {{/each}}
                         </ul>
                     </div>
