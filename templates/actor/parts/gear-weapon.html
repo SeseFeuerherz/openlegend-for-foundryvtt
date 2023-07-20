@@ -38,10 +38,21 @@
         <a class="gear-control gear-move-up" title="Move" data-item="{{weapon._id}}"><i class="fas fa-arrow-up"></i></a>
         <a class="gear-control item-delete" title="Delete" data-item="{{weapon._id}}"><i class="fas fa-trash"></i></a>
     </div>
+</div>
+<div class="aligned gear-row target-row">
     <div class="single-target">
         Single Target
     </div>
     <div class="multi-target">
         Multi Target
     </div>
+    {{#if (hasRangedCategory weapon.system.categories)}}
+        <div class="range-selector" data-item="{{weapon._id}}">
+            <select>
+                <option value="0" {{#if (eq weapon.system.action.range_mod)}} selected{{/if}}>{{moddedRangeInFeet weapon.system.categories 1}} ft.</option>
+                <option value="-1" {{#if (eq weapon.system.action.range_mod)}} selected{{/if}}>{{moddedRangeInFeet weapon.system.categories 2}} ft. (Disadvantage 1)</option>
+                <option value="-2" {{#if (eq weapon.system.action.range_mod)}} selected{{/if}}>{{moddedRangeInFeet weapon.system.categories 3}} ft. (Disadvantage 2)</option>
+            </select>
+        </div>
+    {{/if}}
 </div>

@@ -111,6 +111,7 @@
           "attribute": "",
           "cast_time": "",
           "target": "",
+          "range_mod": 0,
           "default_adv": 0,
           "index": 0,
           "show_as_action": true

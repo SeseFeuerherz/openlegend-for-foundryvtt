@@ -213,8 +213,7 @@ export class OlActorSheet extends ActorSheet {
       const field = tag.dataset.field;
       const value = tag.value;
 
-      var data = item.data.toJSON(); // TODO make work with weapon
-      console.log(data);
+      var data = item.data.toJSON();
       if( field == 'name') data.name = value;
       else if( field == 'action_attr') data.data.action.attribute = value;
       else if( field == 'action_name') data.data.action.name = value;
@@ -230,6 +229,17 @@ export class OlActorSheet extends ActorSheet {
       }
       item.update(data);
     });
+
+    html.find('.range-selector').change(ev => {
+      console.log(ev);
+      const tag = ev.currentTarget;
+      const item = this.actor.items.get(tag.dataset.item);
+      const value = parseInt(tag.value);
+
+      vat data = item.data.toJSON();
+      data.data.action.range_mod = value;
+      item.update(data);
+    })
 
     // Update curr hp of npcs if max hp changes
     html.find('.npc_hp_edit').change(ev => {

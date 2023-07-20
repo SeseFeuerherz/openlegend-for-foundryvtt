@@ -50,9 +50,30 @@ console.log("Open Legend | Register Handlebars toLowerCase helper");
     return str.toLowerCase();
   });
 
-console.log("Open Legend | Register Handlebars ifeq helper");
+console.log("Open Legend | Register Handlebars eq helper");
   Handlebars.registerHelper('eq', function(arg1, arg2) {
     return arg1 == arg2;
+  });
+
+  console.log("Open Legend | Register Handlebars hasRangedCategory helper");
+  Handlebars.registerHelper('hasRangedCategory', function(categories) {
+    for(const key in categories) {
+      if (categories[key] === true)
+        if (weaponcategories[key].type === "ranged")
+          return true;
+    }
+    return false;
+  });
+
+  console.log("Open Legend | Register Handlebars moddedRangeInFeet helper");
+  Handlebars.registerHelper('moddedRangeInFeet', function(categories, multiplier) {
+    let longestRangeKey = "Close Ranged"
+    for(const key in categories) {
+      if (categories[key] === true)
+        if (weaponcategories[key].type === "ranged")
+          longestRangeKey = key;
+    }
+    return weaponcategories[key].rangeIncrement * multiplier;
   });
 
   console.log("Open Legend | Register Handlebars gtz helper");

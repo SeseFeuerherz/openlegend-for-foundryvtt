@@ -27,27 +27,27 @@ export const weaponcategories = {
 	},
 	"Close Ranged": {
 		"type": "ranged",
-		"range increment": 25,
+		"rangeIncrement": 25,
 		"description": "Weapons in this category can be used to make ranged attacks with no penalty up to their range increment (25 feet). Attacks made up to twice the normal range suffer disadvantage 1, and attacks made up to three times the normal range suffer disadvantage 2. Attacks at farther distances cannot be made. Note that ammunition for ranged weapons is generally not kept track of, as it is assumed you have brought enough ammo with you."
 	},
 	"Short Ranged": {
 		"type": "ranged",
-		"range increment": 50,
+		"rangeIncrement": 50,
 		"description": "Weapons in this category can be used to make ranged attacks with no penalty up to their range increment (50 feet). Attacks made up to twice the normal range suffer disadvantage 1, and attacks made up to three times the normal range suffer disadvantage 2. Attacks at farther distances cannot be made. Note that ammunition for ranged weapons is generally not kept track of, as it is assumed you have brought enough ammo with you."
 	},
 	"Medium Ranged": {
 		"type": "ranged",
-		"range increment": 75,
+		"rangeIncrement": 75,
 		"description": "Weapons in this category can be used to make ranged attacks with no penalty up to their range increment (75 feet). Attacks made up to twice the normal range suffer disadvantage 1, and attacks made up to three times the normal range suffer disadvantage 2. Attacks at farther distances cannot be made. Note that ammunition for ranged weapons is generally not kept track of, as it is assumed you have brought enough ammo with you."
 	},
 	"Long Ranged": {
 		"type": "ranged",
-		"range increment": 125,
+		"rangeIncrement": 125,
 		"description": "Weapons in this category can be used to make ranged attacks with no penalty up to their range increment (125 feet). Attacks made up to twice the normal range suffer disadvantage 1, and attacks made up to three times the normal range suffer disadvantage 2. Attacks at farther distances cannot be made. Note that ammunition for ranged weapons is generally not kept track of, as it is assumed you have brought enough ammo with you."
 	},
 	"Extreme Ranged": {
 		"type": "ranged",
-		"range increment": 300,
+		"rangeIncrement": 300,
 		"description": "Weapons in this category can be used to make ranged attacks with no penalty up to their range increment (300 feet). Attacks made up to twice the normal range suffer disadvantage 1, and attacks made up to three times the normal range suffer disadvantage 2. Attacks at farther distances cannot be made. Note that ammunition for ranged weapons is generally not kept track of, as it is assumed you have brought enough ammo with you."
 	}
 }
