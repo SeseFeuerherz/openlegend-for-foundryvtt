@@ -99,6 +99,24 @@ export class OlItemSheet extends ItemSheet {
       html.find(".property-edit").toggle();
     });
 
+    html.find(".update-categories").click(ev => {
+      const btn = $(ev.currentTarget);
+      if (btn.html() == "Edit")
+        btn.html("Save");
+      else {
+        var data = {}
+        html.find(".category-edit input").each((i, obj) => {
+          console.log(obj);
+          data['data.categories.' + obj.value] = obj.checked;
+        });
+        this.object.update(data);
+        btn.html("Edit");
+      }
+
+      html.find(".category-display").toggle();
+      html.find(".category-edit").toggle();
+    });
+
     html.find('.scale').keyup(ev => {
       const input = $(ev.currentTarget);
       const tester = html.find('.scale-tester');

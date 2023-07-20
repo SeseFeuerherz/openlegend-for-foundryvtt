@@ -15,8 +15,16 @@
             </div>
             <div class="flexrow weapon-category-selection">
                 {{#each item.system.categories as |selected|}}
-                    <span class="category"><input type="checkbox" name="system.categories.{{@key}}" value="{{@key}}" {{#if (eq selected true)}} checked{{/if}}> <label for="system.categories.{{@key}}"><span class="ht">{{@key}}<span class="tooltip">{{weaponcategorydesc @key}}</span></span></label></span>
+                    {{#if (eq selected true)}}
+                        <span class="category-display ht">{{@key}} <span class="tooltip">{{weaponcategorydesc @key}}</span></span>
+                    {{/if}}
                 {{/each}}
+                <div class="category-edit" hidden>
+                    {{#each item.system.categories as |selected|}}
+                        <span class="category"><input type="checkbox" name="{{@key}}" value="{{@key}}" {{#if (eq selected true)}} checked{{/if}}> <label for="{{@key}}"><span class="ht">{{@key}}<span class="tooltip">{{weaponcategorydesc @key}}</span></span></label></span>
+                    {{/each}}
+                </div>
+                <button class="update-categories">Edit</button>
             </div>
             <ul class="summary flexrow">
                 <li class="flexrow">
