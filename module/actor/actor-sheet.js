@@ -230,7 +230,7 @@ export class OlActorSheet extends ActorSheet {
       item.update(data);
     });
 
-    html.find('.range-selector').change(ev => {
+    html.find('.range-increment-edit').change(ev => {
       console.log(ev);
       const tag = ev.currentTarget;
       const item = this.actor.items.get(tag.dataset.item);

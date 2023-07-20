@@ -47,8 +47,8 @@
         Multi Target
     </div>
     {{#if (hasRangedCategory weapon.system.categories)}}
-        <div class="range-selector" data-item="{{weapon._id}}">
-            <select>
+        <div class="range-selector">
+            <select class="range-increment-edit" data-item="{{weapon._id}}">
                 <option value="0" {{#if (eq weapon.system.action.range_mod 0)}} selected{{/if}}>{{moddedRangeInFeet weapon.system.categories 1}} ft.</option>
                 <option value="-1" {{#if (eq weapon.system.action.range_mod -1)}} selected{{/if}}>{{moddedRangeInFeet weapon.system.categories 2}} ft. (Disadvantage 1)</option>
                 <option value="-2" {{#if (eq weapon.system.action.range_mod -2)}} selected{{/if}}>{{moddedRangeInFeet weapon.system.categories 3}} ft. (Disadvantage 2)</option>
