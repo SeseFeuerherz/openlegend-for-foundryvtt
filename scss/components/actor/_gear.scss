@@ -76,6 +76,17 @@
     }
 }
 
+.gear-row.target-row {
+    border-top: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .range-selector {
+        margin-right: 86px;
+    }
+}
+
 .generic-row {
     display: grid;
     grid-template-columns: minmax(max-content, auto) minmax(max-content, auto) minmax(max-content, auto) minmax(max-content, 10fr) max-content 20px;

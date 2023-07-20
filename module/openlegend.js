@@ -57,7 +57,6 @@ console.log("Open Legend | Register Handlebars eq helper");
 
   console.log("Open Legend | Register Handlebars hasRangedCategory helper");
   Handlebars.registerHelper('hasRangedCategory', function(categories) {
-    console.log(categories);
     for(const key in categories) {
       if (categories[key] === true)
         if (weaponcategories[key].type === "ranged")
@@ -68,7 +67,6 @@ console.log("Open Legend | Register Handlebars eq helper");
 
   console.log("Open Legend | Register Handlebars moddedRangeInFeet helper");
   Handlebars.registerHelper('moddedRangeInFeet', function(categories, multiplier) {
-    console.log(categories);
     let longestRangeKey = "Close Ranged";
     for(const key in categories) {
       if (categories[key] === true)

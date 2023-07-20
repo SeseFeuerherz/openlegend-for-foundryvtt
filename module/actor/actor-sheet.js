@@ -235,8 +235,10 @@ export class OlActorSheet extends ActorSheet {
       const tag = ev.currentTarget;
       const item = this.actor.items.get(tag.dataset.item);
       const value = parseInt(tag.value);
+      console.log(value);
 
       var data = item.data.toJSON();
+      console.log(data);
       data.data.action.range_mod = value;
       item.update(data);
     })
