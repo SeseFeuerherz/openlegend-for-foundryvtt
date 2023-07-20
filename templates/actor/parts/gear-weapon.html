@@ -5,7 +5,7 @@
         <div class="gear-type">
             {{#each weapon.system.categories as |selected|}}
                 {{#if (eq selected true)}}
-                    {{@key}}&nbsp;
+                    <span class="ht">{{@key}}<span class="tooltip">{{weaponcategorydesc @key}}</span> </span>
                 {{/if}}
             {{/each}}
         </div>

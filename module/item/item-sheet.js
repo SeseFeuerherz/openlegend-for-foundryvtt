@@ -87,7 +87,7 @@ export class OlItemSheet extends ItemSheet {
         btn.html("Save");
       else {
         var data = {}
-        html.find(".property-list > input").each((i, obj) => {
+        html.find(".property-list input").each((i, obj) => {
           console.log(obj);
           data['data.properties.' + obj.value] = obj.checked;
         });
