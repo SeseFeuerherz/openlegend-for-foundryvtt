@@ -75,7 +75,7 @@ console.log("Open Legend | Register Handlebars eq helper");
         if (weaponcategories[key].type === "ranged")
           longestRangeKey = key;
     }
-    return weaponcategories[key].rangeIncrement * multiplier;
+    return weaponcategories[longestRangeKey].rangeIncrement * multiplier;
   });
 
   console.log("Open Legend | Register Handlebars gtz helper");
