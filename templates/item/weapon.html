@@ -14,25 +14,31 @@
                 </div>
             </div>
             <div class="flexrow weapon-category-selection">
-                {{#each item.system.categories as |selected|}}
-                    {{#if (eq selected true)}}
-                        <span class="category-display ht">{{@key}} <span class="tooltip">{{weaponcategorydesc @key}}</span></span>
-                    {{/if}}
-                {{/each}}
-                <div class="category-edit" hidden>
+                <span>
                     {{#each item.system.categories as |selected|}}
-                        <span class="category"><input type="checkbox" name="{{@key}}" value="{{@key}}" {{#if (eq selected true)}} checked{{/if}}> <label for="{{@key}}"><span class="ht">{{@key}}<span class="tooltip">{{weaponcategorydesc @key}}</span></span></label></span>
+                        {{#if (eq selected true)}}
+                            <span class="category-display ht">{{@key}} <span class="tooltip">{{weaponcategorydesc @key}}</span></span>
+                        {{/if}}
                     {{/each}}
+                </span>
+                <div class="category-edit" hidden>
+                    <ul class="category-list">
+                        {{#each item.system.categories as |selected|}}
+                            <span class="category"><input type="checkbox" name="{{@key}}" value="{{@key}}" {{#if (eq selected true)}} checked{{/if}}> <label for="{{@key}}"><span class="ht">{{@key}}<span class="tooltip">{{weaponcategorydesc @key}}</span></span></label></span>
+                        {{/each}}
+                    </ul>
                 </div>
                 <button class="update-categories">Edit</button>
             </div>
             <ul class="summary flexrow">
                 <li class="flexrow">
-                    {{#each item.system.properties as |selected|}}
-                        {{#if (eq selected true)}}
-                            <span class="property-display ht">{{@key}}<span class="tooltip">{{weaponpropertydesc @key}}</span> </span>
-                        {{/if}}
-                    {{/each}}
+                    <span>
+                        {{#each item.system.properties as |selected|}}
+                            {{#if (eq selected true)}}
+                                <span class="property-display ht">{{@key}} <span class="tooltip">{{weaponpropertydesc @key}}</span> </span>
+                            {{/if}}
+                        {{/each}}
+                    </span>
                     <div class="property-edit" hidden>
                         <ul class="property-list">
                             {{#each item.system.properties as |selected|}}
