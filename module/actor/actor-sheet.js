@@ -214,6 +214,7 @@ export class OlActorSheet extends ActorSheet {
       const value = tag.value;
 
       var data = item.data.toJSON(); // TODO make work with weapon
+      console.log(data);
       if( field == 'name') data.name = value;
       else if( field == 'action_attr') data.data.action.attribute = value;
       else if( field == 'action_name') data.data.action.name = value;
