@@ -40,21 +40,27 @@
     </div>
 </div>
 <div class="aligned gear-row target-row">
-    <div class="single-target">
-        <span>Single Target</span>
-        <input class="action-edit action-adv" data-item="{{weapon._id}}" data-field="single_target_adv"
+    <div>
+        <div class="single-target">
+            <span class="fa-stack fa-2x">
+                <i class="fa-solid fa-bullseye fa-stack-2x"></i>
+                <i class="fa-solid fa-user fa-stack-1x" style="color: #729fcf;"></i>
+            </span>
+            <span>Single Target</span>
+            <input class="action-edit action-adv" data-item="{{weapon._id}}" data-field="single_target_adv"
         type="number" value="{{weapon.system.action.single_target_adv}}"/>
-        <input class="action-edit" data-item="{{weapon._id}}" data-field="single_target_text"
-        type="text" value="{{weapon.system.action.single_target_text}}" placeholder="adv modifier" />
-    </div>
-    <div class="multi-target">
-        <span>Multi Target</span>
-        <input class="action-edit action-adv" data-item="{{weapon._id}}" data-field="multi_target_adv"
+            <input class="action-edit" data-item="{{weapon._id}}" data-field="single_target_text"
+        type="text" value="{{weapon.system.action.single_target_text}}" placeholder="adv modifier text" />
+        </div>
+        <div class="multi-target">
+            <span>Multi Target</span>
+            <input class="action-edit action-adv" data-item="{{weapon._id}}" data-field="multi_target_adv"
         type="number" value="{{weapon.system.action.multi_target_adv}}"/>
-        <input class="action-edit" data-item="{{weapon._id}}" data-field="multi_target_text"
-        type="text" value="{{weapon.system.action.multi_target_text}}" placeholder="adv modifier" />
-        <input class="action-edit action-adv" data-item="{{weapon._id}}" data-field="multi_target_count"
+            <input class="action-edit" data-item="{{weapon._id}}" data-field="multi_target_text"
+        type="text" value="{{weapon.system.action.multi_target_text}}" placeholder="adv modifier text" />
+            <input class="action-edit action-adv" data-item="{{weapon._id}}" data-field="multi_target_count"
         type="number" value="{{weapon.system.action.multi_target_count}}"/>
+        </div>
     </div>
     {{#if (hasRangedCategory weapon.system.categories)}}
         <div class="range-selector">

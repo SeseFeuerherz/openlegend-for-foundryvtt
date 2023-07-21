@@ -160,8 +160,8 @@
     .openlegend .actions .action-type, .openlegend .actions .action-attribute {
       text-transform: capitalize;
       font-variant: small-caps; }
-    .openlegend .actions .action-adv {
-      width: 25px; }
+  .openlegend .action-adv {
+    width: 25px; }
   .openlegend .attributes {
     grid-column: 1 / 1;
     grid-row: 3 / 9;

@@ -214,12 +214,12 @@ export class OlActorSheet extends ActorSheet {
       const value = tag.value;
 
       var data = item.data.toJSON();
-      if( field == 'name') data.name = value;
-      else if( field == 'action_attr') data.data.action.attribute = value;
-      else if( field == 'action_name') data.data.action.name = value;
+      if (field == 'name') data.name = value;
+      else if (field == 'action_attr') data.data.action.attribute = value;
+      else if (field == 'action_name') data.data.action.name = value;
       else if (field == 'action_adv') data.data.action.default_adv = value;
-      else if( field == 'notes') data.data.details.notes = value;
-      else if( field == 'attack') {
+      else if (field == 'notes') data.data.details.notes = value;
+      else if (field == 'attack') {
         // Set both attack attribute and find its target
         data.data.action.attribute = value;
         data.data.attacks.forEach(attack => {
@@ -227,6 +227,11 @@ export class OlActorSheet extends ActorSheet {
             data.data.action.target = attack.target;
         });
       }
+      else if (field == 'single_target_adv') data.data.action.single_target_adv = value;
+      else if (field == 'single_target_text') data.data.action.single_target_text = value;
+      else if (field == 'multi_target_adv') data.data.action.multi_target_adv = value;
+      else if (field == 'multi_target_text') data.data.action.multi_target_text = value;
+      else if (field == 'multi_target_count') data.data.action.multi_target_count = value;
       item.update(data);
     });
 
