@@ -231,7 +231,7 @@ export class OlActorSheet extends ActorSheet {
       else if (field == 'single_target_text') data.data.action.single_target_text = value;
       else if (field == 'multi_target_adv') data.data.action.multi_target_adv = value;
       else if (field == 'multi_target_text') data.data.action.multi_target_text = value;
-      else if (field == 'multi_target_count') data.data.action.multi_target_count = value;
+      else if (field == 'multi_target_count') data.data.action.multi_target_count = Math.max(2, value);
       item.update(data);
     });
 

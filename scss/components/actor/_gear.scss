@@ -82,8 +82,15 @@
     flex-direction: row;
     justify-content: space-between;
 
+    .target-logos {
+        margin-right: 1rem;
+    }
+    .adv-desc {
+        width: 175px;
+    }
+
     .range-selector {
-        margin-right: 86px;
+        margin-right: 1rem;
     }
 }
 

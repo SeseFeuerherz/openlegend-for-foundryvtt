@@ -42,24 +42,27 @@
 <div class="aligned gear-row target-row">
     <div>
         <div class="single-target">
-            <span class="fa-stack fa-2x">
-                <i class="fa-solid fa-bullseye fa-stack-2x"></i>
-                <i class="fa-solid fa-user fa-stack-1x" style="color: #729fcf;"></i>
+            <span class="target-logos">
+                <i class="fa-solid fa-crosshairs fa-lg"></i>
+                <i class="fa-solid fa-user fa-lg"></i>
             </span>
-            <span>Single Target</span>
+            <input class="action-edit adv-desc" data-item="{{weapon._id}}" data-field="single_target_text"
+                type="text" value="{{weapon.system.action.single_target_text}}" placeholder="adv modifier text" />
             <input class="action-edit action-adv" data-item="{{weapon._id}}" data-field="single_target_adv"
-        type="number" value="{{weapon.system.action.single_target_adv}}"/>
-            <input class="action-edit" data-item="{{weapon._id}}" data-field="single_target_text"
-        type="text" value="{{weapon.system.action.single_target_text}}" placeholder="adv modifier text" />
+                type="number" value="{{weapon.system.action.single_target_adv}}"/>
         </div>
         <div class="multi-target">
-            <span>Multi Target</span>
+            <span class="target-logos">
+                <i class="fa-solid fa-crosshairs fa-lg"></i>
+                <i class="fa-solid fa-users fa-lg"></i>
+            </span>
+            <input class="action-edit adv-desc" data-item="{{weapon._id}}" data-field="multi_target_text"
+                type="text" value="{{weapon.system.action.multi_target_text}}" placeholder="adv modifier text" />
             <input class="action-edit action-adv" data-item="{{weapon._id}}" data-field="multi_target_adv"
-        type="number" value="{{weapon.system.action.multi_target_adv}}"/>
-            <input class="action-edit" data-item="{{weapon._id}}" data-field="multi_target_text"
-        type="text" value="{{weapon.system.action.multi_target_text}}" placeholder="adv modifier text" />
-            <input class="action-edit action-adv" data-item="{{weapon._id}}" data-field="multi_target_count"
-        type="number" value="{{weapon.system.action.multi_target_count}}"/>
+                type="number" value="{{weapon.system.action.multi_target_adv}}"/>
+            <span> Targets:</span>
+            <input class="action-edit target-count" data-item="{{weapon._id}}" data-field="multi_target_count"
+                type="number" value="{{weapon.system.action.multi_target_count}}"/>
         </div>
     </div>
     {{#if (hasRangedCategory weapon.system.categories)}}
