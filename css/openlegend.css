@@ -376,7 +376,8 @@
   .openlegend .weapon-row {
     display: grid;
     grid-template-columns: minmax(max-content, auto) minmax(max-content, auto) minmax(max-content, 10fr) max-content 50px 20px;
-    grid-gap: 0.5rem; }
+    grid-gap: 0.5rem;
+    border-bottom: none; }
     .openlegend .weapon-row .weapon-affixes {
       font-size: smaller; }
   .openlegend .gear-row.target-row {
@@ -385,17 +386,18 @@
     flex-direction: row;
     justify-content: space-between; }
     .openlegend .gear-row.target-row .single-target {
+      margin-top: 0.25rem;
       margin-bottom: 0.25rem; }
     .openlegend .gear-row.target-row .multi-target {
       margin-bottom: 0.25rem; }
     .openlegend .gear-row.target-row .target-logos {
       display: inline-block;
-      width: 3rem; }
+      width: 2.5rem; }
     .openlegend .gear-row.target-row .adv-desc {
       width: 175px; }
     .openlegend .gear-row.target-row .range-selector {
       margin-right: 1rem; }
-    .openlegend .gear-row.target-row .target-count-desc {
+    .openlegend .gear-row.target-row .input-group {
       margin-left: 1rem; }
   .openlegend .generic-row {
     display: grid;

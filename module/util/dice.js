@@ -19,6 +19,38 @@ async function generateFlavorHtmlForAttribute(attrName, olRoll) {
     return renderTemplate(template, data);
 }
 
+export async function rollItemSingleTarget(actor, item) {
+    console.log("Open Legend | Roll item single target:");
+    console.log(item);
+    const attrName = item.system.action.attribute;
+    const attr = _getAttr(actor, attrName);
+    if (attr) {
+        const action = item.system.action;
+        let defaultAdv = action.single_target_adv;
+        if (item.hasRange())
+            default_adv += action.range_mod;
+        const olRoll = await OLRoll(attrName, attr, defaultAdv);
+        const flavorHtml = await generateFlavorHtmlForItem(item, olRoll);
+        evaluateRollToChat(actor, olRoll, flavorHtml);
+    }
+}
+
+export async function rollItemMultiTarget(actor, item) {
+    console.log("Open Legend | Roll item multi target:");
+    console.log(item);
+    const attrName = item.system.action.attribute;
+    const attr = _getAttr(actor, attrName);
+    if (attr) {
+        const action = item.system.action;
+        let defaultAdv = action.multi_target_adv - action.multi_target_count;
+        if (item.hasRange())
+            default_adv += action.range_mod;
+        const olRoll = await OLRoll(attrName, attr, defaultAdv);
+        const flavorHtml = await generateFlavorHtmlForItem(item, olRoll);
+        evaluateRollToChat(actor, olRoll, flavorHtml);
+    }
+}
+
 export async function rollItem(actor, item) {
     console.log("Open Legend | Roll item:");
     console.log(item);

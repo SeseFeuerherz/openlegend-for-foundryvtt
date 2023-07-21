@@ -1,3 +1,5 @@
+import { weaponproperties, weaponcategories } from "../util/weapon_const.js";
+
 /**
  * Extend the basic Item with some very simple modifications.
  * @extends {Item}
@@ -55,5 +57,17 @@ export class OlItem extends Item {
         "Extreme Ranged": this.system.categories.includes("Extreme Ranged")
       };
     console.log(this);
+  }
+
+  hasRange() {
+    if (this.type === 'weapon') {
+      const categories = this.system.categories;
+      for(const key in categories) {
+        if (categories[key] === true)
+          if (weaponcategories[key].type === "ranged")
+            return true;
+      }
+    }
+    return false;
   }
 }

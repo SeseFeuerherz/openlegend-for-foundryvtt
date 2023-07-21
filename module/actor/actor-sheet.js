@@ -1,4 +1,4 @@
-import { rollAttr, rollItem } from "../util/dice.js";
+import { rollAttr, rollItem, rollItemSingleTarget, rollItemMultiTarget } from "../util/dice.js";
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -298,7 +298,12 @@ export class OlActorSheet extends ActorSheet {
 
     // Roll using the appropriate logic -- item vs attribute
     if (dataset.item)
-      rollItem(this.actor, this.actor.items.get(dataset.item).data);
+      if (dataset.targettype == 'single')
+        rollItemSingleTarget(this,actor, this.actor.items.get(dataset.item).data);
+      else if (dataset.targettype == 'multi')
+        rollItemMultiTarget(this.actor, this.actor.items.get(dataset.item).data);
+      else
+        rollItem(this.actor, this.actor.items.get(dataset.item).data);
     else if (dataset.attr)
       rollAttr(this.actor, dataset.attr);
     console.log("Open Legend | Handled clickable roll event of OlActorSheet");

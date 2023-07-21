@@ -1,78 +1,100 @@
 <div class="aligned gear-row weapon-row">
-    <div class="gear-name clickable item-edit" data-item="{{weapon._id}}">{{weapon.name}}</div>
-    <div class="gear-summary">
-        <div class="gear-title">{{weapon.type}}</div>
-        <div class="gear-type">
-            {{#each weapon.system.categories as |selected|}}
-                {{#if (eq selected true)}}
-                    <span class="ht">{{@key}}<span class="tooltip">{{weaponcategorydesc @key}}</span> </span>
-                {{/if}}
-            {{/each}}
-        </div>
+  <div class="gear-name clickable item-edit" data-item="{{weapon._id}}">{{weapon.name}}</div>
+  <div class="gear-summary">
+    <div class="gear-title">{{weapon.type}}</div>
+    <div class="gear-type">
+      {{#each weapon.system.categories as |selected|}}
+        {{#if (eq selected true)}}
+          <span class="ht">{{@key}}<span class="tooltip">{{weaponcategorydesc @key}}</span> </span>
+        {{/if}}
+      {{/each}}
     </div>
-    <div class="weapon-affixes">
-        <div class="weapon-properties">
-            <span class="forceful">Properties: </span>
-            {{#each weapon.system.properties as |selected|}}
-                {{#if (eq selected true)}}
-                    <span class="property-display ht">{{@key}}<span class="tooltip">{{weaponpropertydesc @key}}</span> </span>
-                {{/if}}
-            {{/each}}
-        </div>
-        <div class="weapon-banes">
-            <span class="forceful">Banes: </span>
-            {{weapon.system.banes}}
-        </div>
+  </div>
+  <div class="weapon-affixes">
+    <div class="weapon-properties">
+      <span class="forceful">Properties: </span>
+      {{#each weapon.system.properties as |selected|}}
+        {{#if (eq selected true)}}
+          <span class="property-display ht">{{@key}}<span class="tooltip">{{weaponpropertydesc @key}}</span> </span>
+        {{/if}}
+      {{/each}}
     </div>
-    <div class="attribute-selection">
-        <select class="action-edit action-attribute" data-item="{{weapon._id}}" data-field="attack">
-            <option></option>
-            {{#each weapon.system.attacks as |attack|}}
-                <option class="action-attribute" value="{{attack.attribute}}" {{#if (eq attack.attribute ../weapon.system.action.attribute)}} selected{{/if}}>{{attack.attribute}} vs {{attack.target}}</option>
-            {{/each}}
-        </select>
+    <div class="weapon-banes">
+      <span class="forceful">Banes: </span>
+      {{weapon.system.banes}}
     </div>
-    <div class="gear-wl">
-        <span class="forceful">WL: </span>{{weapon.system.gear.wl}}</div>
-    <div class="gear-buttons">
-        <a class="gear-control gear-move-up" title="Move" data-item="{{weapon._id}}"><i class="fas fa-arrow-up"></i></a>
-        <a class="gear-control item-delete" title="Delete" data-item="{{weapon._id}}"><i class="fas fa-trash"></i></a>
-    </div>
+  </div>
+  <div class="attribute-selection">
+    <span>Attribute: </span>
+    <select class="action-edit action-attribute" data-item="{{weapon._id}}" data-field="attack">
+      <option></option>
+      {{#each weapon.system.attacks as |attack|}}
+        <option class="action-attribute" value="{{attack.attribute}}" {{#if (eq attack.attribute ../weapon.system.action.attribute)}} selected{{/if}}>{{attack.attribute}} vs {{attack.target}}</option>
+      {{/each}}
+    </select>
+  </div>
+  <div class="gear-wl">
+    <span class="forceful">WL: </span>{{weapon.system.gear.wl}}</div>
+  <div class="gear-buttons">
+    <a class="gear-control gear-move-up" title="Move" data-item="{{weapon._id}}"><i class="fas fa-arrow-up"></i></a>
+    <a class="gear-control item-delete" title="Delete" data-item="{{weapon._id}}"><i class="fas fa-trash"></i></a>
+  </div>
 </div>
 <div class="aligned gear-row target-row">
-    <div>
-        <div class="single-target">
-            <span class="target-logos">
-                <i class="fa-solid fa-crosshairs fa-lg"></i>
-                <i class="fa-solid fa-user fa-lg"></i>
-            </span>
-            <input class="action-edit adv-desc" data-item="{{weapon._id}}" data-field="single_target_text"
-                type="text" value="{{weapon.system.action.single_target_text}}" placeholder="adv modifier text" />
-            <input class="action-edit action-adv" data-item="{{weapon._id}}" data-field="single_target_adv"
-                type="number" value="{{weapon.system.action.single_target_adv}}"/>
-        </div>
-        <div class="multi-target">
-            <span class="target-logos">
-                <i class="fa-solid fa-crosshairs fa-lg"></i>
-                <i class="fa-solid fa-users fa-lg"></i>
-            </span>
-            <input class="action-edit adv-desc" data-item="{{weapon._id}}" data-field="multi_target_text"
-                type="text" value="{{weapon.system.action.multi_target_text}}" placeholder="adv modifier text" />
-            <input class="action-edit action-adv" data-item="{{weapon._id}}" data-field="multi_target_adv"
-                type="number" value="{{weapon.system.action.multi_target_adv}}"/>
-            <span class="target-count-desc">Targets:</span>
-            <input class="action-edit target-count" data-item="{{weapon._id}}" data-field="multi_target_count"
-                type="number" value="{{weapon.system.action.multi_target_count}}"/>
-        </div>
+  <div>
+    <div class="single-target">
+      {{#if weapon.system.action.attribute}}
+        <a class="rollable macro" draggable="true" title="Roll" data-macro="item-single-target" data-name="{{weapon.name}}" data-item="{{weapon._id}}" data-targettype="single">
+          <i class="fas fa-dice-d20"></i>
+        </a>
+      {{/if}}
+      {{#unless weapon.system.action.attribute}}
+        <a title="Attribute must be selected" data-macro="item-single-target" data-name="{{weapon.name}}" data-item="{{weapon._id}}">
+          <i class="fas fa-dice-d20" style="opacity: 50%;"></i>
+        </a>
+      {{/unless}}
+      <span class="target-logos">
+        <i class="fa-solid fa-crosshairs fa-1x"></i>
+        <i class="fa-solid fa-user fa-1x"></i>
+      </span>
+      <input class="action-edit adv-desc" data-item="{{weapon._id}}" data-field="single_target_text" type="text" value="{{weapon.system.action.single_target_text}}" placeholder="adv modifier text" />
+      <input class="action-edit action-adv" data-item="{{weapon._id}}" data-field="single_target_adv" type="number" value="{{weapon.system.action.single_target_adv}}"/>
     </div>
-    {{#if (hasRangedCategory weapon.system.categories)}}
-        <div class="range-selector">
-            <span>Range: </span>
-            <select class="range-increment-edit" data-item="{{weapon._id}}">
-                <option value="0" {{#if (eq weapon.system.action.range_mod 0)}} selected{{/if}}>{{moddedRangeInFeet weapon.system.categories 1}} ft.</option>
-                <option value="-1" {{#if (eq weapon.system.action.range_mod -1)}} selected{{/if}}>{{moddedRangeInFeet weapon.system.categories 2}} ft. (Adv -1)</option>
-                <option value="-2" {{#if (eq weapon.system.action.range_mod -2)}} selected{{/if}}>{{moddedRangeInFeet weapon.system.categories 3}} ft. (Adv -2)</option>
-            </select>
-        </div>
-    {{/if}}
+    <div class="multi-target">
+      {{#if weapon.system.action.attribute}}
+        <a class="rollable macro" draggable="true" title="Roll" data-macro="item-multi-target" data-name="{{weapon.name}}" data-item="{{weapon._id}}" data-targettype="multi">
+          <i class="fas fa-dice-d20"></i>
+        </a>
+      {{/if}}
+      {{#unless weapon.system.action.attribute}}
+        <a title="Attribute must be selected" data-macro="item-multi-target" data-name="{{weapon.name}}" data-item="{{weapon._id}}">
+          <i class="fas fa-dice-d20" style="opacity: 50%;"></i>
+        </a>
+      {{/unless}}
+      <span class="target-logos">
+        <i class="fa-solid fa-crosshairs fa-1x"></i>
+        <i class="fa-solid fa-users fa-1x"></i>
+      </span>
+      <span class="input-group">
+        Adv:
+        <input class="action-edit adv-desc" data-item="{{weapon._id}}" data-field="multi_target_text" type="text" value="{{weapon.system.action.multi_target_text}}" placeholder="adv modifier text" />
+        <input class="action-edit action-adv" data-item="{{weapon._id}}" data-field="multi_target_adv" type="number" value="{{weapon.system.action.multi_target_adv}}"/>
+      </span>
+      <span class="input-group">
+        Targets:
+        <input class="action-edit target-count" data-item="{{weapon._id}}" data-field="multi_target_count"
+            type="number" value="{{weapon.system.action.multi_target_count}}"/>
+      </span>
+    </div>
+  </div>
+  {{#if (hasRangedCategory weapon.system.categories)}}
+    <div class="range-selector">
+      <span>Range: </span>
+      <select class="range-increment-edit" data-item="{{weapon._id}}">
+        <option value="0" {{#if (eq weapon.system.action.range_mod 0)}} selected{{/if}}>{{moddedRangeInFeet weapon.system.categories 1}} ft.</option>
+        <option value="-1" {{#if (eq weapon.system.action.range_mod -1)}} selected{{/if}}>{{moddedRangeInFeet weapon.system.categories 2}} ft. (Adv -1)</option>
+        <option value="-2" {{#if (eq weapon.system.action.range_mod -2)}} selected{{/if}}>{{moddedRangeInFeet weapon.system.categories 3}} ft. (Adv -2)</option>
+      </select>
+    </div>
+  {{/if}}
 </div>

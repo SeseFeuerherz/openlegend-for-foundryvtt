@@ -70,6 +70,7 @@
     display: grid;
     grid-template-columns: minmax(max-content, auto) minmax(max-content, auto) minmax(max-content, 10fr)  max-content 50px 20px;
     grid-gap: 0.5rem;
+    border-bottom: none;
 
     .weapon-affixes {
         font-size: smaller;
@@ -83,6 +84,7 @@
     justify-content: space-between;
 
     .single-target {
+        margin-top: 0.25rem;
         margin-bottom: 0.25rem;
     }
 
@@ -92,7 +94,7 @@
 
     .target-logos {
         display: inline-block;
-        width: 3rem;
+        width: 2.5rem;
     }
     .adv-desc {
         width: 175px;
@@ -102,7 +104,7 @@
         margin-right: 1rem;
     }
 
-    .target-count-desc {
+    .input-group {
         margin-left: 1rem;
     }
 }
