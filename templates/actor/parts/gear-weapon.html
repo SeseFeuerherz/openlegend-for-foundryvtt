@@ -46,35 +46,46 @@
       {{#if weapon.system.action.attribute}}
         <a class="rollable macro" draggable="true" title="Roll" data-macro="item-single-target" data-name="{{weapon.name}}" data-item="{{weapon._id}}" data-targettype="single">
           <i class="fas fa-dice-d20"></i>
+          <span class="target-logos">
+            <i class="fa-solid fa-crosshairs fa-1x"></i>
+            <i class="fa-solid fa-user fa-1x"></i>
+          </span>
         </a>
       {{/if}}
       {{#unless weapon.system.action.attribute}}
         <a title="Attribute must be selected" data-macro="item-single-target" data-name="{{weapon.name}}" data-item="{{weapon._id}}">
           <i class="fas fa-dice-d20" style="opacity: 50%;"></i>
+          <span class="target-logos">
+            <i class="fa-solid fa-crosshairs fa-1x"></i>
+            <i class="fa-solid fa-user fa-1x"></i>
+          </span>
         </a>
       {{/unless}}
-      <span class="target-logos">
-        <i class="fa-solid fa-crosshairs fa-1x"></i>
-        <i class="fa-solid fa-user fa-1x"></i>
-      </span>
-      <input class="action-edit adv-desc" data-item="{{weapon._id}}" data-field="single_target_text" type="text" value="{{weapon.system.action.single_target_text}}" placeholder="adv modifier text" />
-      <input class="action-edit action-adv" data-item="{{weapon._id}}" data-field="single_target_adv" type="number" value="{{weapon.system.action.single_target_adv}}"/>
+      <span class="input-group">
+        Adv:
+        <input class="action-edit adv-desc" data-item="{{weapon._id}}" data-field="single_target_text" type="text" value="{{weapon.system.action.single_target_text}}" placeholder="adv modifier text" />
+        <input class="action-edit action-adv" data-item="{{weapon._id}}" data-field="single_target_adv" type="number" value="{{weapon.system.action.single_target_adv}}"/>
+    </span>
     </div>
     <div class="multi-target">
       {{#if weapon.system.action.attribute}}
         <a class="rollable macro" draggable="true" title="Roll" data-macro="item-multi-target" data-name="{{weapon.name}}" data-item="{{weapon._id}}" data-targettype="multi">
           <i class="fas fa-dice-d20"></i>
+          <span class="target-logos">
+            <i class="fa-solid fa-crosshairs fa-1x"></i>
+            <i class="fa-solid fa-users fa-1x"></i>
+          </span>
         </a>
       {{/if}}
       {{#unless weapon.system.action.attribute}}
         <a title="Attribute must be selected" data-macro="item-multi-target" data-name="{{weapon.name}}" data-item="{{weapon._id}}">
           <i class="fas fa-dice-d20" style="opacity: 50%;"></i>
+          <span class="target-logos">
+            <i class="fa-solid fa-crosshairs fa-1x"></i>
+            <i class="fa-solid fa-users fa-1x"></i>
+          </span>
         </a>
       {{/unless}}
-      <span class="target-logos">
-        <i class="fa-solid fa-crosshairs fa-1x"></i>
-        <i class="fa-solid fa-users fa-1x"></i>
-      </span>
       <span class="input-group">
         Adv:
         <input class="action-edit adv-desc" data-item="{{weapon._id}}" data-field="multi_target_text" type="text" value="{{weapon.system.action.multi_target_text}}" placeholder="adv modifier text" />
