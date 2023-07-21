@@ -300,7 +300,7 @@ export class OlActorSheet extends ActorSheet {
     if (dataset.item) {
       console.log(this);
       if (dataset.targettype == 'single') {
-        rollItemSingleTarget(this,actor, this.actor.items.get(dataset.item).data);
+        rollItemSingleTarget(this.actor, this.actor.items.get(dataset.item).data);
       } else if (dataset.targettype == 'multi'){
         rollItemMultiTarget(this.actor, this.actor.items.get(dataset.item).data);
       } else {
