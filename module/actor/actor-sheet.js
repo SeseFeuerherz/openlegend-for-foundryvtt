@@ -297,7 +297,7 @@ export class OlActorSheet extends ActorSheet {
     const dataset = element.dataset;
 
     // Roll using the appropriate logic -- item vs attribute
-    if (dataset.item)
+    if (dataset.item) {
       console.log(this);
       if (dataset.targettype == 'single') {
         rollItemSingleTarget(this,actor, this.actor.items.get(dataset.item).data);
@@ -306,8 +306,9 @@ export class OlActorSheet extends ActorSheet {
       } else {
         rollItem(this.actor, this.actor.items.get(dataset.item).data);
       }
-    else if (dataset.attr)
+    } else if (dataset.attr) {
       rollAttr(this.actor, dataset.attr);
+    }
     console.log("Open Legend | Handled clickable roll event of OlActorSheet");
   }
 }
