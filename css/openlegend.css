@@ -384,12 +384,19 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between; }
+    .openlegend .gear-row.target-row .single-target {
+      margin-bottom: 0.25rem; }
+    .openlegend .gear-row.target-row .multi-target {
+      margin-bottom: 0.25rem; }
     .openlegend .gear-row.target-row .target-logos {
-      margin-right: 1rem; }
+      display: inline-block;
+      width: 3rem; }
     .openlegend .gear-row.target-row .adv-desc {
       width: 175px; }
     .openlegend .gear-row.target-row .range-selector {
       margin-right: 1rem; }
+    .openlegend .gear-row.target-row .target-count-desc {
+      margin-left: 1rem; }
   .openlegend .generic-row {
     display: grid;
     grid-template-columns: minmax(max-content, auto) minmax(max-content, auto) minmax(max-content, auto) minmax(max-content, 10fr) max-content 20px;

@@ -60,17 +60,18 @@
                 type="text" value="{{weapon.system.action.multi_target_text}}" placeholder="adv modifier text" />
             <input class="action-edit action-adv" data-item="{{weapon._id}}" data-field="multi_target_adv"
                 type="number" value="{{weapon.system.action.multi_target_adv}}"/>
-            <span> Targets:</span>
+            <span class="target-count-desc">Targets:</span>
             <input class="action-edit target-count" data-item="{{weapon._id}}" data-field="multi_target_count"
                 type="number" value="{{weapon.system.action.multi_target_count}}"/>
         </div>
     </div>
     {{#if (hasRangedCategory weapon.system.categories)}}
         <div class="range-selector">
+            <span>Range: </span>
             <select class="range-increment-edit" data-item="{{weapon._id}}">
                 <option value="0" {{#if (eq weapon.system.action.range_mod 0)}} selected{{/if}}>{{moddedRangeInFeet weapon.system.categories 1}} ft.</option>
-                <option value="-1" {{#if (eq weapon.system.action.range_mod -1)}} selected{{/if}}>{{moddedRangeInFeet weapon.system.categories 2}} ft. (Disadvantage 1)</option>
-                <option value="-2" {{#if (eq weapon.system.action.range_mod -2)}} selected{{/if}}>{{moddedRangeInFeet weapon.system.categories 3}} ft. (Disadvantage 2)</option>
+                <option value="-1" {{#if (eq weapon.system.action.range_mod -1)}} selected{{/if}}>{{moddedRangeInFeet weapon.system.categories 2}} ft. (Adv -1)</option>
+                <option value="-2" {{#if (eq weapon.system.action.range_mod -2)}} selected{{/if}}>{{moddedRangeInFeet weapon.system.categories 3}} ft. (Adv -2)</option>
             </select>
         </div>
     {{/if}}

@@ -82,8 +82,17 @@
     flex-direction: row;
     justify-content: space-between;
 
+    .single-target {
+        margin-bottom: 0.25rem;
+    }
+
+    .multi-target {
+        margin-bottom: 0.25rem;
+    }
+
     .target-logos {
-        margin-right: 1rem;
+        display: inline-block;
+        width: 3rem;
     }
     .adv-desc {
         width: 175px;
@@ -91,6 +100,10 @@
 
     .range-selector {
         margin-right: 1rem;
+    }
+
+    .target-count-desc {
+        margin-left: 1rem;
     }
 }
 
