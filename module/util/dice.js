@@ -1,3 +1,5 @@
+import { hasRange } from "../item/item.js";
+
 export async function rollAttr(actor, attrName) {
     console.log("Open Legend | Roll attribute " + attrName);
     const attr = _getAttr(actor, attrName);
@@ -27,7 +29,7 @@ export async function rollItemSingleTarget(actor, item) {
     if (attr) {
         const action = item.system.action;
         let defaultAdv = action.single_target_adv;
-        if (item.hasRange())
+        if (hasRange(item))
             default_adv += action.range_mod;
         const olRoll = await OLRoll(attrName, attr, defaultAdv);
         const flavorHtml = await generateFlavorHtmlForItem(item, olRoll);
@@ -43,7 +45,7 @@ export async function rollItemMultiTarget(actor, item) {
     if (attr) {
         const action = item.system.action;
         let defaultAdv = action.multi_target_adv - action.multi_target_count;
-        if (item.hasRange())
+        if (hasRange(item))
             default_adv += action.range_mod;
         const olRoll = await OLRoll(attrName, attr, defaultAdv);
         const flavorHtml = await generateFlavorHtmlForItem(item, olRoll);

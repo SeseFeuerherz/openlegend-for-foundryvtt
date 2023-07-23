@@ -58,10 +58,11 @@ export class OlItem extends Item {
       };
     console.log(this);
   }
+}
 
-  hasRange() {
-    if (this.type === 'weapon') {
-      const categories = this.system.categories;
+export function hasRange(item) {
+    if (item.type === 'weapon') {
+      const categories = item.system.categories;
       for(const key in categories) {
         if (categories[key] === true)
           if (weaponcategories[key].type === "ranged")
@@ -70,4 +71,3 @@ export class OlItem extends Item {
     }
     return false;
   }
-}
