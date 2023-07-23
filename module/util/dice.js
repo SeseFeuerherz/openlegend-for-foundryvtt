@@ -28,7 +28,7 @@ export async function rollItemSingleTarget(actor, item) {
     const attr = _getAttr(actor, attrName);
     if (attr) {
         const action = item.system.action;
-        let defaultAdv = action.single_target_adv;
+        var defaultAdv = action.single_target_adv;
         if (hasRange(item))
             default_adv += action.range_mod;
         const olRoll = await OLRoll(attrName, attr, defaultAdv);
@@ -44,7 +44,7 @@ export async function rollItemMultiTarget(actor, item) {
     const attr = _getAttr(actor, attrName);
     if (attr) {
         const action = item.system.action;
-        let defaultAdv = action.multi_target_adv - action.multi_target_count;
+        var defaultAdv = action.multi_target_adv - action.multi_target_count;
         if (hasRange(item))
             default_adv += action.range_mod;
         const olRoll = await OLRoll(attrName, attr, defaultAdv);
