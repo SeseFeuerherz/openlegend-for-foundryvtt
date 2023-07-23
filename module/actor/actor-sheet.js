@@ -227,11 +227,11 @@ export class OlActorSheet extends ActorSheet {
             data.data.action.target = attack.target;
         });
       }
-      else if (field == 'single_target_adv') data.data.action.single_target_adv = value;
+      else if (field == 'single_target_adv') data.data.action.single_target_adv = parseInt(value);
       else if (field == 'single_target_text') data.data.action.single_target_text = value;
-      else if (field == 'multi_target_adv') data.data.action.multi_target_adv = value;
+      else if (field == 'multi_target_adv') data.data.action.multi_target_adv = parseInt(value);
       else if (field == 'multi_target_text') data.data.action.multi_target_text = value;
-      else if (field == 'multi_target_count') data.data.action.multi_target_count = Math.max(2, value);
+      else if (field == 'multi_target_count') data.data.action.multi_target_count = Math.max(2, parseInt(value));
       item.update(data);
     });
 

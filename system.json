@@ -2,7 +2,7 @@
   "id": "openlegend-ttrpg",
   "title": "Open Legend RPG",
   "description": "The Open Legend RPG system for FoundryVTT!",
-  "version": "2.0.88",
+  "version": "2.0.89",
   "compatibility": {
     "minimum": "10",
     "verified": "10",
