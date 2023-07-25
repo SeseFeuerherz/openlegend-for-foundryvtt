@@ -97,6 +97,40 @@
             type="number" min="2" value="{{weapon.system.action.multi_target_count}}"/>
       </span>
     </div>
+    <div class="area-target">
+      {{#if weapon.system.action.attribute}}
+        <a class="rollable macro" draggable="true" title="Roll Area Target" data-macro="item-area-target" data-name="{{weapon.name}}" data-item="{{weapon._id}}" data-targettype="area">
+          <i class="fas fa-dice-d20"></i>
+          <span class="target-logos">
+            <i class="fa-solid fa-crosshairs fa-1x"></i>
+            <i class="fa-solid fa-table-cells fa-1x"></i>
+          </span>
+        </a>
+      {{/if}}
+      {{#unless weapon.system.action.attribute}}
+        <a title="Attribute must be selected" data-macro="item-area-target" data-name="{{weapon.name}}" data-item="{{weapon._id}}">
+          <i class="fas fa-dice-d20" style="opacity: 50%;"></i>
+          <span class="target-logos">
+            <i class="fa-solid fa-crosshairs fa-1x"></i>
+            <i class="fa-solid fa-table-cells fa-1x"></i>
+          </span>
+        </a>
+      {{/unless}}
+      <span class="input-group">
+        Adv:
+        <input class="action-edit adv-desc" data-item="{{weapon._id}}" data-field="area_target_text" type="text" value="{{weapon.system.action.area_target_text}}" placeholder="adv modifier text" />
+        <input class="action-edit action-adv" data-item="{{weapon._id}}" data-field="area_target_adv" type="number" value="{{weapon.system.action.area_target_adv}}"/>
+      </span>
+      <span class="input-group">
+        Area:
+        <select class="action-edit adv-desc" data-item="{{weapon._id}}" data-field="area_target_type">
+          <option value="Cube" {{#if (eq weapon.system.action.area_target_type Cube)}} selected{{/if}}>Cube</option>
+          <option value="Line" {{#if (eq weapon.system.action.area_target_type Line)}} selected{{/if}}>Line</option>
+          <option value="Cone" {{#if (eq weapon.system.action.area_target_type Cone)}} selected{{/if}}>Cone</option>
+        </select>
+        <input class="action-edit action-adv" data-item="{{weapon._id}}" data-field="area_target_count" type="number" min="1" value="{{weapon.system.action.area_target_count}}"/>
+      </span>
+    </div>
   </div>
   {{#if (hasRangedCategory weapon.system.categories)}}
     <div class="range-selector">

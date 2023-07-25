@@ -1,7 +1,7 @@
 // Import Modules
 import { OlActor } from "./actor/actor.js";
 import { OlActorSheet } from "./actor/actor-sheet.js";
-import { OlItem } from "./item/item.js";
+import { OlItem, hasRange, hasArea } from "./item/item.js";
 import { OlItemSheet } from "./item/item-sheet.js";
 import { preloadHandlebarsTemplates } from "./templates.js";
 import * as macros from "./util/macros.js";
@@ -63,6 +63,11 @@ console.log("Open Legend | Register Handlebars eq helper");
           return true;
     }
     return false;
+  });
+
+  console.log("Open Legend | Register Handlebars hasAreaProperty helper");
+  Handlebars.registerHelper('hasAreaProperty', function(properties) {
+    return properties["Area"];
   });
 
   console.log("Open Legend | Register Handlebars moddedRangeInFeet helper");

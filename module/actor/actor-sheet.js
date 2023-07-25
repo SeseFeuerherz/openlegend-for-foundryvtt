@@ -232,6 +232,10 @@ export class OlActorSheet extends ActorSheet {
       else if (field == 'multi_target_adv') data.data.action.multi_target_adv = parseInt(value);
       else if (field == 'multi_target_text') data.data.action.multi_target_text = value;
       else if (field == 'multi_target_count') data.data.action.multi_target_count = Math.max(2, parseInt(value));
+      else if (field == 'area_target_adv') data.data.action.area_target_adv = parseInt(value);
+      else if (field == 'area_target_text') data.data.action.area_target_text = value;
+      else if (field == 'area_target_type') data.data.action.area_target_type = value;
+      else if (field == 'area_target_count') data.data.action.area_target_count = Math.max(1, parseInt(value));
       item.update(data);
     });
 
