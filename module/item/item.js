@@ -73,5 +73,7 @@ export function hasRange(item) {
 }
 
 export function hasArea(item) {
-  return item.system.properties["Area"];
+  if (item.type === 'weapon')
+    return item.system.properties["Area"];
+  return false
 }

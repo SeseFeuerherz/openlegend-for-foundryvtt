@@ -30,11 +30,11 @@
     grid-column: span 1;
     font-style: italic;
   }
+}
 
-  .action-type, .action-attribute {
-    text-transform: capitalize;
-    font-variant: small-caps;
-  }
+.action-type, .action-attribute {
+  text-transform: capitalize;
+  font-variant: small-caps;
 }
 
 .action-adv {

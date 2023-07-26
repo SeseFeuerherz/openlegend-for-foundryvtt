@@ -157,9 +157,9 @@
     .openlegend .actions .action-header {
       grid-column: span 1;
       font-style: italic; }
-    .openlegend .actions .action-type, .openlegend .actions .action-attribute {
-      text-transform: capitalize;
-      font-variant: small-caps; }
+  .openlegend .action-type, .openlegend .action-attribute {
+    text-transform: capitalize;
+    font-variant: small-caps; }
   .openlegend .action-adv {
     width: 25px;
     text-align: right; }
@@ -377,7 +377,8 @@
     display: grid;
     grid-template-columns: minmax(max-content, auto) minmax(max-content, auto) minmax(max-content, 10fr) max-content 50px 20px;
     grid-gap: 0.5rem;
-    border-bottom: none; }
+    border-bottom: none;
+    margin-bottom: 0.25rem; }
     .openlegend .weapon-row .weapon-affixes {
       font-size: smaller; }
   .openlegend .gear-row.target-row {
@@ -386,9 +387,10 @@
     flex-direction: row;
     justify-content: space-between; }
     .openlegend .gear-row.target-row .single-target {
-      margin-top: 0.25rem;
       margin-bottom: 0.25rem; }
     .openlegend .gear-row.target-row .multi-target {
+      margin-bottom: 0.25rem; }
+    .openlegend .gear-row.target-row .area-target {
       margin-bottom: 0.25rem; }
     .openlegend .gear-row.target-row .target-logos {
       display: inline-block;
@@ -452,7 +454,7 @@
     grid-row: 2/3;
     border: 1px solid black;
     background: rgba(255, 255, 255, 0.3);
-    min-height: 200px; }
+    min-height: 150px; }
   .openlegend .main-grid {
     display: grid;
     grid-template-columns: 200px 220px repeat(3, minmax(150px, 1fr));

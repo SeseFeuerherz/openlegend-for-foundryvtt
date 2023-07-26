@@ -1,4 +1,4 @@
-import { hasRange } from "../item/item.js";
+import { hasRange, hasArea } from "../item/item.js";
 
 export async function rollAttr(actor, attrName) {
     console.log("Open Legend | Roll attribute " + attrName);
@@ -45,6 +45,27 @@ export async function rollItemMultiTarget(actor, item) {
     if (attr) {
         const action = item.system.action;
         var defaultAdv = action.multi_target_adv - action.multi_target_count;
+        if (hasRange(item))
+            defaultAdv += action.range_mod;
+        const olRoll = await OLRoll(attrName, attr, defaultAdv);
+        const flavorHtml = await generateFlavorHtmlForItem(item, olRoll);
+        evaluateRollToChat(actor, olRoll, flavorHtml);
+    }
+}
+
+export async function rollItemAreaTarget(actor, item) {
+    console.log("Open Legend | Roll item area target:");
+    console.log(item);
+    const attrName = item.system.action.attribute;
+    const attr = _getAttr(actor, attrName);
+    if (attr) {
+        const action = item.system.action;
+        var defaultAdv = action.area_target_adv;
+        if (hasArea(item))
+        var areaCountMod = action.area_target_count;
+        if (areaCountMod === 1 && action.area_target_type != 'Line')
+            areaCountMod = 0;
+        var defaultAdv = action.area_target_adv - areaCountMod;
         if (hasRange(item))
             defaultAdv += action.range_mod;
         const olRoll = await OLRoll(attrName, attr, defaultAdv);

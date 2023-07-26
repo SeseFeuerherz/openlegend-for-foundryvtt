@@ -56,18 +56,13 @@ console.log("Open Legend | Register Handlebars eq helper");
   });
 
   console.log("Open Legend | Register Handlebars hasRangedCategory helper");
-  Handlebars.registerHelper('hasRangedCategory', function(categories) {
-    for(const key in categories) {
-      if (categories[key] === true)
-        if (weaponcategories[key].type === "ranged")
-          return true;
-    }
-    return false;
+  Handlebars.registerHelper('hasRangedCategory', function(item) {
+    return hasRange(item);
   });
 
   console.log("Open Legend | Register Handlebars hasAreaProperty helper");
-  Handlebars.registerHelper('hasAreaProperty', function(properties) {
-    return properties["Area"];
+  Handlebars.registerHelper('hasAreaProperty', function(item) {
+    return hasArea(item);
   });
 
   console.log("Open Legend | Register Handlebars moddedRangeInFeet helper");

@@ -72,6 +72,8 @@
     grid-gap: 0.5rem;
     border-bottom: none;
 
+    margin-bottom: 0.25rem;
+
     .weapon-affixes {
         font-size: smaller;
     }
@@ -84,11 +86,14 @@
     justify-content: space-between;
 
     .single-target {
-        margin-top: 0.25rem;
         margin-bottom: 0.25rem;
     }
 
     .multi-target {
+        margin-bottom: 0.25rem;
+    }
+
+    .area-target {
         margin-bottom: 0.25rem;
     }
 

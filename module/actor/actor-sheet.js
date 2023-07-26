@@ -1,4 +1,4 @@
-import { rollAttr, rollItem, rollItemSingleTarget, rollItemMultiTarget } from "../util/dice.js";
+import { rollAttr, rollItem, rollItemSingleTarget, rollItemMultiTarget, rollItemAreaTarget } from "../util/dice.js";
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -307,6 +307,8 @@ export class OlActorSheet extends ActorSheet {
         rollItemSingleTarget(this.actor, this.actor.items.get(dataset.item).data);
       } else if (dataset.targettype == 'multi'){
         rollItemMultiTarget(this.actor, this.actor.items.get(dataset.item).data);
+      } else if (dataset.targettype == 'area'){
+        rollItemAreaTarget(this.actor, this.actor.items.get(dataset.item).data);
       } else {
         rollItem(this.actor, this.actor.items.get(dataset.item).data);
       }
