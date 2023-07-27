@@ -91,6 +91,26 @@ console.log("Open Legend | Register Handlebars eq helper");
     return weaponcategories[categoryName].description;
   });
 
+  console.log("Open Legend | Register Handlebars lastSelectedProperty helper");
+  Handlebars.registerHelper('lastSelectedProperty', function (properties, propertyName) {
+    let lastSelectedProperty = "";
+    for(const key in properties) {
+      if (properties[key] === true)
+        lastSelectedProperty = key;
+    }
+    return lastSelectedProperty === propertyName;
+  });
+
+  console.log("Open Legend | Register Handlebars lastSelectedCategory helper");
+  Handlebars.registerHelper('lastSelectedCategory', function (categories, categoryName) {
+    let lastSelectedCategory = "";
+    for(const key in categories) {
+      if (categories[key] === true)
+        lastSelectedCategory = key;
+    }
+    return lastSelectedCategory === categoryName;
+  });
+
   console.log("Open Legend | Preload Handlebars templates");
   await preloadHandlebarsTemplates();
 

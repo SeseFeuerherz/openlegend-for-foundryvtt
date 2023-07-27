@@ -5,7 +5,7 @@
     <div class="gear-type">
       {{#each weapon.system.categories as |selected|}}
         {{#if (eq selected true)}}
-          <span class="ht">{{@key}}<span class="tooltip">{{weaponcategorydesc @key}}</span> </span>
+          <span class="ht">{{@key}}{{#unless (lastSelectedCategory weapon.system.categories @key)}},{{/unless}}<span class="tooltip">{{weaponcategorydesc @key}}</span> </span>
         {{/if}}
       {{/each}}
     </div>
@@ -15,7 +15,7 @@
       <span class="forceful">Properties: </span>
       {{#each weapon.system.properties as |selected|}}
         {{#if (eq selected true)}}
-          <span class="property-display ht">{{@key}}<span class="tooltip">{{weaponpropertydesc @key}}</span> </span>
+          <span class="property-display ht">{{@key}}{{#unless (lastSelectedProperty weapon.system.properties @key)}},{{/unless}}<span class="tooltip">{{weaponpropertydesc @key}}</span> </span>
         {{/if}}
       {{/each}}
     </div>
@@ -40,6 +40,9 @@
     <a class="gear-control item-delete" title="Delete" data-item="{{weapon._id}}"><i class="fas fa-trash"></i></a>
   </div>
 </div>
+
+
+
 <div class="aligned gear-row target-row">
   <div>
     {{#unless (hasAreaProperty weapon)}}
