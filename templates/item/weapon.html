@@ -24,7 +24,7 @@
                 <div class="category-edit" hidden>
                     <ul class="category-list">
                         {{#each item.system.categories as |selected|}}
-                            <span class="category"><input type="checkbox" name="{{@key}}" value="{{@key}}" {{#if (eq selected true)}} checked{{/if}}> <label for="{{@key}}"><span class="ht">{{@key}}<span class="tooltip">{{weaponcategorydesc @key}}</span></span></label></span>
+                            <div class="category"><input type="checkbox" name="{{@key}}" value="{{@key}}" {{#if (eq selected true)}} checked{{/if}}> <label for="{{@key}}"><span class="ht">{{@key}}<span class="tooltip">{{weaponcategorydesc @key}}</span></span></label></div><
                         {{/each}}
                     </ul>
                 </div>
@@ -42,7 +42,7 @@
                     <div class="property-edit" hidden>
                         <ul class="property-list">
                             {{#each item.system.properties as |selected|}}
-                                <input type="checkbox" name="{{@key}}" value="{{@key}}" {{#if (eq selected true)}} checked{{/if}}> <label for="{{@key}}"><span class="ht">{{@key}}<span class="tooltip">{{weaponpropertydesc @key}}</span></span></label>
+                                <div><input type="checkbox" name="{{@key}}" value="{{@key}}" {{#if (eq selected true)}} checked{{/if}}> <label for="{{@key}}"><span class="ht">{{@key}}<span class="tooltip">{{weaponpropertydesc @key}}</span></span></label></div>
                             {{/each}}
                         </ul>
                     </div>

@@ -624,8 +624,6 @@
       padding-left: 3px; }
   .openlegend .item-sheet .weapon-category-selection {
     border-top: 2px groove #eeede0; }
-    .openlegend .item-sheet .weapon-category-selection .category {
-      width: 25%; }
   .openlegend .item-sheet .summary {
     flex: 0 0 100%;
     height: auto;
