@@ -61,9 +61,12 @@ export class OlItem extends Item {
 }
 
 export function hasRange(item) {
+  console.log("hasRange");
   if (item.type === 'weapon') {
     const categories = item.system.categories;
+    console.log(categories);
     for(const key in categories) {
+      console.log(key);
       if (categories[key] === true)
         if (weaponcategories[key].type === "ranged")
           return true;
