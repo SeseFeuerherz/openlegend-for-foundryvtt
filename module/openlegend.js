@@ -93,7 +93,7 @@ console.log("Open Legend | Register Handlebars eq helper");
 
   console.log("Open Legend | Register Handlebars lastSelectedProperty helper");
   Handlebars.registerHelper('lastSelectedProperty', function (properties, propertyName) {
-    let lastSelectedProperty = "";
+    var lastSelectedProperty = "";
     for(const key in properties) {
       if (properties[key] === true)
         lastSelectedProperty = key;
@@ -103,7 +103,7 @@ console.log("Open Legend | Register Handlebars eq helper");
 
   console.log("Open Legend | Register Handlebars lastSelectedCategory helper");
   Handlebars.registerHelper('lastSelectedCategory', function (categories, categoryName) {
-    let lastSelectedCategory = "";
+    var lastSelectedCategory = "";
     for(const key in categories) {
       if (categories[key] === true)
         lastSelectedCategory = key;
