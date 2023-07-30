@@ -17,14 +17,14 @@
                 <span class="category-display">
                     {{#each item.system.categories as |selected|}}
                         {{#if (eq selected true)}}
-                            <span class="ht">{{@key}} <span class="tooltip">{{weaponcategorydesc @key}}</span></span>
+                            <span class="ht">{{@key}}{{#unless (lastSelectedCategory item.system.categories @key)}}, {{/unless}}<span class="tooltip">{{weaponcategorydesc @key}}</span></span>
                         {{/if}}
                     {{/each}}
                 </span>
                 <div class="category-edit" hidden>
                     <ul class="category-list">
                         {{#each item.system.categories as |selected|}}
-                            <div class="category"><input type="checkbox" name="{{@key}}" value="{{@key}}" {{#if (eq selected true)}} checked{{/if}}> <label for="{{@key}}"><span class="ht">{{@key}}<span class="tooltip">{{weaponcategorydesc @key}}</span></span></label></div><
+                            <div class="category"><input type="checkbox" name="{{@key}}" value="{{@key}}" {{#if (eq selected true)}} checked{{/if}}> <label for="{{@key}}"><span class="ht">{{@key}}<span class="tooltip">{{weaponcategorydesc @key}}</span></span></label></div>
                         {{/each}}
                     </ul>
                 </div>
@@ -35,7 +35,7 @@
                     <span class="property-display">
                         {{#each item.system.properties as |selected|}}
                             {{#if (eq selected true)}}
-                                <span class="ht">{{@key}} <span class="tooltip">{{weaponpropertydesc @key}}</span> </span>
+                                <span class="ht">{{@key}}{{#unless (lastSelectedProperty item.system.properties @key)}}, {{/unless}}<span class="tooltip">{{weaponpropertydesc @key}}</span> </span>
                             {{/if}}
                         {{/each}}
                     </span>

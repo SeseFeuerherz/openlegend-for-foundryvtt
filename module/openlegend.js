@@ -98,7 +98,7 @@ console.log("Open Legend | Register Handlebars eq helper");
       if (properties[key] === true)
         lastSelectedProperty = key;
     }
-    return lastSelectedProperty === propertyName;
+    return lastSelectedProperty == propertyName;
   });
 
   console.log("Open Legend | Register Handlebars lastSelectedCategory helper");
@@ -108,7 +108,7 @@ console.log("Open Legend | Register Handlebars eq helper");
       if (categories[key] === true)
         lastSelectedCategory = key;
     }
-    return lastSelectedCategory === categoryName;
+    return lastSelectedCategory == categoryName;
   });
 
   console.log("Open Legend | Preload Handlebars templates");
