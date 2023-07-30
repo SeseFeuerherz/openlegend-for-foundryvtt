@@ -107,6 +107,8 @@ console.log("Open Legend | Register Handlebars eq helper");
   Handlebars.registerHelper('lastSelectedCategory', function (categories, categoryName) {
     var lastSelectedCategory = "";
     for(const key in categories) {
+      console.log(key);
+      console.log(categories);
       if (categories[key] === true)
         lastSelectedCategory = key;
     }
