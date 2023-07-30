@@ -98,6 +98,8 @@ console.log("Open Legend | Register Handlebars eq helper");
       if (properties[key] === true)
         lastSelectedProperty = key;
     }
+    console.log(lastSelectedProperty);
+    console.log(propertyName);
     return lastSelectedProperty == propertyName;
   });
 
@@ -108,6 +110,8 @@ console.log("Open Legend | Register Handlebars eq helper");
       if (categories[key] === true)
         lastSelectedCategory = key;
     }
+    console.log(lastSelectedCategory);
+    console.log(categoryName);
     return lastSelectedCategory == categoryName;
   });
 
