@@ -120,7 +120,7 @@
           "multi_target_count": 2,
           "area_target_adv": 0,
           "area_target_text": "",
-          "area_target_type": "cube",
+          "area_target_type": "",
           "area_target_count": 1,
           "index": 0,
           "show_as_action": true
