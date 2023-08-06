@@ -158,7 +158,10 @@
       grid-column: span 1;
       font-style: italic; }
     .openlegend .actions .action-target-option-columns {
-      grid-column: span 11; }
+      grid-column: span 11;
+      margin-bottom: 0.25 em; }
+    .openlegend .actions .adv-desc {
+      width: 175px; }
     .openlegend .actions .input-group {
       margin-left: 1rem; }
   .openlegend .action-type, .openlegend .action-attribute {
