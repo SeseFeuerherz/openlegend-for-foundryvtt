@@ -12,7 +12,6 @@
     <div></div>
     <div></div> -->
     {{#each actions as |action|}}
-        <div class="divider"></div>
         {{#if (eq action.type 'boon')}}
             {{> "systems/openlegend-ttrpg/templates/actor/parts/action-boon.html" item=action actorAttr=../actor.system.attributes}}
         {{/if}}

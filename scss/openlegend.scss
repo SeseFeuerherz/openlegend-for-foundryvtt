@@ -44,10 +44,11 @@
   }
 
   .divider {
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border: solid 1px black;
+    margin: 5px;
+    border: solid 1px rgba(1,1,1,0.25);
+  }
+
+  .all-columns {
+    grid-column: 1 / -1;
   }
 }
