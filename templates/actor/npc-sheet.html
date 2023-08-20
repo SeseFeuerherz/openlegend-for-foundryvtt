@@ -94,6 +94,14 @@
             <button class="update-npc-attributes">Edit</button>
         </div>
         <div class="npc-features">
+            <div class="gear">
+                <div class="title">Gear</div>
+                    {{#each gear as |gear|}}
+                        {{#if (eq gear.type 'weapon')}}
+                            {{> "systems/openlegend-ttrpg/templates/actor/parts/gear-weapon.html" weapon=gear}}
+                        {{/if}}
+                    {{/each}}
+                </div>
             <div class="npc-actions">
                 {{> "systems/openlegend-ttrpg/templates/actor/parts/actor-actions.html"}}
             </div>
