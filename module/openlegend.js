@@ -85,7 +85,7 @@ console.log("Open Legend | Register Handlebars eq helper");
       for(const attr in attributes[attrType]) {
         console.log(attr);
         if (attr == attrName) {
-          var attrScore = attrType[attr].score;
+          var attrScore = attributes[attrType][attr].score;
           console.log(attrScore);
         }
       }
