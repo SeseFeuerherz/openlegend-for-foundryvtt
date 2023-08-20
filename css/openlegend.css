@@ -154,6 +154,9 @@
       grid-column: span 10;
       font-size: large;
       font-weight: bold; }
+    .openlegend .actions .target-logos {
+      display: inline-block;
+      width: 2.5rem; }
     .openlegend .actions .action-header {
       grid-column: span 1;
       font-style: italic; }

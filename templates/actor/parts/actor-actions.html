@@ -13,13 +13,13 @@
     <div></div> -->
     {{#each actions as |action|}}
         {{#if (eq action.type 'boon')}}
-            {{> "systems/openlegend-ttrpg/templates/actor/parts/action-boon.html" item=action}}
+            {{> "systems/openlegend-ttrpg/templates/actor/parts/action-boon.html" item=action actorAttr=../actor.system.attributes}}
         {{/if}}
         {{#if (eq action.type 'bane')}}
-            {{> "systems/openlegend-ttrpg/templates/actor/parts/action-attack.html" item=action}}
+            {{> "systems/openlegend-ttrpg/templates/actor/parts/action-attack.html" item=action actorAttr=../actor.system.attributes}}
         {{/if}}
         {{#if (eq action.type 'attack')}}
-            {{> "systems/openlegend-ttrpg/templates/actor/parts/action-attack.html" item=action}}
+            {{> "systems/openlegend-ttrpg/templates/actor/parts/action-attack.html" item=action actorAttr=../actor.system.attributes}}
         {{/if}}
         <!-- {{#if action.system.action.show_as_action}}
             {{#if (eq item.type 'weapon')}}

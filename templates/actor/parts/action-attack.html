@@ -13,9 +13,10 @@
         {{attack.target}}
     {{/if}}
 {{/each}}
-</div>
+<!-- </div>
 <input class="action-edit action-adv" data-item="{{item._id}}" data-field="action_adv"
-        type="number" value="{{item.system.action.default_adv}}"/>
+        type="number" value="{{item.system.action.default_adv}}"/> --><div class="range-selector">
+<span>Range: {{nonPhysRangeInFeet item.system.action.attribute actorAttr}} ft.</span>
 <span>
     Area:
     <select class="action-edit" data-item="{{item._id}}" data-field="area_target_type">
@@ -81,6 +82,11 @@
             Adv:
             <input class="action-edit adv-desc" data-item="{{item._id}}" data-field="multi_target_text" type="text" value="{{item.system.action.multi_target_text}}" placeholder="adv modifier text" />
             <input class="action-edit action-adv" data-item="{{item._id}}" data-field="multi_target_adv" type="number" value="{{item.system.action.multi_target_adv}}"/>
+        </span>
+        <span class="input-group">
+            Targets:
+            <input class="action-edit target-count" data-item="{{item._id}}" data-field="multi_target_count"
+            type="number" min="2" value="{{item.system.action.multi_target_count}}"/>
         </span>
     </span>
 {{/if}}

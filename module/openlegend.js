@@ -76,6 +76,22 @@ console.log("Open Legend | Register Handlebars eq helper");
     return weaponcategories[longestRangeKey].rangeIncrement * multiplier;
   });
 
+  console.log("Open Legend | Register Handlebars nonPhysRangeInFeet helper");
+  Handlebars.registerHelper('nonPhysRangeInFeet', function(attributeName, attributes) {
+    for(const attrType in attributes) {
+      for(const attr in attrType) {
+        if (attr == attributeName) {
+          var attrScore = attrType[attr].score;
+        }
+      }
+    }
+    if (attrScore < 4)
+      return 25;
+    if (attrScore < 7)
+      return 50;
+    return 75;
+  });
+
   console.log("Open Legend | Register Handlebars gtz helper");
   Handlebars.registerHelper('gtz', function (value) {
     return value > 0;

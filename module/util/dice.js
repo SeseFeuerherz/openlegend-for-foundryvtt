@@ -61,13 +61,15 @@ export async function rollItemAreaTarget(actor, item) {
     if (attr) {
         const action = item.system.action;
         var defaultAdv = action.area_target_adv;
-        if (hasArea(item))
-        var areaCountMod = action.area_target_count;
+        var areaCountMod = 0;
+        if (item.type == 'action')
+            areaCountMod = action.area_target_count;
         if (areaCountMod === 1 && action.area_target_type != 'Line')
             areaCountMod = 0;
         var defaultAdv = action.area_target_adv - areaCountMod;
-        if (hasRange(item))
-            defaultAdv += action.range_mod;
+        if (item.type == 'gear')
+            if (hasRange(item))
+                defaultAdv += action.range_mod;
         const olRoll = await OLRoll(attrName, attr, defaultAdv);
         const flavorHtml = await generateFlavorHtmlForItem(item, olRoll);
         evaluateRollToChat(actor, olRoll, flavorHtml);
