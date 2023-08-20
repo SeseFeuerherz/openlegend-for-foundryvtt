@@ -42,4 +42,12 @@
   .h-divider {
     border-bottom: $borderGroove;
   }
+
+  .divider {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: solid 1px black;
+  }
 }

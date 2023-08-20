@@ -142,7 +142,7 @@
     align-items: center;
     display: inline-grid;
     grid-template-columns: minmax(max-content, 1fr) max-content max-content max-content max-content max-content 3fr min-content min-content min-content;
-    grid-template-rows: 20px repeat(auto-fill, 27px);
+    grid-template-rows: 20px repeat(auto-fill, min-content);
     grid-gap: 0.1rem;
     grid-column-gap: 0.5rem;
     padding: 0.25em;
@@ -705,5 +705,11 @@
     align-items: center; }
   .openlegend .h-divider {
     border-bottom: 2px groove #eeede0; }
+  .openlegend .divider {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: solid 1px black; }
 
 /*# sourceMappingURL=openlegend.css.map */

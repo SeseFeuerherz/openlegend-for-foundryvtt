@@ -78,15 +78,10 @@ console.log("Open Legend | Register Handlebars eq helper");
 
   console.log("Open Legend | Register Handlebars nonPhysRangeInFeet helper");
   Handlebars.registerHelper('nonPhysRangeInFeet', function(attrName, attributes) {
-    console.log(attrName);
-    console.log(attributes);
     for(const attrType in attributes) {
-      console.log(attrType);
       for(const attr in attributes[attrType]) {
-        console.log(attr);
         if (attr == attrName) {
           var attrScore = attributes[attrType][attr].score;
-          console.log(attrScore);
         }
       }
     }
