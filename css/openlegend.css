@@ -597,11 +597,12 @@
         font-size: 24px;
         font-weight: bolder;
         line-height: 26px;
-        margin: 0; }
+        margin: 0;
+        min-width: 75px; }
       .openlegend .item-sheet .header .item-subtitle .item-status, .openlegend .item-sheet .header .item-subtitle .scale-tester {
         font-size: 16px;
         line-height: 24px;
-        min-width: 75px; }
+        min-width: 30px; }
   .openlegend .item-sheet .sheet-tabs {
     flex: 0; }
   .openlegend .item-sheet .sheet-body {

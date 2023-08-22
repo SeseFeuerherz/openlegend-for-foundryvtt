@@ -10,8 +10,10 @@
                 <div class="item-subtitle">
                     <h4 class="item-type">{{item.type}}</h4>
                     <span class="scale-tester" hidden></span>
-                    <input class="item-status scale" name="system.tier"
-                            type="text" value="{{item.system.tier}}" placeholder="Tier"/>
+                    <input class="item-status scale" name="system.tier_current"
+                            type="number" value="{{item.system.tier_current}}" min="1"/>
+                    <input class="item-status scale" name="system.tier_max"
+                            type="number" value="{{item.system.tier_max}}" min="1"/>
                 </div>
             </div>
             <ul class="summary flexrow">

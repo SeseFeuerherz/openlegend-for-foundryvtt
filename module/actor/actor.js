@@ -101,7 +101,7 @@ export class OlActor extends Actor {
     let total_feat_cost = 0;
     this.items.forEach(item => {
       if (item.type == 'feat')
-        total_feat_cost += item.system.cost;
+        total_feat_cost += (item.system.cost * item.system.tier_current);
     });
     this.system.feat_points.spent = total_feat_cost;
     this.system.feat_points.available = 6 + this.system.xp;

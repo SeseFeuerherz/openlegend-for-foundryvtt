@@ -195,6 +195,8 @@
       "templates": ["flavor"],
       "cost": 0,
       "tier": "",
+      "tier_max": 1,
+      "tier_current": 1,
       "prerequisites": "",
       "index": 0
     },
