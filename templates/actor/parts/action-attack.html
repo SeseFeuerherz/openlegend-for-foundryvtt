@@ -1,6 +1,11 @@
 <div class="divider all-columns"></div>
 <input class="action-edit" data-item="{{item._id}}" data-field="action_name" type="text" value="{{item.system.action.name}}"\>
-<div class="action-type">{{item.type}}</div>
+{{#if (eq item.type "attack")}}
+    <div class="action-type">{{item.type}}</div>
+{{/if}}
+{{#if (eq item.type "bane")}}
+    <a class="description-chatter" title="Bane"><i class="fa-solid fa-angles-down"></i><span class="action-type">{{item.name}}</span></a>
+{{/if}}
 <select class="action-edit action-attribute" data-item="{{item._id}}" data-field="attack">
     <option></option>
     {{#each item.system.attacks as |attack|}}
