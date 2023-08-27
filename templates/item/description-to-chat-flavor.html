@@ -1,4 +1,15 @@
-<div class="item-in-chat-flavor flexrow">
-	<h3 class="item-name">{{item.name}}</h3>
-	<h3 class="item-type">{{item.type}}</h3>
+<div class="item-in-chat-flavor">
+	<div class="flexrow">
+		<h3 class="item-name">{{item.name}}</h3>
+		<h3 class="item-type">{{item.type}}</h3>
+	</div>
+	<div class="time-info flexrow">
+		<div>{{item.system.action.cast_time}}</div>
+		<div>{{item.system.persists.duration}}</div>
+	</div>
+	<div class="attacks">
+		{{#each item.system.attacks as |attack|}}
+			<div>{{attack.attribute}} vs {{attack.target}}</div>
+		{{/each}}
+	</div>
 </div>

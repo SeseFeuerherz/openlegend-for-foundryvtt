@@ -107,13 +107,14 @@ export class OlActorSheet extends ActorSheet {
     html.find('.description-to-chat').click(ev => {
       const tag = ev.currentTarget;
       const item = this.actor.items.get(tag.dataset.item);
+      console.log(item);
       const flavorTemplate = "systems/openlegend-ttrpg/templates/item/description-to-chat-flavor.html";
       const flavorData = {"item": item};
       const flavorHtml = renderTemplate(flavorTemplate, flavorData);
       //const contentTemplate = "systems/openlegend-ttrpg/templates/item/description-to-chat-content.html";
       //const contentData = {"item": item};
       //const contentHtml = renderTemplate(contentTemplate, contentData);
-      ChatMessage.create({flavor: flavorHtml, content: item.data.details.description});
+      ChatMessage.create({flavor: flavorHtml, content: item.system.details.description});
     });
 
     // Update Inventory Item
