@@ -110,9 +110,9 @@ export class OlActorSheet extends ActorSheet {
       console.log(item);
       const flavorTemplate = "systems/openlegend-ttrpg/templates/item/description-to-chat-flavor.html";
       const flavorData = {"item": item};
-      const flavorHtml = renderTemplate(flavorTemplate, flavorData).then(function (flavorResult) {
-        ChatMessage.create({flavor: flavorHtml, content: item.system.details.description});
-      });
+      renderTemplate(flavorTemplate, flavorData)
+        .then((flavorHtml) => ChatMessage.create({flavor: flavorHtml, content: item.system.details.description}))
+        .catch((error) => console.error(error));
     });
 
     // Update Inventory Item
