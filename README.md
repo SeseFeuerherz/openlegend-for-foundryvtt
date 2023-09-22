@@ -6,7 +6,7 @@ This project is based on the implementation of Beenrak and updated to be compati
 ## Installation
 
 To install, copy the following URL and paste it into the Install System dialog in Foundry VTT:
-https://raw.githubusercontent.com/SeseFeuerherz/openlegend-for-foundryvtt/release/1/system.json
+https://raw.githubusercontent.com/SeseFeuerherz/openlegend-for-foundryvtt/release/2/system.json
 
 ## Features
 
