@@ -1,16 +1,5 @@
 <div class="actions">
     <div class="action-title">Actions</div>
-    <!-- <div></div>
-    <div class="action-header">Name</div>
-    <div class="action-header">Type</div>
-    <div class="action-header">Attribute</div>
-    <div class="action-header"></div>
-    <div class="action-header">Target</div>
-    <div class="action-header">Adv</div>
-    <div class="action-header">Notes</div>
-    <div></div>
-    <div></div>
-    <div></div> -->
     {{#each actions as |action|}}
         {{#if (eq action.type 'boon')}}
             {{> "systems/openlegend-ttrpg/templates/actor/parts/action-boon.html" item=action actorAttr=../actor.system.attributes}}
@@ -21,13 +10,5 @@
         {{#if (eq action.type 'attack')}}
             {{> "systems/openlegend-ttrpg/templates/actor/parts/action-attack.html" item=action actorAttr=../actor.system.attributes}}
         {{/if}}
-        <!-- {{#if action.system.action.show_as_action}}
-            {{#if (eq item.type 'weapon')}}
-                {{> "systems/openlegend-ttrpg/templates/actor/parts/action-attack.html" item=action}}
-            {{/if}}
-            {{#if (eq action.type 'generic')}}
-                {{> "systems/openlegend-ttrpg/templates/actor/parts/action-attack.html" item=action}}
-            {{/if}}
-        {{/if}} -->
     {{/each}}
 </div>
